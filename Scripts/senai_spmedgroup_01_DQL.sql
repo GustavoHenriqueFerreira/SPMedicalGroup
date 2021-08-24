@@ -2,28 +2,67 @@ USE SPMEDGROUP;
 GO
 
 -- Listar todas as entidades
-SELECT  * FROM  tipoUsuario;
+SELECT  * FROM  tipoUsuario;
 GO
 
-SELECT  * FROM  usuario;
+SELECT  * FROM  usuario;
 GO
 
-SELECT  * FROM  clinica;
+SELECT  * FROM  clinica;
 GO
 
-SELECT  * FROM  paciente;
+SELECT  * FROM  paciente;
 GO
 
-SELECT  * FROM  especialidade;
+SELECT  * FROM  especialidade;
 GO
 
-SELECT  * FROM  medico;
+SELECT  * FROM  medico;
 GO
 
-SELECT  * FROM  situacao;
+SELECT  * FROM  situacao;
 GO
 
-SELECT  * FROM  consulta;
+SELECT  *  FROM  consulta;
+GO
+
+--Listar a quantidade de usuários
+SELECT COUNT (*) AS 'Quantidade de Usuários' FROM usuario;
+GO
+
+--Listar de nascimento dos usuários no formato (mm-dd-yyyy)
+SELECT CONVERT (VARCHAR,nascimento,101) AS 'Data de Nascimento' FROM paciente;
+GO
+
+--Calcular e listar a quantidade de médicos de uma determinada especialidade atráves de uma função
+CREATE FUNCTION calculo_Medico_Especialidade(
+	@NomeEspecialidade VARCHAR(50)
+)
+RETURNS INT
+AS
+BEGIN
+
+DECLARE @qtndMedico AS INT
+SET @qtndMedico = (SELECT COUNT(medico.nomeMedico) FROM medico
+
+INNER JOIN especialidade
+ON especialidade.IdEspecialidade = medico.IdEspecialidade
+WHERE especialidade.nomeEspecialidade = @NomeEspecialidade)
+RETURN @qtndMedico
+END
+GO
+SELECT NumeroMedico = dbo.calculo_Medico_Especialidade ('Psiquiatria');
+GO
+
+--Calcular e listar a idade dos pacientes atráves de uma stored procedure
+CREATE PROCEDURE cauculo_Idade
+AS
+BEGIN
+SELECT nomePaciente 'Nome do Paciente', rg 'RG', cpf 'CPF', enderecoPaciente 'Endereço', telefone 'Telefone', DATEDIFF(year, (nascimento), getdate()) 'Idade' FROM paciente
+END
+GO
+
+EXEC cauculo_Idade;
 GO
 
 --Listar todas as consultas, sem id e mostrando todos os dados relacionados a ela
@@ -59,13 +98,13 @@ GO
 
 
 --Procurar e listar um paciente atráves do seu email e senha
-SELECT P.nomePaciente 'Nome do Paciente', U.email 'E-mail', U.senha 'Senha'
+SELECT paciente.nomePaciente 'Nome do Paciente', usuario.email 'E-mail', usuario.senha 'Senha'
 
-FROM usuario U
-JOIN paciente P on U.idUsuario = P.idUsuario
+FROM usuario
+JOIN paciente on usuario.idUsuario = paciente.idUsuario
 WHERE email = 'alexandre@gmail.com'
-AND senha = '1234567'
-
+AND senha = '1234567';
+GO
 
 --Procurar e listar um médico atráves do seu email e senha
 SELECT nomeMedico 'Nome do Médico', email 'E-mail', senha 'Senha'
@@ -73,4 +112,5 @@ SELECT nomeMedico 'Nome do Médico', email 'E-mail', senha 'Senha'
 FROM usuario
 JOIN medico on usuario.idUsuario = medico.idUsuario
 WHERE email = 'roberto.possarle@spmedicalgroup.com.br'
-AND senha = '1234'
+AND senha = '1234';
+GO
