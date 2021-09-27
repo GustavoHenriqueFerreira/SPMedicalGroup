@@ -29,7 +29,7 @@ namespace senai.SpMedGroup.webAPI.Repositories
 
         public TipoUsuario BuscarPorId(int IdTipoUsuario)
         {
-            return ctx.TipoUsuarios.Include(u => u.Usuarios).FirstOrDefault(tu => tu.IdTipoUsuario == IdTipoUsuario);
+            return ctx.TipoUsuarios.Include(tu => tu.Usuarios).FirstOrDefault(tu => tu.IdTipoUsuario == IdTipoUsuario);
         }
 
         public void Cadastrar(TipoUsuario novoTipoUser)
@@ -50,7 +50,7 @@ namespace senai.SpMedGroup.webAPI.Repositories
 
         public List<TipoUsuario> Listar()
         {
-            return ctx.TipoUsuarios.Include(u => u.Usuarios).OrderBy(tu => tu.IdTipoUsuario).ToList();
+            return ctx.TipoUsuarios.Include(tu => tu.Usuarios).OrderBy(tu => tu.IdTipoUsuario).ToList();
         }
     }
 }

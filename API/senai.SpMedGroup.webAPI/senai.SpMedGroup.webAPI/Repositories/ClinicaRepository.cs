@@ -47,8 +47,6 @@ namespace senai.SpMedGroup.webAPI.Repositories
                 clinicaBuscada.HorarioFechado = clinicaAtualizada.HorarioFechado;
             }
 
-
-
             ctx.Clinicas.Update(clinicaBuscada);
 
             ctx.SaveChanges();
@@ -77,7 +75,7 @@ namespace senai.SpMedGroup.webAPI.Repositories
 
         public List<Clinica> Listar()
         {
-            return ctx.Clinicas.Include(m => m.Medicos).OrderBy(c => c.IdClinica).ToList();
+            return ctx.Clinicas.Include(c => c.Medicos).OrderBy(c => c.IdClinica).ToList();
         }
     }
 }

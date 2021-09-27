@@ -170,13 +170,13 @@
             <param name="idPaciente">ID do paciente que será buscado</param>
             <returns>Medico encontrado</returns>
         </member>
-        <member name="M:senai.SpMedGroup.webAPI.Interfaces.IPacienteRepository.Cadastrar(senai.SpMedGroup.webAPI.Domains.Medico)">
+        <member name="M:senai.SpMedGroup.webAPI.Interfaces.IPacienteRepository.Cadastrar(senai.SpMedGroup.webAPI.Domains.Paciente)">
             <summary>
             Cadastrar uma paciente
             </summary>
             <param name="novoPaciente">Objeto novoPaciente com as todas as informações</param>
         </member>
-        <member name="M:senai.SpMedGroup.webAPI.Interfaces.IPacienteRepository.Atualizar(System.Int32,senai.SpMedGroup.webAPI.Domains.Medico)">
+        <member name="M:senai.SpMedGroup.webAPI.Interfaces.IPacienteRepository.Atualizar(System.Int32,senai.SpMedGroup.webAPI.Domains.Paciente)">
             <summary>
             Atualizar os dados de um paciente
             </summary>

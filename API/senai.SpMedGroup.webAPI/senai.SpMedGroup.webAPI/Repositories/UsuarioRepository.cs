@@ -17,10 +17,18 @@ namespace senai.SpMedGroup.webAPI.Repositories
         {
             Usuario usuarioBuscado = BuscarPorId(idUsuario);
 
-            if (usuarioAtualizado != null)
+            if (usuarioAtualizado.IdTipoUsuario != null)
             {
                 usuarioBuscado.IdTipoUsuario = usuarioAtualizado.IdTipoUsuario;
+            }
+
+            if (usuarioAtualizado.Email != null)
+            {
                 usuarioBuscado.Email = usuarioAtualizado.Email;
+            }
+
+            if (usuarioAtualizado.Senha != null)
+            {
                 usuarioBuscado.Senha = usuarioAtualizado.Senha;
             }
 
@@ -84,7 +92,7 @@ namespace senai.SpMedGroup.webAPI.Repositories
 
         public Usuario BuscarPorEmailSenha(string email, string senha)
         {
-            return ctx.Usuarios.Include(tu => tu.IdTipoUsuarioNavigation).FirstOrDefault(u => u.Email == email && u.Senha == senha);
+            return ctx.Usuarios.Include(tu => tu.IdTipoUsuarioNavigation).FirstOrDefault(tu => tu.Email == email && tu.Senha == senha);
         }
     }
 }

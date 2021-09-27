@@ -1,4 +1,5 @@
-﻿using senai.SpMedGroup.webAPI.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using senai.SpMedGroup.webAPI.Contexts;
 using senai.SpMedGroup.webAPI.Domains;
 using senai.SpMedGroup.webAPI.Interfaces;
 using System;
@@ -14,27 +15,65 @@ namespace senai.SpMedGroup.webAPI.Repositories
 
         public void Atualizar(int idMedico, Medico medicoAtualizado)
         {
-            throw new NotImplementedException();
+            Medico medicoBuscado = BuscarPorId(idMedico);
+
+            if (medicoAtualizado.NomeMedico != null)
+            {
+                medicoBuscado.NomeMedico = medicoAtualizado.NomeMedico;
+            }
+
+            if (medicoAtualizado.Crm != null)
+            {
+                medicoBuscado.Crm = medicoAtualizado.Crm;
+            }
+
+            if (medicoAtualizado.IdUsuario != null)
+            {
+                medicoBuscado.IdUsuario = medicoAtualizado.IdUsuario;
+            }
+
+            if (medicoAtualizado.IdClinica != null)
+            {
+                medicoBuscado.IdClinica = medicoAtualizado.IdClinica;
+            }
+
+            if (medicoAtualizado.IdEspecialidade != null)
+            {
+                medicoBuscado.IdEspecialidade = medicoAtualizado.IdEspecialidade;
+            }
+
+            ctx.Medicos.Update(medicoBuscado);
+
+            ctx.SaveChanges();
         }
 
         public Medico BuscarPorId(int idMedico)
         {
-            throw new NotImplementedException();
+            return ctx.Medicos.FirstOrDefault(m => m.IdMedico == idMedico);
         }
 
         public void Cadastrar(Medico novoMedico)
         {
-            throw new NotImplementedException();
+            ctx.Medicos.Add(novoMedico);
+
+            ctx.SaveChanges();
         }
 
         public void Deletar(int idMedico)
         {
-            throw new NotImplementedException();
+            Medico medicoBuscado = BuscarPorId(idMedico);
+
+            ctx.Medicos.Remove(medicoBuscado);
+
+            ctx.SaveChanges();
         }
 
         public List<Medico> Listar()
         {
-            throw new NotImplementedException();
+            return ctx.Medicos.Include(m => m.IdClinicaNavigation)
+            .Include(m => m.IdEspecialidadeNavigation)
+            .Include(m => m.IdUsuarioNavigation)
+            .OrderBy(m => m.IdMedico).ToList();
         }
     }
 }

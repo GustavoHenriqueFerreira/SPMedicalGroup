@@ -22,20 +22,20 @@ namespace senai.SpMedGroup.webAPI.Interfaces
         /// </summary>
         /// <param name="idPaciente">ID do paciente que será buscado</param>
         /// <returns>Medico encontrado</returns>
-        Medico BuscarPorId(int idPaciente);
+        Paciente BuscarPorId(int idPaciente);
 
         /// <summary>
         /// Cadastrar uma paciente
         /// </summary>
         /// <param name="novoPaciente">Objeto novoPaciente com as todas as informações</param>
-        void Cadastrar(Medico novoPaciente);
+        void Cadastrar(Paciente novoPaciente);
 
         /// <summary>
         /// Atualizar os dados de um paciente
         /// </summary>
         /// <param name="idPaciente">ID do paciente que será atualizada</param>
         /// <param name="pacienteAtualizado">Objeto pacienteAtualizado com as novas informações</param>
-        void Atualizar(int idPaciente, Medico pacienteAtualizado);
+        void Atualizar(int idPaciente, Paciente pacienteAtualizado);
 
         /// <summary>
         /// Deletar um paciente

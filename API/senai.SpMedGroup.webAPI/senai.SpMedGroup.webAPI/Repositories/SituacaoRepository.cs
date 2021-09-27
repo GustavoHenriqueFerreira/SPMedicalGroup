@@ -1,4 +1,5 @@
-﻿using senai.SpMedGroup.webAPI.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using senai.SpMedGroup.webAPI.Contexts;
 using senai.SpMedGroup.webAPI.Domains;
 using senai.SpMedGroup.webAPI.Interfaces;
 using System;
@@ -14,27 +15,42 @@ namespace senai.SpMedGroup.webAPI.Repositories
 
         public void Atualizar(int idSituacao, Situacao situacaoAtualizada)
         {
-            throw new NotImplementedException();
+            Situacao situacaoBuscada = BuscarPorId(idSituacao);
+
+            if (situacaoAtualizada.DescricaoSituacao != null)
+            {
+                situacaoBuscada.DescricaoSituacao = situacaoAtualizada.DescricaoSituacao;
+            }
+
+            ctx.Situacoes.Update(situacaoBuscada);
+
+            ctx.SaveChanges();
         }
 
         public Situacao BuscarPorId(int idSituacao)
         {
-            throw new NotImplementedException();
+            return ctx.Situacoes.FirstOrDefault(m => m.IdSituacao == idSituacao);
         }
 
         public void Cadastrar(Situacao novaSituacao)
         {
-            throw new NotImplementedException();
+            ctx.Situacoes.Add(novaSituacao);
+
+            ctx.SaveChanges();
         }
 
         public void Deletar(int idSituacao)
         {
-            throw new NotImplementedException();
+            Situacao situacaoBuscada = BuscarPorId(idSituacao);
+
+            ctx.Situacoes.Remove(situacaoBuscada);
+
+            ctx.SaveChanges();
         }
 
         public List<Situacao> Listar()
         {
-            throw new NotImplementedException();
+            return ctx.Situacoes.OrderBy(s => s.IdSituacao).ToList();
         }
     }
 }
