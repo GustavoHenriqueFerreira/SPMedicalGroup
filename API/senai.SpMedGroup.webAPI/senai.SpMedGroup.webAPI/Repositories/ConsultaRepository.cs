@@ -73,7 +73,7 @@ namespace senai.SpMedGroup.webAPI.Repositories
                     NomeMedico = c.IdMedicoNavigation.NomeMedico,
                     Crm = c.IdMedicoNavigation.Crm,
 
-                    IdClinica = c.IdMedicoNavigation.IdClinica,
+                    //Clinica = c.IdMedicoNavigation.IdClinica,
 
                     IdEspecialidade = c.IdMedicoNavigation.IdEspecialidade,
                     IdEspecialidadeNavigation = new Especialidade()
@@ -133,7 +133,7 @@ namespace senai.SpMedGroup.webAPI.Repositories
                      NomeMedico = c.IdMedicoNavigation.NomeMedico,
                      Crm = c.IdMedicoNavigation.Crm,
 
-                     IdClinica = c.IdMedicoNavigation.IdClinica,
+                     //Clinica = c.IdMedicoNavigation.IdClinica,
 
                      IdEspecialidade = c.IdMedicoNavigation.IdEspecialidade,
                      IdEspecialidadeNavigation = new Especialidade()

@@ -39,18 +39,7 @@ namespace senai.SpMedGroup.webAPI.Repositories
 
         public Usuario BuscarPorId(int idUsuario)
         {
-            return ctx.Usuarios
-                .Select(u => new Usuario()
-                {
-                    IdUsuario = u.IdUsuario,
-                    Email = u.Email,
-
-                    IdTipoUsuarioNavigation = new TipoUsuario
-                    {
-                        IdTipoUsuario = u.IdTipoUsuarioNavigation.IdTipoUsuario,
-                        TituloTipoUsuario = u.IdTipoUsuarioNavigation.TituloTipoUsuario,
-                    }
-                })
+            return ctx.Usuarios.Include(u => u.Pacientes).Include(u => u.IdTipoUsuarioNavigation)
             .FirstOrDefault(u => u.IdUsuario == idUsuario);
         }
 

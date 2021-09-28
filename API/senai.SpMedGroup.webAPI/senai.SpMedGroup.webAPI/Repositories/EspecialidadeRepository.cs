@@ -22,11 +22,6 @@ namespace senai.SpMedGroup.webAPI.Repositories
                 especialidadeBuscada.NomeEspecialidade = especialidadeAtualizada.NomeEspecialidade;
             }
 
-            if (especialidadeAtualizada.Medicos != null)
-            {
-                especialidadeBuscada.Medicos = especialidadeAtualizada.Medicos;
-            }
-
             ctx.Especialidades.Update(especialidadeBuscada);
 
             ctx.SaveChanges();

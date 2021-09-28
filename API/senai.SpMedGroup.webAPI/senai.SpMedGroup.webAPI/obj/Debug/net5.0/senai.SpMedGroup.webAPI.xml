@@ -300,5 +300,10 @@
             </summary>
             <param name="idUsuario">ID do usuário que será deletado</param>
         </member>
+        <member name="T:senai.SpMedGroup.webAPI.ViewModels.LoginViewModel">
+            <summary>
+            Classe responsável pelo modelo de Login
+            </summary>
+        </member>
     </members>
 </doc>

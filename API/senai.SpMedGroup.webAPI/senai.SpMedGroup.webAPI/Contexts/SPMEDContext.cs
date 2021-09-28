@@ -21,6 +21,7 @@ namespace senai.SpMedGroup.webAPI.Contexts
         public virtual DbSet<Clinica> Clinicas { get; set; }
         public virtual DbSet<Consulta> Consultas { get; set; }
         public virtual DbSet<Especialidade> Especialidades { get; set; }
+        public virtual DbSet<ImagemUsuario> ImagemUsuarios { get; set; }
         public virtual DbSet<Medico> Medicos { get; set; }
         public virtual DbSet<Paciente> Pacientes { get; set; }
         public virtual DbSet<Situacao> Situacoes { get; set; }
@@ -116,17 +117,17 @@ namespace senai.SpMedGroup.webAPI.Contexts
                 entity.Property(e => e.IdSituacao).HasColumnName("idSituacao");
 
                 entity.HasOne(d => d.IdMedicoNavigation)
-                    .WithMany(p => p.Consulta)
+                    .WithMany(p => p.Consultas)
                     .HasForeignKey(d => d.IdMedico)
                     .HasConstraintName("FK__consulta__idMedi__571DF1D5");
 
                 entity.HasOne(d => d.IdPacienteNavigation)
-                    .WithMany(p => p.Consulta)
+                    .WithMany(p => p.Consultas)
                     .HasForeignKey(d => d.IdPaciente)
                     .HasConstraintName("FK__consulta__idPaci__5629CD9C");
 
                 entity.HasOne(d => d.IdSituacaoNavigation)
-                    .WithMany(p => p.Consulta)
+                    .WithMany(p => p.Consultas)
                     .HasForeignKey(d => d.IdSituacao)
                     .HasConstraintName("FK__consulta__idSitu__5812160E");
             });
@@ -148,6 +149,45 @@ namespace senai.SpMedGroup.webAPI.Contexts
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("nomeEspecialidade");
+            });
+
+            modelBuilder.Entity<ImagemUsuario>(entity =>
+            {
+                entity.ToTable("imagemUsuario");
+
+                entity.HasIndex(e => e.IdUsuario, "UQ__imagemUs__645723A76B48CAD1")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Binario)
+                    .IsRequired()
+                    .HasColumnName("binario");
+
+                entity.Property(e => e.DataInclusao)
+                    .HasColumnType("datetime")
+                    .HasColumnName("data_inclusao")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
+
+                entity.Property(e => e.MimeType)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnName("mimeType");
+
+                entity.Property(e => e.NomeArquivo)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false)
+                    .HasColumnName("nomeArquivo");
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithOne(p => p.ImagemUsuario)
+                    .HasForeignKey<ImagemUsuario>(d => d.IdUsuario)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__imagemUsu__idUsu__03F0984C");
             });
 
             modelBuilder.Entity<Medico>(entity =>

@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using senai.SpMedGroup.webAPI.Domains;
 using senai.SpMedGroup.webAPI.Interfaces;
 using senai.SpMedGroup.webAPI.Repositories;
+using senai.SpMedGroup.webAPI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -26,12 +27,17 @@ namespace senai.SpMedGroup.webAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(Usuario login)
+        public IActionResult Login(LoginViewModel login)
         {
-            Usuario usuarioBuscado = _usuarioRepository.BuscarPorEmailSenha(login.Email, login.Senha);
-
-            if (usuarioBuscado != null)
+            try
             {
+                Usuario usuarioBuscado = _usuarioRepository.BuscarPorEmailSenha(login.Email, login.Senha);
+
+                if (usuarioBuscado == null)
+                {
+                    return BadRequest("E-mail ou senha inválidos!");
+                }
+
                 var minhasClaims = new[]
                 {
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
@@ -56,8 +62,10 @@ namespace senai.SpMedGroup.webAPI.Controllers
                     token = new JwtSecurityTokenHandler().WriteToken(meuToken)
                 });
             }
-
-            return NotFound("Email ou senha inválido");
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
     }
 }
