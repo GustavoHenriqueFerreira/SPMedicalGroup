@@ -249,7 +249,7 @@
 					"response": []
 				},
 				{
-					"name": "Usuario.Listar Não funciona",
+					"name": "Usuario.Listar",
 					"request": {
 						"auth": {
 							"type": "bearer",
