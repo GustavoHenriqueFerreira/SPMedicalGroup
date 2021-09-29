@@ -41,7 +41,8 @@ namespace senai.SpMedGroup.webAPI.Repositories
 
         public Usuario BuscarPorId(int idUsuario)
         {
-            return ctx.Usuarios.Include(u => u.Pacientes).Include(u => u.IdTipoUsuarioNavigation)
+            return ctx.Usuarios
+            .Include(u => u.Pacientes).Include(u => u.IdTipoUsuarioNavigation)
             .FirstOrDefault(u => u.IdUsuario == idUsuario);
         }
 
@@ -64,20 +65,7 @@ namespace senai.SpMedGroup.webAPI.Repositories
         public List<Usuario> Listar()
         {
             return ctx.Usuarios
-                .Select(u => new Usuario()
-                {
-                    IdUsuario = u.IdUsuario,
-                    Email = u.Email,
-                    Pacientes = u.Pacientes,
-
-                    IdTipoUsuarioNavigation = new TipoUsuario
-                    {
-                        IdTipoUsuario = u.IdTipoUsuarioNavigation.IdTipoUsuario,
-                        TituloTipoUsuario = u.IdTipoUsuarioNavigation.TituloTipoUsuario,
-
-                        Medicos = u.IdTipoUsuarioNavigation.Medicos,
-                    }
-                })
+            .Include(u => u.Pacientes).Include(u => u.IdTipoUsuarioNavigation)
             .OrderBy(u => u.IdUsuario).ToList();
         }
 

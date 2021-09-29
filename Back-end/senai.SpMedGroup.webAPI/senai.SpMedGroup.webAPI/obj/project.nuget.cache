@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mSUpTNJV9oftuiygf2UZQco6Vu0yvS6GqhbpSlc1RInmz/03XixdycSujOb5pNb5o8KfDOSX3JkMXCTTy/hk0g==",
+  "dgSpecHash": "WD0YN8vgtUroYpWOIGqxWKtmaIXg5j9c4MIk8RhOeZG7sy0lm8chm0Rr9j0qbJeIr6HljJsCsOB77wnjDTGpKA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\AMD\\Documents\\SpMedGroup\\API\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj",
+  "projectFilePath": "C:\\Users\\AMD\\Documents\\SpMedGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\AMD\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\AMD\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.10\\microsoft.aspnetcore.authentication.jwtbearer.5.0.10.nupkg.sha512",

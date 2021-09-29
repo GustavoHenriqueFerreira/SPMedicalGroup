@@ -72,11 +72,18 @@
             <param name="idConsulta">ID da consulta que será atualizada</param>
             <param name="consultaAtualizada">Objeto consultaAtualizada com as novas informações</param>
         </member>
-        <member name="M:senai.SpMedGroup.webAPI.Interfaces.IConsultaRepository.Cancelar(System.Int32)">
+        <member name="M:senai.SpMedGroup.webAPI.Interfaces.IConsultaRepository.Deletar(System.Int32)">
             <summary>
-            Cancelar uma consulta
+            Deleta uma consulta
             </summary>
             <param name="idConsulta">ID da consulta que será cancelada</param>
+        </member>
+        <member name="M:senai.SpMedGroup.webAPI.Interfaces.IConsultaRepository.AlterarSituacao(System.Int32,System.String)">
+            <summary>
+            Alterar a situação de uma consulta
+            </summary>
+            <param name="idConsulta">ID da consulta que será buscado</param>
+            <param name="situacaoConsulta">status da consulta</param>
         </member>
         <member name="M:senai.SpMedGroup.webAPI.Interfaces.IConsultaRepository.ListarConsultasMedico(System.Int32)">
             <summary>
@@ -91,6 +98,13 @@
             </summary>
             <param name="idConsulta">ID da consulta que será buscado</param>
             <returns>Consulta encontrada</returns>
+        </member>
+        <member name="M:senai.SpMedGroup.webAPI.Interfaces.IConsultaRepository.InserirDescricao(System.Int32,System.String)">
+            <summary>
+            Inserir uma descrição para uma consulta
+            </summary>
+            <param name="idConsulta">ID da consulta</param>
+            <param name="descricao">Descrição da consulta</param>
         </member>
         <member name="T:senai.SpMedGroup.webAPI.Interfaces.IEspecialidadeRepository">
             <summary>

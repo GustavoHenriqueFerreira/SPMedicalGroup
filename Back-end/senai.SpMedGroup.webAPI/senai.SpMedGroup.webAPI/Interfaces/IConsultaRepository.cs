@@ -38,10 +38,17 @@ namespace senai.SpMedGroup.webAPI.Interfaces
         void Atualizar(int idConsulta, Consulta consultaAtualizada);
 
         /// <summary>
-        /// Cancelar uma consulta
+        /// Deleta uma consulta
         /// </summary>
         /// <param name="idConsulta">ID da consulta que será cancelada</param>
-        void Cancelar(int idConsulta);
+        void Deletar(int idConsulta);
+
+        /// <summary>
+        /// Alterar a situação de uma consulta
+        /// </summary>
+        /// <param name="idConsulta">ID da consulta que será buscado</param>
+        /// <param name="situacaoConsulta">status da consulta</param>
+        void AlterarSituacao(int idConsulta, string situacaoConsulta);
 
         /// <summary>
         /// Listar consulta relacionadas a um médico
@@ -56,5 +63,12 @@ namespace senai.SpMedGroup.webAPI.Interfaces
         /// <param name="idConsulta">ID da consulta que será buscado</param>
         /// <returns>Consulta encontrada</returns>
         List<Consulta> ListarConsultasPaciente(int idConsulta);
+
+        /// <summary>
+        /// Inserir uma descrição para uma consulta
+        /// </summary>
+        /// <param name="idConsulta">ID da consulta</param>
+        /// <param name="descricao">Descrição da consulta</param>
+        void InserirDescricao(int idConsulta, string descricao);
     }
 }

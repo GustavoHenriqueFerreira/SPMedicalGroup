@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace senai.SpMedGroup.webAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PerfilController : ControllerBase
@@ -22,13 +23,12 @@ namespace senai.SpMedGroup.webAPI.Controllers
             _usuarioRepository = new UsuarioRepository();
         }
 
-        [Authorize(Roles = "1, 2, 3")]
         [HttpPost("imagem/bd")]
         public IActionResult postBD(IFormFile arquivo)
         {
             try
             {
-                if (arquivo.Length > 150000) //5MB
+                if (arquivo.Length > 150000)
                     return BadRequest(new { mensagem = "O tamanho máximo da imagem foi atingido." });
 
                 string extensao = arquivo.FileName.Split('.').Last();
@@ -49,7 +49,6 @@ namespace senai.SpMedGroup.webAPI.Controllers
             }
         }
 
-        [Authorize(Roles = "1, 2, 3")]
         [HttpGet("imagem/bd")]
         public IActionResult getBD()
         {
@@ -67,7 +66,6 @@ namespace senai.SpMedGroup.webAPI.Controllers
             }
         }
 
-        [Authorize(Roles = "1, 2, 3")]
         [HttpPost("imagem/dir")]
         public IActionResult postDir(IFormFile arquivo)
         {
@@ -94,8 +92,6 @@ namespace senai.SpMedGroup.webAPI.Controllers
             }
         }
 
-
-        [Authorize(Roles = "1, 2, 3")]
         [HttpGet("imagem/dir")]
         public IActionResult getDIR()
         {

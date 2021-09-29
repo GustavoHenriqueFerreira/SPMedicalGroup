@@ -68,7 +68,7 @@ namespace senai.SpMedGroup.webAPI.Controllers
             }
         }
 
-        [Authorize(Roles = "1, 2")]
+        [Authorize(Roles = "1, 3")]
         [HttpPut("{idConsulta}")]
         public IActionResult Atualizar(int idConsulta, Consulta consultaAtualizada)
         {
@@ -86,11 +86,11 @@ namespace senai.SpMedGroup.webAPI.Controllers
 
         [Authorize(Roles = "1")]
         [HttpDelete("{idConsulta}")]
-        public IActionResult Cancelar(int idConsulta)
+        public IActionResult Deletar(int idConsulta)
         {
             try
             {
-                _consultaRepository.Cancelar(idConsulta);
+                _consultaRepository.Deletar(idConsulta);
                 return StatusCode(204);
             }
             catch (Exception exception)
@@ -99,15 +99,15 @@ namespace senai.SpMedGroup.webAPI.Controllers
             }
         }
 
-        [Authorize]
-        [HttpGet("{listMed}")]
-        public IActionResult ListarConsultaMedico()
+        [Authorize(Roles = "1, 3")]
+        [HttpPatch("situacao/{idConsulta}")]
+        public IActionResult AlterarSituacao(int idConsulta, Consulta situacaoConsulta)
         {
             try
             {
-                int listMed = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+                _consultaRepository.AlterarSituacao(idConsulta, situacaoConsulta.IdSituacao.ToString());
 
-                return Ok(_consultaRepository.ListarConsultasMedico(listMed));
+                return Ok();
             }
 
             catch (Exception exception)
@@ -116,17 +116,50 @@ namespace senai.SpMedGroup.webAPI.Controllers
             }
         }
 
+        [Authorize(Roles = "3")]
+        [HttpGet("listaMed")]
+        public IActionResult ListarConsultaMedico()
+        {
+            try
+            {
+                int idUsuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+
+                return Ok(_consultaRepository.ListarConsultasMedico(idUsuario));
+            }
+
+            catch (Exception exception)
+            {
+                return BadRequest(exception);
+            }
+        }
+
+        [Authorize(Roles = "2")]
         [Authorize]
-        [HttpGet("{listPac}")]
+        [HttpGet("listaPac")]
         public IActionResult ListarConsultasPaciente()
         {
             try
             {
-                int listPac = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+                int idUsuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
 
-                return Ok(_consultaRepository.ListarConsultasPaciente(listPac));
+                return Ok(_consultaRepository.ListarConsultasPaciente(idUsuario));
             }
 
+            catch (Exception exception)
+            {
+                return BadRequest(exception);
+            }
+        }
+
+        [Authorize(Roles = "1, 3")]
+        [HttpPatch("descricao/{idConsulta}")]
+        public IActionResult InserirDescricao(int idConsulta, Consulta consulta)
+        {
+            try
+            {
+                _consultaRepository.InserirDescricao(idConsulta, consulta.DescricaoConsulta);
+                return Ok();
+            }
             catch (Exception exception)
             {
                 return BadRequest(exception);
