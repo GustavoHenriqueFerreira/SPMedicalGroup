@@ -40,10 +40,10 @@ h1{
     width: 525px;
     height: 70px;
     margin-left: 5%;
-    border: none;
     background: #90C7FF;
     font-size: 28px;
     border: none;
+    color: white;
 }
 
 .input_login::placeholder {
@@ -72,11 +72,7 @@ h1{
 .btn_login{
     border-radius: 30px;
     width: 600px;
-    height: 70px;
     background: #90C7FF;
-    font-size: 28px;
-    display: flex;
-    align-items: center;
 }
 
 .mudar_senha{
