@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "47805ba3-f569-4bbf-bf7b-98f719dae459",
+		"_postman_id": "b2dfbd5b-432e-4747-8893-be448a3948e4",
 		"name": "senai_SpMedGroup_webAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1366,7 +1366,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhdWxvQGdtYWlsLmNvbSIsImp0aSI6IjExIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMSIsImV4cCI6MTYzMjg1OTAwMCwiaXNzIjoiU3BNZWRHcm91cC53ZWJBUEkiLCJhdWQiOiJTcE1lZEdyb3VwLndlYkFQSSJ9.rsfP8x2DhzY3qD4rktlusGUZ2N7Tg3RBGBS1ZbebX7w",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhdWxvQGdtYWlsLmNvbSIsImp0aSI6IjExIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMSIsImV4cCI6MTYzNjU4MjExMiwiaXNzIjoiU3BNZWRHcm91cC53ZWJBUEkiLCJhdWQiOiJTcE1lZEdyb3VwLndlYkFQSSJ9.uKuVmdQ2-brqEx85QfSTac_CJqlOnZAko6ABlyPCzhs",
 									"type": "string"
 								}
 							]
@@ -1417,7 +1417,9 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
