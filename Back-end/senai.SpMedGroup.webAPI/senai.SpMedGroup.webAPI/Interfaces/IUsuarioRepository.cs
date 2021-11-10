@@ -46,9 +46,9 @@ namespace senai.SpMedGroup.webAPI.Interfaces
 
         Usuario Login(string email, string senha);
 
-        void SalvarPerfilBD(IFormFile foto, int id_usuario);
-        void SalvarPerfilDir(IFormFile foto, int id_usuario);
-        string ConsultarPerfilBD(int id_usuario);
-        string ConsultarPerfilDir(int id_usuario);
+        void SalvarPerfilBD(IFormFile foto, int idUsuario);
+        void SalvarPerfilDir(IFormFile foto, int idUsuario);
+        string ConsultarPerfilBD(int idUsuario);
+        string ConsultarPerfilDir(int idUsuario);
     }
 }

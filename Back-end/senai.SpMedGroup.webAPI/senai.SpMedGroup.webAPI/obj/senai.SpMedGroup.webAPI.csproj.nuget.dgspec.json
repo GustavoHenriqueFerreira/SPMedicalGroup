@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AMD\\Documents\\SpMedGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj": {}
+    "C:\\Users\\42410863817\\Desktop\\SP_MedicalGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\AMD\\Documents\\SpMedGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj": {
+    "C:\\Users\\42410863817\\Desktop\\SP_MedicalGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AMD\\Documents\\SpMedGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj",
+        "projectUniqueName": "C:\\Users\\42410863817\\Desktop\\SP_MedicalGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj",
         "projectName": "senai.SpMedGroup.webAPI",
-        "projectPath": "C:\\Users\\AMD\\Documents\\SpMedGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj",
-        "packagesPath": "C:\\Users\\AMD\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AMD\\Documents\\SpMedGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\obj\\",
+        "projectPath": "C:\\Users\\42410863817\\Desktop\\SP_MedicalGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj",
+        "packagesPath": "C:\\Users\\42410863817\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\42410863817\\Desktop\\SP_MedicalGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\AMD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\42410863817\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

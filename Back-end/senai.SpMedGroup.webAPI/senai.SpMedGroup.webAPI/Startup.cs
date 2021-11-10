@@ -29,6 +29,17 @@ namespace senai.SpMedGroup.webAPI
                     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                 });
 
+            /*services.AddCors(options =>
+            {
+                options.AddPolicy("CorPolicy",
+                                builder =>
+                                {
+                                    builder.WithOrigins("http://localhost:3000")
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod();
+                                });
+            });*/
+
             services
                 .AddAuthentication(options => {
                     options.DefaultAuthenticateScheme = "JwtBearer";
@@ -75,6 +86,9 @@ namespace senai.SpMedGroup.webAPI
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseRouting();
+            /*
+            app.UseCors("CorPolicy");*/
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>

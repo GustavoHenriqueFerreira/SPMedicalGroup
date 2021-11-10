@@ -74,11 +74,11 @@ namespace senai.SpMedGroup.webAPI.Repositories
             return ctx.Usuarios.Include(tu => tu.IdTipoUsuarioNavigation).FirstOrDefault(tu => tu.Email == email && tu.Senha == senha);
         }
 
-        public string ConsultarPerfilBD(int id_usuario)
+        public string ConsultarPerfilBD(int idUsuario)
         {
             ImagemUsuario imagemUsuario = new ImagemUsuario();
 
-            imagemUsuario = ctx.ImagemUsuarios.FirstOrDefault(i => i.IdUsuario == id_usuario);
+            imagemUsuario = ctx.ImagemUsuarios.FirstOrDefault(i => i.IdUsuario == idUsuario);
 
             if (imagemUsuario != null)
             {
@@ -102,7 +102,7 @@ namespace senai.SpMedGroup.webAPI.Repositories
             return null;
         }
 
-        public void SalvarPerfilBD(IFormFile foto, int id_usuario)
+        public void SalvarPerfilBD(IFormFile foto, int idUsuario)
         {
             ImagemUsuario imagemUsuario = new ImagemUsuario();
 
@@ -111,23 +111,23 @@ namespace senai.SpMedGroup.webAPI.Repositories
                 foto.CopyTo(ms);
 
                 imagemUsuario.Binario = ms.ToArray();
-               
+
                 imagemUsuario.NomeArquivo = foto.FileName;
-               
+
                 imagemUsuario.MimeType = foto.FileName.Split('.').Last();
-                
-                imagemUsuario.IdUsuario = id_usuario;
+
+                imagemUsuario.IdUsuario = idUsuario;
             }
 
             ImagemUsuario fotoexistente = new ImagemUsuario();
-            fotoexistente = ctx.ImagemUsuarios.FirstOrDefault(i => i.IdUsuario == id_usuario);
+            fotoexistente = ctx.ImagemUsuarios.FirstOrDefault(i => i.IdUsuario == idUsuario);
 
             if (fotoexistente != null)
             {
                 fotoexistente.Binario = imagemUsuario.Binario;
                 fotoexistente.NomeArquivo = imagemUsuario.NomeArquivo;
                 fotoexistente.MimeType = imagemUsuario.MimeType;
-                fotoexistente.IdUsuario = id_usuario;
+                fotoexistente.IdUsuario = idUsuario;
 
                 ctx.ImagemUsuarios.Update(fotoexistente);
             }
