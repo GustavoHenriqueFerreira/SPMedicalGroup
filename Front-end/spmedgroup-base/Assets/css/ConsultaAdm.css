@@ -161,3 +161,35 @@ label{
     margin-bottom: 20px;
     font-weight: 300;
 }
+
+@media (max-width: 600px){
+    .container{
+        width: 80vw;
+    }
+
+    .cabecalho_rodape a{
+        font-size: 15px;
+    }
+
+    .menu_header{
+        display: flex;
+        justify-content: space-between;
+        width: 75%;
+    }
+
+    .logo{
+        width: 50px;
+    }
+
+    .consulta{
+        display: flex;
+        justify-content: flex-start;
+    }
+    .consulta h2{
+        font-size: 15px;
+    }
+
+    .topicos{
+        line-height: 15px;
+    }
+}

@@ -141,7 +141,7 @@ h2{
     .menu_header{
         display: flex;
         justify-content: space-between;
-        width: 60%;
+        width: 75%;
     }
 
     .logo{
@@ -152,12 +152,19 @@ h2{
         font-size: 25px;
     }
 
-    .slogan{
-
+    .nome_slogan{
+        height: 29%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .botoes{
         width: unset;
+    }
+
+    .banner{
+        justify-content: space-evenly;
     }
 
     .btn_banner{
@@ -165,11 +172,20 @@ h2{
         height: 100px;
     }
 
+    .btn_banner a{
+        font-size: unset;
+    }
+
     h2{
         font-size: 20px;
     }
 
+    .posicionamento h2{
+        justify-content: center;
+        height: 6%;
+    }
     .descricao_qmsomos{
         font-size: 20px;
+        margin-bottom: 5%;
     }
 }
