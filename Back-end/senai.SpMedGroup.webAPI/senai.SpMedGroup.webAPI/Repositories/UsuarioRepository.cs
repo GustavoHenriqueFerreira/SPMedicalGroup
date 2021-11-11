@@ -87,18 +87,18 @@ namespace senai.SpMedGroup.webAPI.Repositories
             return null;
         }
 
-        //public string ConsultarPerfilDir(int id_usuario)
-        //{
-        //    string novoNome = id_usuario.ToString() + ".png";
-        //    string caminho = Path.Combine("Perfil", novoNome);
+        public string ConsultarPerfilDir(int idUsuario)
+        {
+            string novoNome = idUsuario.ToString() + ".png";
+            string caminho = Path.Combine("Perfil", novoNome);
 
-        //    if (File.Exists(caminho))
-        //    {
-        //        byte[] bytesArquivo = File.ReadAllBytes(caminho);
-        //        return Convert.ToBase64String(bytesArquivo);
-        //    }
-        //    return null;
-        //}
+            if (File.Exists(caminho))
+            {
+                byte[] bytesArquivo = File.ReadAllBytes(caminho);
+                return Convert.ToBase64String(bytesArquivo);
+            }
+            return null;
+        }
 
         public void SalvarPerfilBD(IFormFile foto, int idUsuario)
         {
@@ -114,11 +114,9 @@ namespace senai.SpMedGroup.webAPI.Repositories
 
                 imagemUsuario.MimeType = foto.FileName.Split('.').Last();
 
-<<<<<<< HEAD
-                imagemUsuario.IdUsuario = id_usuario;
-=======
                 imagemUsuario.IdUsuario = idUsuario;
->>>>>>> 8d32da30efcc76d797776e44a452066e892af089
+
+                imagemUsuario.IdUsuario = idUsuario;
             }
 
             ImagemUsuario fotoexistente = new ImagemUsuario();
@@ -141,14 +139,14 @@ namespace senai.SpMedGroup.webAPI.Repositories
             ctx.SaveChanges();
         }
 
-        //public void SalvarPerfilDir(IFormFile foto, int id_usuario)
-        //{
-        //    string nome_novo = id_usuario.ToString() + ".png";
+        public void SalvarPerfilDir(IFormFile foto, int idUsuario)
+        {
+            string nome_novo = idUsuario.ToString() + ".png";
 
-        //    using (var stream = new FileStream(Path.Combine("perfil", nome_novo), FileMode.Create))
-        //    {
-        //        foto.CopyTo(stream);
-        //    }
-        //}
+            using (var stream = new FileStream(Path.Combine("perfil", nome_novo), FileMode.Create))
+            {
+                foto.CopyTo(stream);
+            }
+        }
     }
 }
