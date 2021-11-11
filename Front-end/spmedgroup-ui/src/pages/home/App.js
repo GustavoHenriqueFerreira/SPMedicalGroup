@@ -1,7 +1,7 @@
-import { Component } from 'react';
+/*import { Component } from 'react';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-/* import { parseJwt, usuarioAutenticado } from '../../services/auth'; */
+import { parseJwt, usuarioAutenticado } from '../../services/auth'; */
 import { Link } from 'react-router-dom';
 
 import '../../Assets/css/Home.css';
@@ -9,44 +9,43 @@ import '../../Assets/css/Home.css';
 import Cabecalho from "../../components/cabecalho/cabecalho";
 import Rodape from "../../components/rodape/rodape";
 
-import logo from '../../Assets/img/logo_spmedgroup_v1 3.png';
+/* import logo from '../../Assets/img/logo_spmedgroup_v1 3.png'; */
 
 function App() {
     return (
-        <body>
-
+        <div>
             <Cabecalho />
 
             <main>
-                <div className="banner">
-                    <div className="nome_slogan">
-                        <h1>SP Medical Group</h1>
-                        <p className="slogan">Venha agendar sua consulta na melhor clínica do Brasil!!!</p>
+                <div className="banner-home">
+                    <div className="nome_slogan-home">
+                        <h1 className="h1-home">SP Medical Group</h1>
+                        <p className="slogan-home">Venha agendar sua consulta na melhor clínica do Brasil!!!</p>
                     </div>
 
-                    <div className="botoes">
-                        <div className="btn_banner">
+                    <div className="botoes-home">
+                        <div className="btn_banner-home">
                             <a href="">Ver Consultas</a>
                         </div>
 
-                        <div className="btn_banner">
+                        <div className="btn_banner-home">
                             <a href="">Agendar Consulta</a>
                         </div>
 
-                        <div className="btn_banner">
+                        <div className="btn_banner-home">
                             <a href="">Fazer Cadastro</a>
                         </div>
 
-                        <div className="btn_banner">
+                        <div className="btn_banner-home">
                             <a href="">Ver Clínicas</a>
                         </div>
                     </div>
                 </div>
 
-                <div className="quem_somos">
-                    <div className="container posicionamento">
-                        <h2>QUEM SOMOS?</h2>
-                        <p className="descricao_qmsomos">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                <div className="quem_somos-home">
+                    <div className="container posicionamento-home">
+                        <h2 className="h2-home">QUEM SOMOS?</h2>
+                        <p className="descricao_qmsomos-home">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                             Lorem Ipsum has been the
                             industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
                             and
@@ -56,7 +55,7 @@ function App() {
             </main>
 
             <Rodape />
-        </body>
+        </div>
     );
 }
 

@@ -12,21 +12,21 @@
     margin: 0 auto;
 }
 
-.cabecalho_rodape{
+/* .cabecalho_rodape-ConPac{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 0px;
 }
 
-.cabecalho_rodape a{
+.cabecalho_rodape-ConPac a{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 20px;
     color: #666666;
     text-decoration: unset;
 }
 
-.menu_header{
+.menu_header-ConPac{
     display: flex;
     justify-content: space-between;
     width: 60%;
@@ -34,9 +34,9 @@
 
 .logo{
     width: 100px;
-}
+} */
 
-.banner{
+.banner-ConPac{
     background-image: url("../img/banner_consultapac.png");
     width: 100%;
     height: 1159px;
@@ -46,21 +46,21 @@
     align-items: center;
 }
 
-h1{
+.h1-ConPac{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 72px;
     font-weight: 600;
     color: #ffffff;
 }
 
-label{
+.label-ConPac{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 36px;
     font-weight: 400;
     color: #000000;
 }
 
-.box_pesquisa{
+.box_pesquisa-ConPac{
     width: 1246px;
     height: 707px;
     background-color: white;
@@ -70,12 +70,12 @@ label{
     justify-content: space-evenly;
 }
 
-.espacamento_box{
+.espacamento_box-ConPac{
     display: flex;
     justify-content: space-evenly;
 }
 
-.input_pesquisa{
+.input_pesquisa-ConPac{
     background-color:rgba(85, 8, 249, 0.3);
     border-radius: 20px;
     border: none;
@@ -84,13 +84,13 @@ label{
     display: flex;
 }
 
-.espacamento_btn{
+.espacamento_btn-ConPac{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.btn_listar{
+.btn_listar-ConPac{
     width: 326px;
     height: 86px;
     background-color: rgba(85, 8, 249, 0.3);
@@ -103,13 +103,13 @@ label{
     align-items: center;
 }
 
-.posicionamento_titulo{
+.posicionamento_titulo-ConPac{
     display: flex;
     justify-content: center;
     margin-top: 3%;
 }
 
-.titulo{
+.titulo-ConPac{
     color: #5508F9;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     letter-spacing: 2px;
@@ -117,13 +117,13 @@ label{
     font-weight: bold;
 }
 
-.lista_consultas {
+.lista_consultas-ConPac{
     display: flex;
     justify-content: space-evenly;
     margin-top: 3%;
 }
 
-.consulta {
+.consulta-ConPac{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -131,7 +131,7 @@ label{
     height: 230px;
 }
   
-.consulta h2 {
+.consulta-ConPac h2 {
     color: #5508F9;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     letter-spacing: 2px;
@@ -140,7 +140,7 @@ label{
     margin-bottom: 20px;
 }
 
-.topicos{
+.topicos-ConPac{
     width: 80%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     line-height: 20px;

@@ -11,14 +11,14 @@ export default function Cabecalho() {
         <header>
             <div className="container cabecalho_rodape">
                 <div>
-                    <Link to="/"> <img className="logo" src={logo} alt="logo" /> </Link>
+                    <Link to="/"><img className="logo" src={logo} alt="logo" /> </Link>
                 </div>
                 <nav className="menu_header">
-                    <a href="">Consultas</a>
-                    <a href="">Clínicas</a>
-                    <a href="">Especialidades</a>
-                    <a href="">Médicos</a>
-                    <a href="">Login</a>
+                    <Link to="/"> <a href="">Consultas</a> </Link>
+                    <Link to="/"> <a href="">Clínicas</a> </Link>
+                    <Link to="/"> <a href="">Especialidades</a> </Link>
+                    <Link to="/consultasMed"> <a href="">Médicos</a> </Link>
+                    <Link to="/login"> <a href="">Login</a> </Link>
                 </nav>
             </div>
         </header>

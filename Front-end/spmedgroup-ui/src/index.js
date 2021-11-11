@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 /* import { parseJwt, usuarioAutenticado } from './services/auth'; */
 
-import './index.css';
+/* import './index.css'; */
 
 import Home from './pages/home/App';
 import Login from './pages/login/Login';
@@ -53,11 +53,11 @@ const routing = (
     <div>
       <Switch>
         <Route exact path="/" component={Home} /> {/* Home */}
-        <Route path="login" component={Login}/> {/* Login */}
-        <Route path="consultasAdm" component={ConsultasAdm}/> {/* Listagem de consultas do adm */}
-        <Route path="consultasMed" component={ConsultasMed}/> {/* Listagem de consultas do médico */}
-        <Route path="consultasPac" component={ConsultasPac}/> {/* Listagem de consultas do paciente */}
-        <Route path="cadastroConsulta" component={CadastroCons}/> {/* Cadastro consultas atráves do adm */}
+        <Route path="/login" component={Login}/> {/* Login */}
+        <Route path="/consultasMed" component={ConsultasAdm}/> {/* Listagem de consultas do adm */}
+        <Route path="/consultasMed" component={ConsultasMed}/> {/* Listagem de consultas do médico */}
+        <Route path="/consultasPac" component={ConsultasPac}/> {/* Listagem de consultas do paciente */}
+        <Route path="/cadastroConsulta" component={CadastroCons}/> {/* Cadastro consultas atráves do adm */}
         <Route path="/inserirDescricao" component={InserirDesc}/> {/* Inserir descrição da consulta atráves do médico */}
 
         <Route path="/notFound" component={NotFound} /> {/* Not Found */}
@@ -68,9 +68,7 @@ const routing = (
 )
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Home />
-  </React.StrictMode>,
+  routing,
   document.getElementById('root')
 );
 

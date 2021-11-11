@@ -1,7 +1,7 @@
-import { Component } from 'react';
+/*import { Component } from 'react';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-/* import { parseJwt, usuarioAutenticado } from '../../services/auth'; */
+import { parseJwt, usuarioAutenticado } from '../../services/auth'; */
 import { Link } from 'react-router-dom';
 
 import '../../Assets/css/InserirDescricao.css';
@@ -11,32 +11,32 @@ import Rodape from "../../components/rodape/rodape";
 import logo from '../../Assets/img/logo_spmedgroup_v1 3.png';
 
 export default function InserirDescricao() {
-    return(
-        <body>
+    return (
+        <div>
             <Cabecalho />
 
             <main>
                 <section>
-                    <div className="banner">
-                        <h1>Inserir Descrição</h1>
+                    <div className="banner-InserirDec">
+                        <h1 className="h1-InserirDec">Inserir Descrição</h1>
 
-                        <div className="container box_pesquisa">
-                            <div className="espacamento_box">
+                        <div className="container box_pesquisa-InserirDec">
+                            <div className="espacamento_box-InserirDec">
                                 <div>
-                                    <label>Paciente:</label>
-                                    <input className="input_pesquisa" type="text" />
+                                    <label className="label-InserirDec">Paciente:</label>
+                                    <input className="input_pesquisa-InserirDec" type="text" />
                                 </div>
                                 <div>
-                                    <label>Data:</label>
-                                    <input className="input_pesquisa" type="text" />
+                                    <label className="label-InserirDec">Data:</label>
+                                    <input className="input_pesquisa-InserirDec" type="text" />
                                 </div>
                                 <div>
-                                    <label>Nova descrição:</label>
-                                    <input className="input_descricao" type="text" />
+                                    <label className="label-InserirDec">Nova descrição:</label>
+                                    <input className="input_descricao-InserirDec" type="text" />
                                 </div>
 
-                                <div className="espacamento_btn">
-                                    <button className="btn_inserir">Inserir</button>
+                                <div className="espacamento_btn-InserirDec">
+                                    <button className="btn_inserir-InserirDec">Inserir</button>
                                 </div>
                             </div>
                         </div>
@@ -45,6 +45,6 @@ export default function InserirDescricao() {
             </main>
 
             <Rodape />
-        </body>
+        </div>
     );
 }
