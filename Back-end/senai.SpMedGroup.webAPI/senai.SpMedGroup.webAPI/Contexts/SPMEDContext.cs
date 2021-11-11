@@ -33,6 +33,7 @@ namespace senai.SpMedGroup.webAPI.Contexts
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-E81EO80\\SqlExpress; Initial Catalog= SPMEDGROUP; Integrated Security=True");
+                /*optionsBuilder.UseSqlServer("Data Source=NOTE0113C5\\SqlExpress; Initial Catalog= SPMEDGROUP; Integrated Security=True");*/
             }
         }
 

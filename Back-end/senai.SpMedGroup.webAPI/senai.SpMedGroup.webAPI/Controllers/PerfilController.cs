@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace senai.SpMedGroup.webAPI.Controllers
 {
+    
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
@@ -28,7 +29,7 @@ namespace senai.SpMedGroup.webAPI.Controllers
         {
             try
             {
-                if (arquivo.Length > 150000)
+                if (arquivo.Length > 500000000)
                     return BadRequest(new { mensagem = "O tamanho máximo da imagem foi atingido." });
 
                 string extensao = arquivo.FileName.Split('.').Last();
@@ -36,9 +37,9 @@ namespace senai.SpMedGroup.webAPI.Controllers
                 if (extensao != "png")
                     return BadRequest(new { mensagem = "Apenas arquivos .png são obrigatórios." });
 
-                int id_usuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+                int id_Usuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
 
-                _usuarioRepository.SalvarPerfilBD(arquivo, id_usuario);
+                _usuarioRepository.SalvarPerfilBD(arquivo, id_Usuario);
 
                 return Ok();
 
@@ -49,14 +50,15 @@ namespace senai.SpMedGroup.webAPI.Controllers
             }
         }
 
+        /*[Authorize(Roles = "1,2")]*/
         [HttpGet("imagem/bd")]
         public IActionResult getBD()
         {
             try
             {
-                int id_usuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+                int id_Usuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
 
-                string base64 = _usuarioRepository.ConsultarPerfilBD(id_usuario);
+                string base64 = _usuarioRepository.ConsultarPerfilBD(id_Usuario);
 
                 return Ok(base64);
             }
