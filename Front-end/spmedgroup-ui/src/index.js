@@ -6,7 +6,7 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-import { parseJwt, usuarioAutenticado } from './services/auth';
+/* import { parseJwt, usuarioAutenticado } from './services/auth'; */
 
 import './index.css';
 
@@ -17,7 +17,7 @@ import ConsultasMed from './pages/consultasMed/ConsultasMed';
 import ConsultasAdm from './pages/consultasAdm/ConsultasAdm';
 import CadastroCons from './pages/cadastroConsulta/CadastroConsulta';
 import NotFound from './pages/notFound/NotFound'
-import InserirDesc from './pages/inserirDescricao';
+import InserirDesc from './pages/inserirDescricao/InserirDescricao';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -53,14 +53,12 @@ const routing = (
     <div>
       <Switch>
         <Route exact path="/" component={Home} /> {/* Home */}
-        <Route path="" component={Login}/>
-        <Route path="" component={ConsultasAdm}/>
-        <Route path="" component={ConsultasMed}/>
-        <Route path="" component={ConsultasPac}/>
-        <Route path="" component={CadastroCons}/>
-        <Route path="" component={InserirDesc}/>
-        
-
+        <Route path="login" component={Login}/> {/* Login */}
+        <Route path="consultasAdm" component={ConsultasAdm}/> {/* Listagem de consultas do adm */}
+        <Route path="consultasMed" component={ConsultasMed}/> {/* Listagem de consultas do médico */}
+        <Route path="consultasPac" component={ConsultasPac}/> {/* Listagem de consultas do paciente */}
+        <Route path="cadastroConsulta" component={CadastroCons}/> {/* Cadastro consultas atráves do adm */}
+        <Route path="/inserirDescricao" component={InserirDesc}/> {/* Inserir descrição da consulta atráves do médico */}
 
         <Route path="/notFound" component={NotFound} /> {/* Not Found */}
         <Redirect to="/notFound" /> {/* Redireciona para Not Found caso não encontre nenhuma rota */}

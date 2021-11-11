@@ -1,6 +1,7 @@
 import { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { parseJwt, usuarioAutenticado } from '../../services/auth';
+/* import { parseJwt, usuarioAutenticado } from '../../services/auth'; */
 import { Link } from 'react-router-dom';
 
 import '../../Assets/css/Home.css';
@@ -13,20 +14,8 @@ import logo from '../../Assets/img/logo_spmedgroup_v1 3.png';
 function App() {
     return (
         <body>
-            <header>
-                <div className="container cabecalho_rodape">
-                    <div>
-                        <Link to="/"> <img className="logo" src={logo} alt="logo" /> </Link>
-                    </div>
-                    <nav className="menu_header">
-                        <a href="">Consultas</a>
-                        <a href="">Clínicas</a>
-                        <a href="">Especialidades</a>
-                        <a href="">Médicos</a>
-                        <a href="">Login</a>
-                    </nav>
-                </div>
-            </header>
+
+            <Cabecalho />
 
             <main>
                 <div className="banner">
@@ -66,15 +55,7 @@ function App() {
                 </div>
             </main>
 
-            <footer>
-                <nav className="container cabecalho_rodape">
-                    <a href="">Links Úteis</a>
-                    <a href="">Telefone</a>
-                    <Link to="/"> <img className="logo" src={logo} alt="logo" /> </Link>
-                    <a href="">Siga-nos</a>
-                    <a href="">Quem somos?</a>
-                </nav>
-            </footer>
+            <Rodape />
         </body>
     );
 }
