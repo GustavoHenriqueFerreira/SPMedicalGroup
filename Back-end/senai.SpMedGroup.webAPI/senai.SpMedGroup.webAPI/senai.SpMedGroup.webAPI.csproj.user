@@ -4,6 +4,7 @@
     <Controller_SelectedScaffolderID>ApiControllerEmptyScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Common/Api</Controller_SelectedScaffolderCategoryPath>
     <ActiveDebugProfile>senai.SpMedGroup.webAPI</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\AMD\Documents\SpMedGroup\Back-end\senai.SpMedGroup.webAPI\senai.SpMedGroup.webAPI\Properties\PublishProfiles\SpMedGroup - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

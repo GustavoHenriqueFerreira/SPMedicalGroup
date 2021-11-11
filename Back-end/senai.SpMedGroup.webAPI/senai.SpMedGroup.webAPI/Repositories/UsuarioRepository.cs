@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace senai.SpMedGroup.webAPI.Repositories
 {
@@ -88,19 +87,18 @@ namespace senai.SpMedGroup.webAPI.Repositories
             return null;
         }
 
-        public string ConsultarPerfilDir(int id_usuario)
-        {
-            string nome_novo = id_usuario.ToString() + ".png";
-            string caminho = Path.Combine("Perfil", nome_novo);
+        //public string ConsultarPerfilDir(int id_usuario)
+        //{
+        //    string novoNome = id_usuario.ToString() + ".png";
+        //    string caminho = Path.Combine("Perfil", novoNome);
 
-            if (File.Exists(caminho))
-            {
-                byte[] bytesArquivo = File.ReadAllBytes(caminho);
-                return Convert.ToBase64String(bytesArquivo);
-            }
-
-            return null;
-        }
+        //    if (File.Exists(caminho))
+        //    {
+        //        byte[] bytesArquivo = File.ReadAllBytes(caminho);
+        //        return Convert.ToBase64String(bytesArquivo);
+        //    }
+        //    return null;
+        //}
 
         public void SalvarPerfilBD(IFormFile foto, int id_usuario)
         {
@@ -111,11 +109,11 @@ namespace senai.SpMedGroup.webAPI.Repositories
                 foto.CopyTo(ms);
 
                 imagemUsuario.Binario = ms.ToArray();
-               
+
                 imagemUsuario.NomeArquivo = foto.FileName;
-               
+
                 imagemUsuario.MimeType = foto.FileName.Split('.').Last();
-                
+
                 imagemUsuario.IdUsuario = id_usuario;
             }
 
@@ -139,14 +137,14 @@ namespace senai.SpMedGroup.webAPI.Repositories
             ctx.SaveChanges();
         }
 
-        public void SalvarPerfilDir(IFormFile foto, int id_usuario)
-        {
-            string nome_novo = id_usuario.ToString() + ".png";
+        //public void SalvarPerfilDir(IFormFile foto, int id_usuario)
+        //{
+        //    string nome_novo = id_usuario.ToString() + ".png";
 
-            using (var stream = new FileStream(Path.Combine("perfil", nome_novo), FileMode.Create))
-            {
-                foto.CopyTo(stream);
-            }
-        }
+        //    using (var stream = new FileStream(Path.Combine("perfil", nome_novo), FileMode.Create))
+        //    {
+        //        foto.CopyTo(stream);
+        //    }
+        //}
     }
 }

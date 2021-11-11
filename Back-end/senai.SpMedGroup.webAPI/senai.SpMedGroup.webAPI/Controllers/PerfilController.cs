@@ -66,48 +66,48 @@ namespace senai.SpMedGroup.webAPI.Controllers
             }
         }
 
-        [HttpPost("imagem/dir")]
-        public IActionResult postDir(IFormFile arquivo)
-        {
-            try
-            {
-                if (arquivo.Length > 150000)
-                    return BadRequest(new { mensagem = "O tamanho máximo da imagem foi atingido." });
+        //[HttpPost("imagem/dir")]
+        //public IActionResult postDir(IFormFile arquivo)
+        //{
+        //    try
+        //    {
+        //        if (arquivo.Length > 150000)
+        //            return BadRequest(new { mensagem = "O tamanho máximo da imagem foi atingido." });
 
-                string extensao = arquivo.FileName.Split('.').Last();
+        //        string extensao = arquivo.FileName.Split('.').Last();
 
-                if (extensao != "png")
-                    return BadRequest(new { mensagem = "Apenas arquivos .png são obrigatórios." });
 
-                int id_usuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+        //        if (extensao != "png")
+        //            return BadRequest(new { mensagem = "Apenas arquivos .png são obrigatórios." });
 
-                _usuarioRepository.SalvarPerfilDir(arquivo, id_usuario);
+        //        int idUsuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
 
-                return Ok();
+        //        _usuarioRepository.SalvarPerfilDir(arquivo, idUsuario);
 
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
+        //        return Ok();
 
-        [HttpGet("imagem/dir")]
-        public IActionResult getDIR()
-        {
-            try
-            { 
-                int id_usuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(ex.Message);
+        //    }
+        //}
 
-                string base64 = _usuarioRepository.ConsultarPerfilDir(id_usuario);
+        //[HttpGet("imagem/dir")]
+        //public IActionResult getDIR()
+        //{
+        //    try
+        //    {
+        //        int idUsuario = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
 
-                return Ok(base64);
+        //        string base64 = _usuarioRepository.ConsultarPerfilDir(idUsuario);
 
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
+        //        return Ok(base64);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(ex.Message);
+        //    }
+        //}
     }
 }
