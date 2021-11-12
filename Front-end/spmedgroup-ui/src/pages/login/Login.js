@@ -50,7 +50,7 @@ export default class Login extends Component {
 
                     switch (parseJwt().role) {
                         case '1':
-                            this.props.history.push('/');
+                            this.props.history.push('/consultasAdm');
                             console.log(usuarioAutenticado())
                             break;
 
@@ -60,7 +60,7 @@ export default class Login extends Component {
                             break;
 
                         case '3':
-                            this.props.history.push('/');
+                            this.props.history.push('/consultasMed');
                             console.log(usuarioAutenticado())
                             break;
 

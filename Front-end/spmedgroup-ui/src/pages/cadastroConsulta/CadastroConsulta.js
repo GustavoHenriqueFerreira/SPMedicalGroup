@@ -4,7 +4,7 @@ import axios from 'axios';
 import { parseJwt, usuarioAutenticado } from '../../services/auth';
 import { Link } from 'react-router-dom';*/
 
-import '../../Assets/css/ConsultaAdm.css';
+import '../../Assets/css/CadastroConsulta.css';
 import Cabecalho from "../../components/cabecalho/cabecalho";
 import Rodape from "../../components/rodape/rodape";
 
@@ -16,7 +16,7 @@ export default function CadastroConsulta() {
             <Cabecalho />
             <main>
                 <section>
-                    <div className="container banner-CadCon">
+                    <div className="container-CadCon banner-CadCon">
                         <h1 className="h1-CadCon">Cadastrar Consulta</h1>
 
                         <div className="box_pesquisa-CadCon">

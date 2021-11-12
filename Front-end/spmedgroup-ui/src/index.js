@@ -54,7 +54,7 @@ const routing = (
       <Switch>
         <Route exact path="/" component={Home} /> {/* Home */}
         <Route path="/login" component={Login}/> {/* Login */}
-        <Route path="/consultasMed" component={ConsultasAdm}/> {/* Listagem de consultas do adm */}
+        <Route path="/consultasAdm" component={ConsultasAdm}/> {/* Listagem de consultas do adm */}
         <Route path="/consultasMed" component={ConsultasMed}/> {/* Listagem de consultas do médico */}
         <Route path="/consultasPac" component={ConsultasPac}/> {/* Listagem de consultas do paciente */}
         <Route path="/cadastroConsulta" component={CadastroCons}/> {/* Cadastro consultas atráves do adm */}

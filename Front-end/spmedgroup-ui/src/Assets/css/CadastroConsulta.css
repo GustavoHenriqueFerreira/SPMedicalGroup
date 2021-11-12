@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap');
 
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.container{
+.container-CadCon{
     width: 80%;
     max-width: 1920px;
     margin: 0 auto;

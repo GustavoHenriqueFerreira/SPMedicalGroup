@@ -1,16 +1,36 @@
-/*import { Component } from 'react';
-import React, { useState, useEffect } from 'react';
+import { Component } from 'react';
+/*import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { parseJwt, usuarioAutenticado } from '../../services/auth'; 
-import { Link } from 'react-router-dom';*/
+import { parseJwt, usuarioAutenticado } from '../../services/auth'; */
+import { Link } from 'react-router-dom';
 
 import '../../Assets/css/ConsultaPac.css';
 import Cabecalho from "../../components/cabecalho/cabecalho";
 import Rodape from "../../components/rodape/rodape";
 
-import logo from '../../Assets/img/logo_spmedgroup_v1 3.png';
+import { useState, useEffect } from "react";
+import axios from 'axios';
 
 export default function ConsultaPac() {
+    const [listaConsultasPac, setListaConsultasPac] = useState([]);
+
+    function buscarConsultasPac() {
+        axios('http://localhost:5000/api/consultas/listaPac', {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
+            }
+        })
+            .then(resposta => {
+                if (resposta.status === 200) {
+                    // console.log(resposta.data)
+                    setListaConsultasPac(resposta.data)
+                };
+            })
+            .catch(erro => console.log(erro));
+    };
+
+    useEffect(buscarConsultasPac, []);
+
     return (
         <div>
             <Cabecalho />
@@ -19,7 +39,7 @@ export default function ConsultaPac() {
                     <div className="banner-ConPac">
                         <h1 className="h1-ConPac">Lista de Consultas</h1>
 
-                        <div className="container box_pesquisa-ConPac">
+                        <div className="container-ConPac box_pesquisa-ConPac">
                             <div className="espacamento_box-ConPac">
                                 <div>
                                     <label className="label-ConPac">Clínica:</label>
@@ -46,44 +66,31 @@ export default function ConsultaPac() {
                                 <button className="btn_listar-ConPac">Listar</button>
                             </div>
                         </div>
-
-                        <div>
-                            <button className="btn_cadastrar-ConPac">Cadastrar Consulta</button>
-                        </div>
                     </div>
                 </section>
 
                 <section>
-                    <div className="container posicionamento_titulo-ConPac">
+                    <div className="container-ConPac posicionamento_titulo-ConPac">
                         <h2 className="titulo-ConPac">Consultas</h2>
                     </div>
-                    <div className="container lista_consultas-ConPac">
-                        <div className="consulta-ConPac">
-                            <h2>Primeira Consulta</h2>
-                            <li className="topicos-ConPac">Clínica Possarle</li>
-                            <li className="topicos-ConPac">Médico: Helena Strada</li>
-                            <li className="topicos-ConPac">Situação: Agendada</li>
-                            <li className="topicos-ConPac">Data: 11/12/2021 15:00</li>
-                            <p className="topicos-ConPac">Breve descrição sobre o evento. Lorem ipsum lorem ipsum lorem ipsum.</p>
-                        </div>
-
-                        <div className="consulta-ConPac">
-                            <h2>Segunda Consulta</h2>
-                            <li className="topicos-ConPac">Clínica Possarle</li>
-                            <li className="topicos-ConPac">Médico: Helena Strada</li>
-                            <li className="topicos-ConPac">Situação: Agendada</li>
-                            <li className="topicos-ConPac">Data: 11/12/2021 15:00</li>
-                            <p className="topicos-ConPac">Breve descrição sobre o evento. Lorem ipsum lorem ipsum lorem ipsum.</p>
-                        </div>
-
-                        <div className="consulta-ConPac">
-                            <h2>Terceira Consulta</h2>
-                            <li className="topicos-ConPac">Clínica Possarle</li>
-                            <li className="topicos-ConPac">Médico: Helena Strada</li>
-                            <li className="topicos-ConPac">Situação: Agendada</li>
-                            <li className="topicos-ConPac">Data: 11/12/2021 15:00</li>
-                            <p className="topicos-ConPac">Breve descrição sobre o evento. Lorem ipsum lorem ipsum lorem ipsum.</p>
-                        </div>
+                    <div className="container-ConPac lista_consultas-ConPac">
+                        {
+                            listaConsultasPac.map((minhasConsultas) => {
+                                return (
+                                    <div className="consulta-ConPac">
+                                        <h2>{minhasConsultas.idConsulta}° Consulta</h2>
+                                        <li className="topicos-ConPac">Clínica: {minhasConsultas.id}</li>
+                                        <li className="topicos-ConPac">Nome Médico: {minhasConsultas.idMedicoNavigation.nomeMedico}</li>
+                                        <li className="topicos-ConPac">Situação: {minhasConsultas.idSituacaoNavigation.descricaoSituacao}</li>
+                                        <li className="topicos-ConPac">Data: {Intl.DateTimeFormat("pt-BR", {
+                                            year: 'numeric', month: 'short', day: 'numeric',
+                                            hour: 'numeric', minute: 'numeric',
+                                            hour12: true
+                                        }).format(new Date(minhasConsultas.dataHoraConsulta))}</li>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </section>
             </main>

@@ -14,7 +14,7 @@ export default function Cabecalho() {
                     <Link to="/"><img className="logo" src={logo} alt="logo" /> </Link>
                 </div>
                 <nav className="menu_header">
-                    <Link to="/"> <a href="">Consultas</a> </Link>
+                    <Link to="/consultasPac"> <a href="">Consultas</a> </Link>
                     <Link to="/"> <a href="">Clínicas</a> </Link>
                     <Link to="/"> <a href="">Especialidades</a> </Link>
                     <Link to="/consultasMed"> <a href="">Médicos</a> </Link>

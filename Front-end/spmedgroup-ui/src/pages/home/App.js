@@ -25,7 +25,7 @@ function App() {
 
                     <div className="botoes-home">
                         <div className="btn_banner-home">
-                            <a href="">Ver Consultas</a>
+                            <Link to="/consultasPac"><a href="">Ver Consultas</a></Link>
                         </div>
 
                         <div className="btn_banner-home">
@@ -33,7 +33,7 @@ function App() {
                         </div>
 
                         <div className="btn_banner-home">
-                            <a href="">Fazer Cadastro</a>
+                            <a href="">Ver Cirurgias</a>
                         </div>
 
                         <div className="btn_banner-home">
