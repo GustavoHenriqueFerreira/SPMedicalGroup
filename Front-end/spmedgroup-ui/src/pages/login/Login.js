@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { parseJwt, usuarioAutenticado } from '../../services/auth'; 
+import { parseJwt, usuarioAutenticado } from '../../services/auth';
 import { Link } from 'react-router-dom';
 
 import '../../Assets/css/Login.css';
@@ -13,8 +13,8 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            senha: '',
+            email: 'saulo@gmail.com',
+            senha: 'C# melhor que python',
             erroMensagem: '',
             isLoading: false
         };
@@ -48,25 +48,26 @@ export default class Login extends Component {
                     // exibe no console do navegador o valor em base64
                     console.log(base64);
 
-                    // exibe no console o valor decodificado de base64 para string
-                    // console.log(window.atob(base64));
+                    switch (parseJwt().role) {
+                        case '1':
+                            this.props.history.push('/');
+                            console.log(usuarioAutenticado())
+                            break;
 
-                    // exibe no console do navegador o valor da chave role
-                    // console.log( JSON.parse( window.atob(base64) ) );
+                        case '2':
+                            this.props.history.push('/');
+                            console.log(usuarioAutenticado())
+                            break;
 
-                    // console.log( parseJwt().role );
+                        case '3':
+                            this.props.history.push('/');
+                            console.log(usuarioAutenticado())
+                            break;
 
-                    // exibe as propriedades da página
-                    console.log(this.props);
-
-                    // verifica se o usuário logado é do tipo administrador
-                    if (parseJwt().role === '1' ) {
-                        this.props.history.push('/consultasAdm');
-                        console.log('estou logado: ' + usuarioAutenticado())
-                    }
-
-                    else{
-                        this.props.history.push('/home');
+                        default:
+                            this.props.history.push('/');
+                            console.log(usuarioAutenticado())
+                            break;
                     }
                 }
             })
@@ -87,7 +88,7 @@ export default class Login extends Component {
             <div>
                 <main>
                     <section>
-                        <div className="container login-login">
+                        <div className="login-login">
                             <div>
                                 <img src={img_login} alt="imagem de uma médica" />
                             </div>
@@ -97,13 +98,31 @@ export default class Login extends Component {
                                     <img className="google-login" src={google} alt="Login com o Google" />
                                 </div>
                                 <div className="login_senha-login">
-                                    <div className="botoes-login">
-                                        <div className="btn_login-login">
-                                            <input className="input_login-login" type="text" placeholder="Email"></input>
-                                        </div>
-                                        <div className="btn_login-login">
-                                            <input className="input_login-login" type="text" placeholder="Senha"></input>
-                                        </div>
+                                    <div>
+                                        <form className="botoes-login" onSubmit={this.efetuaLogin}>
+                                            <div className="btn_login-login">
+                                                <input className="input_login-login"
+                                                    name="email"
+                                                    value={this.state.email}
+                                                    onChange={this.atualizaStateCampo}
+                                                    type="text"
+                                                    placeholder="Email">
+                                                </input>
+                                            </div>
+                                            <div className="btn_login-login">
+                                                <input className="input_login-login"
+                                                    name="senha"
+                                                    value={this.state.senha}
+                                                    onChange={this.atualizaStateCampo}
+                                                    type="text"
+                                                    placeholder="Senha">
+                                                </input>
+                                            </div>
+                                            {/* <div className="acessar_page-login"> */}
+                                            <div>
+                                                <button className="btn_acessar-login" type="submit">Acessar</button>
+                                            </div>
+                                        </form>
                                     </div>
                                     <a className="mudar_senha-login" href="">Esqueceu a senha?</a>
                                 </div>
