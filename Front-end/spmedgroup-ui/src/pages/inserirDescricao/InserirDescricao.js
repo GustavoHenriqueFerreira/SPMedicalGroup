@@ -1,16 +1,45 @@
-/*import { Component } from 'react';
+import { Component } from 'react';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { parseJwt, usuarioAutenticado } from '../../services/auth'; */
+import { parseJwt, usuarioAutenticado } from '../../services/auth';
 import { Link } from 'react-router-dom';
 
 import '../../Assets/css/InserirDescricao.css';
 import Cabecalho from "../../components/cabecalho/cabecalho";
 import Rodape from "../../components/rodape/rodape";
 
-import logo from '../../Assets/img/logo_spmedgroup_v1 3.png';
+export default function Descricao() {
+    const [DescricaoConsulta, setDescricaoConsulta] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
-export default function InserirDescricao() {
+    function InserirDescricao(evento) {
+        evento.preventDefault();
+
+        setIsLoading(true);
+
+        axios.patch('http://localhost:5000/api/consultas/descricao/', {
+            DescricaoConsulta: '',
+        }, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
+            }
+        })
+            .then(resposta => {
+                if (resposta.status === 201) {
+
+                    console.log('Cadastrado');
+
+                    setDescricaoConsulta();
+
+                    setIsLoading(false);
+                }
+            })
+
+            .catch(erro => console.log(erro), setInterval(() => {
+                setIsLoading(false)
+            }, 5000));
+    };
+
     return (
         <div>
             <Cabecalho />

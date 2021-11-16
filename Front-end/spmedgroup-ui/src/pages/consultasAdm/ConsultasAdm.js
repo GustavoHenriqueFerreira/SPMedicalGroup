@@ -8,9 +8,6 @@ import '../../Assets/css/ConsultaAdm.css';
 import Cabecalho from "../../components/cabecalho/cabecalho";
 import Rodape from "../../components/rodape/rodape";
 
-import logo from '../../Assets/img/logo_spmedgroup_v1 3.png';
-import { render } from '@testing-library/react';
-
 export default function ConsultasAdm() {
     const [listaConsultas, setListaConsultas] = useState([]);
     const [titulo, setTitulo] = useState('');
@@ -29,7 +26,7 @@ export default function ConsultasAdm() {
             .then(resposta => {
                 // caso a resposta da requisição tenha um status code igual a 200
                 if (resposta.status === 200) {
-                    // console.log(resposta.data)
+                    console.log(resposta.data)
                     // atualiza o state listaTiposUsuarios com os dados do corpo da resposta
                     setListaConsultas(resposta.data)
                 }
@@ -90,32 +87,27 @@ export default function ConsultasAdm() {
                     <div className="container-ConAdm lista_consultas-ConAdm">
                         {
                             listaConsultas.map((consultas) => {
-                                <div className="consulta-ConAdm">
-                                    <h2>{consultas.idConsulta}° Consulta</h2>
-                                    <li className="topicos-ConAdm">Clínica Possarle</li>
-                                    <li className="topicos-ConAdm">Médico: {consultas.nomeMedico}</li>
-                                    <li className="topicos-ConAdm">Situação: {consultas.idSituacaoNavigation.descricaoSituacao}</li>
-                                    <li className="topicos-ConAdm">Data: {consultas.dataHoraConsulta}</li>
-                                    <p className="topicos-ConAdm">{consultas.descricaoConsulta}</p>
-                                </div>
-                            }
-                        {/* <div className="consulta-ConAdm">
-                            <h2>Segunda Consulta</h2>
-                            <li className="topicos-ConAdm">Clínica Possarle</li>
-                            <li className="topicos-ConAdm">Médico: Helena Strada</li>
-                            <li className="topicos-ConAdm">Situação: Agendada</li>
-                            <li className="topicos-ConAdm">Data: 11/12/2021 15:00</li>
-                            <p className="topicos-ConAdm">Breve descrição sobre o evento. Lorem ipsum lorem ipsum lorem ipsum.</p>
-                        </div>
-
-                        <div className="consulta-ConAdm">
-                            <h2>Terceira Consulta</h2>
-                            <li className="topicos-ConAdm">Clínica Possarle</li>
-                            <li className="topicos-ConAdm">Médico: Helena Strada</li>
-                            <li className="topicos-ConAdm">Situação: Agendada</li>
-                            <li className="topicos-ConAdm">Data: 11/12/2021 15:00</li>
-                            <p className="topicos-ConAdm">Breve descrição sobre o evento. Lorem ipsum lorem ipsum lorem ipsum.</p>
-                        </div> */}
+                                return (
+                                    <div className="consulta-ConAdm">
+                                        <h2>{consultas.idConsulta}° Consulta</h2>
+                                        <li className="topicos-ConAdm">Clínica: {/* {consultas.idMedicoNavigation.idClinicaNavigation.nomeClinica} */}</li>
+                                        <li className="topicos-ConAdm">Paciente: {consultas.idPacienteNavigation.nomePaciente}</li>
+                                        <li className="topicos-ConAdm">Data de Nascimento: {Intl.DateTimeFormat("pt-BR", {
+                                            year: 'numeric', month: 'short', day: 'numeric',
+                                        }).format(new Date(consultas.idPacienteNavigation.nascimento))}</li>
+                                        <li className="topicos-ConAdm">Telefone: {consultas.idPacienteNavigation.telefone}</li>
+                                        <li className="topicos-ConAdm">Médico: {consultas.idMedicoNavigation.nomeMedico}</li>
+                                        <li className="topicos-ConAdm">Data: {Intl.DateTimeFormat("pt-BR", {
+                                            year: 'numeric', month: 'short', day: 'numeric',
+                                            hour: 'numeric', minute: 'numeric',
+                                            hour12: true
+                                        }).format(new Date(consultas.dataHoraConsulta))}</li>
+                                        <li className="topicos-ConAdm">Situação: {consultas.idSituacaoNavigation.descricaoSituacao}</li>
+                                        <p className="topicos-ConAdm">{consultas.descricaoConsulta}</p>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </section>
             </main>

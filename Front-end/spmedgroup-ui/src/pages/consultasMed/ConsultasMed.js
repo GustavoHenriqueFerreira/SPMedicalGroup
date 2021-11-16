@@ -1,15 +1,12 @@
 import { Component } from 'react';
-/*import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { parseJwt, usuarioAutenticado } from '../../services/auth'; */
+/*import { parseJwt, usuarioAutenticado } from '../../services/auth'; */
 import { Link } from 'react-router-dom';
 
 import '../../Assets/css/ConsultaMed.css';
 import Cabecalho from "../../components/cabecalho/cabecalho";
 import Rodape from "../../components/rodape/rodape";
-
-import { useState, useEffect } from "react";
-import axios from 'axios';
 
 export default function ConsultasMed() {
     const [listaConsultasMed, setListaConsultasMed] = useState([]);
@@ -83,15 +80,18 @@ export default function ConsultasMed() {
                                 return (
                                     <div className="consulta-ConMed">
                                         <h2>{minhasConsultas.idConsulta}° Consulta</h2>
+                                        <li className="topicos-ConMed">Clínica: {/* {minhasConsultas.idMedicoNavigation.idClinicaNavigation.nomeClinica} */}</li>
                                         <li className="topicos-ConMed">Nome do Paciente: {minhasConsultas.idPacienteNavigation.nomePaciente}</li>
                                         <li className="topicos-ConMed">Telefone: {minhasConsultas.idPacienteNavigation.telefone}</li>
-                                        <li className="topicos-ConMed">Data de Nascimento: {minhasConsultas.idPacienteNavigation.nascimento}</li>
-                                        <li className="topicos-ConMed">Situação: {minhasConsultas.idSituacaoNavigation.descricaoSituacao}</li>
+                                        <li className="topicos-ConMed">Data de Nascimento: {Intl.DateTimeFormat("pt-BR", {
+                                            year: 'numeric', month: 'short', day: 'numeric',
+                                        }).format(new Date(minhasConsultas.idPacienteNavigation.nascimento))}</li>
                                         <li className="topicos-ConMed">Data: {Intl.DateTimeFormat("pt-BR", {
                                             year: 'numeric', month: 'short', day: 'numeric',
                                             hour: 'numeric', minute: 'numeric',
                                             hour12: true
                                         }).format(new Date(minhasConsultas.dataHoraConsulta))}</li>
+                                        <li className="topicos-ConMed">Situação: {minhasConsultas.idSituacaoNavigation.descricaoSituacao}</li>
                                         <p className="topicos-ConMed">{minhasConsultas.descricaoConsulta}</p>
                                     </div>
                                 )
