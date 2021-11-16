@@ -100,3 +100,62 @@ h1{
     color: #666666;
     text-decoration: unset;
 }
+
+@media (max-width: 600px){
+
+    .img_login{
+        width: 0px;
+    }
+
+    .login{
+        display: unset;
+    }
+
+    .google{
+        width: 90px;
+        height: 90px;
+    }
+
+    .login_senha{
+        height: unset;
+    }
+
+    .bloco_login{
+        width: 100%;
+        height: 90%;
+        margin-top: 5%;
+        margin-bottom: unset;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .input_login {
+        width: 350px;
+        height: 50px;
+        margin-left: 5%;
+        font-size: 17px;
+    }
+
+    .botoes{
+        height: 277px;
+    }
+
+    .btn_login{
+        border-radius: 30px;
+        width: 400px;
+        height: unset;
+        background: #90C7FF;
+    }
+
+    .btn_acessar {
+        width: 200px;
+        height: 63px;
+        color: #ffffff;
+        font-size: 25px;
+    }
+
+    .mudar_senha{
+        font-size: 17px;
+        text-decoration: unset;
+    }
+}

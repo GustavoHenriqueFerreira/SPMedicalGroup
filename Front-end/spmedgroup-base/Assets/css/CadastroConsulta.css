@@ -38,7 +38,7 @@
 }
 
 .banner{
-    background-image: url(../img/banner_cadastroConsulta.png);
+    background-image: url("../img/banner_cadastroConsulta.png");
     width: 100%;
     height: 1400px;
     display: flex;
@@ -111,6 +111,35 @@ label{
         width: 80vw;
     }
 
+    .banner{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .banner h1{
+        font-size: 36px;
+        margin-top: 10%;
+    }
+
+    .box_pesquisa {
+        width: 85%;
+        height: 70%;
+        background-color: white;
+        border-radius: 30px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .espacamento_box label {
+        font-size: 24px;
+    }
+
+    .espacamento_box input {
+        width: 100%;
+        height: 75%;
+    }
+
     .cabecalho_rodape a{
         font-size: 15px;
     }
@@ -123,19 +152,5 @@ label{
 
     .logo{
         width: 50px;
-    }
-
-    .espacamento_box input{
-        width: 100%;
-        height: 75%;
-    }
-
-    .espacamento_box label{
-        font-size: 24px;
-    }
-
-    .btn_cadastrar{
-        font-size: 36px;
-        height: 70px;
     }
 }
