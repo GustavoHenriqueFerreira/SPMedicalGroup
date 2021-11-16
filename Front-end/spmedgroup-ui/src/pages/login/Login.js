@@ -90,7 +90,7 @@ export default class Login extends Component {
                     <section>
                         <div className="login-login">
                             <div>
-                                <img src={img_login} alt="imagem de uma médica" />
+                                <img src={img_login} className="img_login-login" alt="imagem de uma médica" />
                             </div>
                             <div className="bloco_login-login">
                                 <h1 className="h1-login">Login</h1>

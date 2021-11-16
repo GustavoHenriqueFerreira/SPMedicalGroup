@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 80%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
 .cabecalho_rodape{
     display: flex;
     justify-content: space-between;
@@ -22,4 +34,24 @@
 
 .logo{
     width: 100px;
+}
+
+@media (max-width: 600px){
+    .container{
+        width: 80vw;
+    }    
+
+    .cabecalho_rodape a{
+        font-size: 15px;
+    }
+
+    .menu_header{
+        display: flex;
+        justify-content: space-between;
+        width: 75%;
+    }
+
+    .logo{
+        width: 50px;
+    }
 }

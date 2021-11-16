@@ -116,7 +116,7 @@ namespace senai.SpMedGroup.webAPI.Controllers
             }
         }
 
-        [Authorize(Roles = "3")]
+        //[Authorize(Roles = "3")]
         [HttpGet("listaMed")]
         public IActionResult ListarConsultaMedico()
         {

@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-.container{
+.container-login{
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
@@ -99,4 +99,63 @@
     font-size: 24px;
     color: #666666;
     text-decoration: unset;
+}
+
+@media (max-width: 600px){
+
+    .img_login-login{
+        width: 0px;
+    }
+
+    .login-login{
+        display: unset;
+    }
+
+    .google-login{
+        width: 90px;
+        height: 90px;
+    }
+
+    .login_senha-login{
+        height: unset;
+    }
+
+    .bloco_login-login{
+        width: 100%;
+        height: 90%;
+        margin-top: 5%;
+        margin-bottom: unset;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .input_login-login {
+        width: 350px;
+        height: 50px;
+        margin-left: 5%;
+        font-size: 17px;
+    }
+
+    .botoes-login{
+        height: 277px;
+    }
+
+    .btn_login-login{
+        border-radius: 30px;
+        width: 400px;
+        height: unset;
+        background: #90C7FF;
+    }
+
+    .btn_acessar-login {
+        width: 200px;
+        height: 63px;
+        color: #ffffff;
+        font-size: 25px;
+    }
+
+    .mudar_senha-login{
+        font-size: 17px;
+        text-decoration: unset;
+    }
 }

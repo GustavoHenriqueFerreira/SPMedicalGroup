@@ -10,6 +10,8 @@ import Rodape from "../../components/rodape/rodape";
 
 export default function CadastroConsulta() {
     const [listaConsultas, setListaConsultas] = useState([]);
+    const [listaTiposUsuario, setListaTituloUsuario] = useState([]);
+    const [tituloTipoUsuario, setTituloUsuario] = useState('');
     const [idPaciente, setIdPaciente] = useState('');
     const [idMedico, setIdMedico] = useState('');
     const [idSituacao, setIdSituacao] = useState('');
@@ -75,6 +77,59 @@ export default function CadastroConsulta() {
                 setIsLoading(false)
             }, 5000));
     };
+
+    function buscarTiposUsuario() {
+        console.log('vamos fazer a chamada para a API');
+
+        axios('http://localhost:5000/api/tiposuser', {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
+            }
+        })
+            .then(resposta => {
+                if (resposta.status === 200) {
+                    setListaTituloUsuario(resposta.data)
+                }
+            })
+
+            .catch(erro => console.log(erro));
+    };
+
+    useEffect(buscarConsultas, []);
+
+    function CadastroTipoUsuario(event) {
+        event.preventDefault();
+
+        setIsLoading(true);
+
+        if (listaTiposUsuario) {
+        }
+
+        axios.post('http://localhost:5000/api/tiposuser', {
+            tituloTipoUsuario: tituloTipoUsuario
+        }, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
+            }
+        })
+            .then(resposta => {
+                if (resposta.status === 201) {
+
+                    console.log('Cadastrado');
+
+                    buscarTiposUsuario();
+
+                    setTituloUsuario('');
+
+                    setIsLoading(false);
+                }
+            })
+
+            .catch(erro => console.log(erro), setInterval(() => {
+                setIsLoading(false)
+            }, 5000));
+    };
+
     return (
         <div>
             <Cabecalho />
@@ -140,7 +195,51 @@ export default function CadastroConsulta() {
                                 </div>
                             </form>
                         </div>
+
                     </div>
+                    <form onSubmit={CadastroTipoUsuario} className="container_cadastro">
+                        <div className="container espacamento_box-CadCon">
+
+                            {/* <div>
+                                            <label className="label-CadCon">Clínica:</label>
+                                            <input type="text" 
+                                            value={titulo}
+                                            onChange={(campo) => setTitulo(campo.target.value)} 
+                                            className="input_pesquisa-CadCon" />
+                                    </div> */}
+
+
+                            <div>
+                                <label className="label-CadCon">Titulo do novo tipo de usuario: </label>
+                                <input type="text"
+                                    value={tituloTipoUsuario}
+                                    onChange={(campo) => setTituloUsuario(campo.target.value)}
+                                    className="input_pesquisa-CadCon" />
+                            </div>
+
+                            <div className="espacamento_btn-CadCon">
+                                {
+                                    isLoading === false &&
+                                    <button type="submit" className="btn_cadastrar-CadCon">Cadastrar</button>
+                                }
+
+                                {
+                                    isLoading === true &&
+                                    <button type="submit" className="btn_cadastrar-CadCon" disabled>Carregando...</button>
+                                }
+                            </div>
+                        </div>
+                    </form>
+
+                    {
+                        listaTiposUsuario.map((tiposUser) => {
+                            return (
+                                <div>
+                                    <h1 className="h1-CadCon">{tiposUser.tituloTipoUsuario}</h1>
+                                </div>
+                            ) 
+                        })
+                    }
                 </section>
             </main>
             <Rodape />

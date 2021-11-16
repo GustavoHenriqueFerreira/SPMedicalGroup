@@ -8,38 +8,108 @@ import '../../Assets/css/InserirDescricao.css';
 import Cabecalho from "../../components/cabecalho/cabecalho";
 import Rodape from "../../components/rodape/rodape";
 
-export default function Descricao() {
-    const [DescricaoConsulta, setDescricaoConsulta] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
+function DescricaoConsulta() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>404 - Página não encontrada</h1>
+        </header>
+      </div>
+    );
+  }
+  
+  export default DescricaoConsulta;
 
-    function InserirDescricao(evento) {
-        evento.preventDefault();
-
-        setIsLoading(true);
-
-        axios.patch('http://localhost:5000/api/consultas/descricao/', {
+/* export default class Descricao extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            listaConsultas: [],
             DescricaoConsulta: '',
-        }, {
+            idConsultaAlterado: 0,
+        };
+    }
+
+    limparCampos = () => {
+        this.setState({
+            listaConsultas: [],
+            DescricaoConsulta: '',
+            idConsultaAlterado: 0,
+        });
+        console.log('Os states foram resetados!');
+    };
+    
+    buscarConsultas = () => {
+        console.log('agora vamos fazer a chamada para a api.');
+
+        fetch('http://localhost:5000/api/consultas', {
             headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
-            }
+                Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
+            },
         })
-            .then(resposta => {
-                if (resposta.status === 201) {
+            .then((resposta) => resposta.json())
 
-                    console.log('Cadastrado');
+            .then((dados) => this.setState({ listaConsultas: dados }))
 
-                    setDescricaoConsulta();
-
-                    setIsLoading(false);
-                }
-            })
-
-            .catch(erro => console.log(erro), setInterval(() => {
-                setIsLoading(false)
-            }, 5000));
+            .catch((erro) => console.log(erro));
     };
 
+    atualizaEstadoDescricaoConsulta = async (event) => {
+
+        await this.setState({
+            DescricaoConsulta: event.target.value,
+        });
+        console.log(this.state.DescricaoConsulta);
+    };
+
+    manipularConsultas = (submit_formulario) => {
+        submit_formulario.preventDefault();
+
+        console.log(JSON.stringify({ DescricaoConsulta: this.state.DescricaoConsulta }));
+
+        if (this.state.idConsultaAlterado !== 0) {
+            fetch(
+                'http://localhost:5000/api/consultas/descricao/' +
+                this.state.idConsultaAlterado,
+                {
+                    method: 'PATCH',
+
+                    body: JSON.stringify({ DescricaoConsulta: this.state.DescricaoConsulta }),
+
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
+                    },
+                },
+            )
+                .then((resposta) => {
+                    if (resposta.status === 200) {
+                        console.log(
+                            'Consulta ' +
+                            this.state.idConsultaAlterado +
+                            ' foi atualizado!',
+                           
+                            'Descrição agora é: ' + this.state.DescricaoConsulta,
+                        );
+                    }
+                })
+
+                .catch((erro) => console.log(erro))
+
+                .then(this.buscarConsultas)
+
+                .then(this.limparCampos)
+
+                .catch((erro) => console.log(erro))
+
+                .then(this.buscarConsultas)
+
+                .then(this.limparCampos);
+        }
+    };
+}
+
+render(){
     return (
         <div>
             <Cabecalho />
@@ -77,3 +147,4 @@ export default function Descricao() {
         </div>
     );
 }
+} */
