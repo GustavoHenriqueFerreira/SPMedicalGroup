@@ -7748,11 +7748,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AMD\\Documents\\SpMedGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj",
+      "projectUniqueName": "C:\\Users\\AMD\\Desktop\\SP_MedicalGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj",
       "projectName": "senai.SpMedGroup.webAPI",
-      "projectPath": "C:\\Users\\AMD\\Documents\\SpMedGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj",
+      "projectPath": "C:\\Users\\AMD\\Desktop\\SP_MedicalGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj",
       "packagesPath": "C:\\Users\\AMD\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AMD\\Documents\\SpMedGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\obj\\",
+      "outputPath": "C:\\Users\\AMD\\Desktop\\SP_MedicalGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\AMD\\AppData\\Roaming\\NuGet\\NuGet.Config",

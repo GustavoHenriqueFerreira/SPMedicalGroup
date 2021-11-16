@@ -99,7 +99,7 @@ namespace senai.SpMedGroup.webAPI.Controllers
             }
         }
 
-        [Authorize(Roles = "1, 3")]
+        [Authorize(Roles = "1")]
         [HttpPatch("situacao/{idConsulta}")]
         public IActionResult AlterarSituacao(int idConsulta, Consulta situacaoConsulta)
         {
@@ -151,7 +151,7 @@ namespace senai.SpMedGroup.webAPI.Controllers
             }
         }
 
-        [Authorize(Roles = "1, 3")]
+        [Authorize(Roles = "3")]
         [HttpPatch("descricao/{idConsulta}")]
         public IActionResult InserirDescricao(int idConsulta, Consulta consulta)
         {
