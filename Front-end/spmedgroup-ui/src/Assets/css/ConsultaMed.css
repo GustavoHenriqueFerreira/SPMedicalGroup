@@ -93,6 +93,10 @@
     align-items: center;
 }
 
+.btn_addDesc a{
+    text-decoration: none;
+}
+
 .posicionamento_titulo-ConMed{
     display: flex;
     justify-content: center;

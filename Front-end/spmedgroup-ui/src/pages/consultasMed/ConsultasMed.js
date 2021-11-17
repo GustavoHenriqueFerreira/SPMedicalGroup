@@ -64,7 +64,7 @@ export default function ConsultasMed() {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="btn_addDesc">
                             <Link to='/inserirDescricao'><button className="btn_descricao-ConMed">Adicionar Descrição</button></Link>
                         </div>
                     </div>
@@ -80,7 +80,7 @@ export default function ConsultasMed() {
                                 return (
                                     <div className="consulta-ConMed">
                                         <h2>{minhasConsultas.idConsulta}° Consulta</h2>
-                                        <li className="topicos-ConMed">Clínica: {/* {minhasConsultas.idMedicoNavigation.idClinicaNavigation.nomeClinica} */}</li>
+                                        {/* <li className="topicos-ConMed">Clínica:  {minhasConsultas.idMedicoNavigation.idClinicaNavigation.nomeClinica} </li> */}
                                         <li className="topicos-ConMed">Nome do Paciente: {minhasConsultas.idPacienteNavigation.nomePaciente}</li>
                                         <li className="topicos-ConMed">Telefone: {minhasConsultas.idPacienteNavigation.telefone}</li>
                                         <li className="topicos-ConMed">Data de Nascimento: {Intl.DateTimeFormat("pt-BR", {

@@ -52,6 +52,7 @@
     justify-content: space-evenly;
     flex-direction: column;
     padding: 5%;
+    height: 100%;
 }
 
 .input_pesquisa-CadCon{

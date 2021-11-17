@@ -79,7 +79,7 @@ export default function ConsultaPac() {
                                 return (
                                     <div className="consulta-ConPac">
                                         <h2>{minhasConsultas.idConsulta}° Consulta</h2>
-                                        <li className="topicos-ConPac">Clínica: {/* {minhasConsultas.idMedicoNavigation.idClinicaNavigation.nomeClinica} */}</li>
+                                        {/* <li className="topicos-ConPac">Clínica:  {minhasConsultas.idMedicoNavigation.idClinicaNavigation.nomeClinica} </li> */}
                                         <li className="topicos-ConPac">Nome Médico: {minhasConsultas.idMedicoNavigation.nomeMedico}</li>
                                         <li className="topicos-ConPac">Data: {Intl.DateTimeFormat("pt-BR", {
                                             year: 'numeric', month: 'short', day: 'numeric',

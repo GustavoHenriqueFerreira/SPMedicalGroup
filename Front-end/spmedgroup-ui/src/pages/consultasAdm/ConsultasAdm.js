@@ -74,7 +74,7 @@ export default function ConsultasAdm() {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="btn_cadastrar">
                             <Link to="/cadastroConsulta"><button className="btn_cadastrar-ConAdm">Cadastrar Consulta</button></Link>
                         </div>
                     </div>
@@ -88,9 +88,10 @@ export default function ConsultasAdm() {
                         {
                             listaConsultas.map((consultas) => {
                                 return (
+
                                     <div className="consulta-ConAdm">
-                                        <h2>{consultas.idConsulta}° Consulta</h2>
-                                        <li className="topicos-ConAdm">Clínica: {/* {consultas.idMedicoNavigation.idClinicaNavigation.nomeClinica} */}</li>
+                                        <h2> {consultas.idConsulta}° Consulta</h2>
+                                        {/* <li className="topicos-ConAdm">Clínica:  {consultas.idMedicoNavigation.idClinicaNavigation.nomeClinica} </li> */}
                                         <li className="topicos-ConAdm">Paciente: {consultas.idPacienteNavigation.nomePaciente}</li>
                                         <li className="topicos-ConAdm">Data de Nascimento: {Intl.DateTimeFormat("pt-BR", {
                                             year: 'numeric', month: 'short', day: 'numeric',
@@ -102,7 +103,10 @@ export default function ConsultasAdm() {
                                             hour: 'numeric', minute: 'numeric',
                                             hour12: true
                                         }).format(new Date(consultas.dataHoraConsulta))}</li>
-                                        <li className="topicos-ConAdm">Situação: {consultas.idSituacaoNavigation.descricaoSituacao}</li>
+                                        <div className="container situacao">
+                                            <li className="topicos-ConAdm">Situação: {consultas.idSituacaoNavigation.descricaoSituacao}</li>
+                                                <Link to="/AtualizaSituacao"><button className="btn_situacao-ConAdm">Editar Situação</button></ Link>
+                                        </div>
                                         <p className="topicos-ConAdm">{consultas.descricaoConsulta}</p>
                                     </div>
                                 )

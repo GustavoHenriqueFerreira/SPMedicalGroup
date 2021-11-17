@@ -18,6 +18,7 @@ import ConsultasAdm from './pages/consultasAdm/ConsultasAdm';
 import CadastroCons from './pages/cadastroConsulta/CadastroConsulta';
 import NotFound from './pages/notFound/NotFound'
 import InserirDesc from './pages/inserirDescricao/InserirDescricao';
+import AtualizaSituacao from './pages/AtualizaSituacao/AtualizaSituacao';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -59,6 +60,7 @@ const routing = (
         <Route path="/consultasPac" component={ConsultasPac}/> {/* Listagem de consultas do paciente */}
         <Route path="/cadastroConsulta" component={CadastroCons}/> {/* Cadastro consultas atráves do adm */}
         <Route path="/inserirDescricao" component={InserirDesc}/> {/* Inserir descrição da consulta atráves do médico */}
+        <Route path="/atualizaSituacao" component={AtualizaSituacao}/> {/* Atualiza situação da consulta atráves do adm */}
 
         <Route path="/notFound" component={NotFound} /> {/* Not Found */}
         <Redirect to="/notFound" /> {/* Redireciona para Not Found caso não encontre nenhuma rota */}
