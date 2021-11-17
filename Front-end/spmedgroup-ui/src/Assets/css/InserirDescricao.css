@@ -60,6 +60,10 @@
     width: 525px;
     height: 60px;
     display: flex;
+    font-size: 24px;
+    border: none;
+    color: black;
+    text-align: center;
 }
 
 .input_descricao-InserirDec{
@@ -69,6 +73,10 @@
     width: 800px;
     height: 60px;
     display: flex;
+    font-size: 24px;
+    border: none;
+    color: black;
+    text-align: center;
 }
 
 .espacamento_btn-InserirDec{

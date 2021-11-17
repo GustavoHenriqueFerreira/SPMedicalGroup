@@ -7,11 +7,13 @@ import { Link } from 'react-router-dom';
 import '../../Assets/css/ConsultaAdm.css';
 import Cabecalho from "../../components/cabecalho/cabecalho";
 import Rodape from "../../components/rodape/rodape";
+import SituacaoConsulta from "../../components/situacaoConsulta/SituacaoConsulta";
 
 export default function ConsultasAdm() {
     const [listaConsultas, setListaConsultas] = useState([]);
     const [titulo, setTitulo] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [idSituacao, setIdSituacao] = useState(0);
 
     // função responsável por fazer a requisição e trazer a lista de tipos usuários
     function buscarConsultas() {
@@ -37,6 +39,41 @@ export default function ConsultasAdm() {
     };
 
     useEffect(buscarConsultas, []);
+
+    function permitirSelect(idConsulta) {
+        // console.log("Você está editando a situação da consulta " + idConsulta + "e a situação é " + idSituacao)        
+        document.getElementById(idConsulta).removeAttribute("disabled");
+        var btn = document.getElementById("btn" + idConsulta);
+
+        if (btn.style.display === "none") {
+            btn.style.display = "";
+        } else {
+            btn.style.display = "none";
+        }
+
+
+    }
+
+    function alteraSituacao(idConsulta) {
+
+        axios.patch("http://localhost:5000/api/consultas/situacao" + idConsulta, {
+            idSituacao: idSituacao
+        }, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
+            }
+        })
+            .then(resposta => {
+                if (resposta.status === 204) {
+                    console.log("consulta" + idConsulta + "atualizada");
+                    document.getElementById(idConsulta).setAttribute("disabled", "disabled");
+                    var btn = document.getElementById("btn" + idConsulta)
+
+                    btn.style.display = "none";
+                    buscarConsultas();
+                }
+            }).catch(erro => console.log(erro))
+    }
 
     return (
         <div>
@@ -105,8 +142,29 @@ export default function ConsultasAdm() {
                                         }).format(new Date(consultas.dataHoraConsulta))}</li>
                                         <div className="container situacao">
                                             <li className="topicos-ConAdm">Situação: {consultas.idSituacaoNavigation.descricaoSituacao}</li>
-                                                <Link to="/AtualizaSituacao"><button className="btn_situacao-ConAdm">Editar Situação</button></ Link>
+                                            {/* <Link to="/AtualizaSituacao"><button className="btn_situacao-ConAdm">Editar Situação</button></ Link> */}
+
+                                            {
+                                                listaConsultas.map((consulta) => {
+                                                    <SituacaoConsulta alterar={(campo) => setIdSituacao(campo.target.value)} idConsulta={consulta.idConsulta} situacao={consulta.descricaoConsulta} />
+                                                    // console.log(consulta.idSituacaoNavigation.situacao1)
+                                                    return (
+                                                        <button onClick={() => permitirSelect(consulta.idConsulta)} type="button" className="vazio">Editar</button>
+                                                    )
+                                                })
+                                            }
                                         </div>
+
+                                        <select name="situacao" id="situacao" value={idSituacao} defaultValue="0" onChange={(campo) =>
+                                            setIdSituacao(campo.target.value)}>
+                                            <option value="0" disabled>Selecione a situacao</option>
+                                            <option value="1">Realizada</option>
+                                            <option value="2">Cancelada</option>
+                                            <option value="3">Agendada</option>
+                                        </select>
+
+
+                                        <button type="submit">Alterar Situação</button>
                                         <p className="topicos-ConAdm">{consultas.descricaoConsulta}</p>
                                     </div>
                                 )

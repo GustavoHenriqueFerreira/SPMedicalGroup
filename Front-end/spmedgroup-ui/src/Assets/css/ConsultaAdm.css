@@ -56,12 +56,15 @@
 }
 
 .input_pesquisa-ConAdm{
-    background-color:rgba(174, 247, 194, 0.3);
+    background-color: rgba(174, 247, 194, 0.3);
     border-radius: 20px;
-    border: none;
     width: 510px;
     height: 58px;
     display: flex;
+    font-size: 24px;
+    border: none;
+    color: black;
+    text-align: center;
 }
 
 .espacamento_btn-ConAdm{

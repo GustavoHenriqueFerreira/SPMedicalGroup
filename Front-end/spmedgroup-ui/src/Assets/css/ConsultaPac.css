@@ -58,6 +58,10 @@
     width: 510px;
     height: 58px;
     display: flex;
+    font-size: 24px;
+    border: none;
+    color: black;
+    text-align: center;
 }
 
 .espacamento_btn-ConPac{
