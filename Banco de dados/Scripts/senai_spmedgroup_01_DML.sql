@@ -1,4 +1,4 @@
-USE SPMEDGROUP;
+USE SENAI_SPMEDGROUP;
 GO
 
 INSERT INTO tipoUsuario(tituloTipoUsuario)
