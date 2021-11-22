@@ -113,7 +113,7 @@ export default class Login extends Component {
                                                     name="senha"
                                                     value={this.state.senha}
                                                     onChange={this.atualizaStateCampo}
-                                                    type="text"
+                                                    type="password"
                                                     placeholder="Senha">
                                                 </input>
                                             </div>

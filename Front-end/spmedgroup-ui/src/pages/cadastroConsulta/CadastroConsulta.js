@@ -136,7 +136,7 @@ export default function CadastroConsulta() {
                         <h1 className="h1-CadCon">Cadastrar Consulta</h1>
                         <div className="box_pesquisa-CadCon">
                             <form onSubmit={CadastroConsulta} className="container cadastro">
-                                <div className="container espacamento_box-CadCon">
+                                <div className="espacamento_box-CadCon">
 
                                     {/* <div>
                                             <label className="label-CadCon">Clínica:</label>
