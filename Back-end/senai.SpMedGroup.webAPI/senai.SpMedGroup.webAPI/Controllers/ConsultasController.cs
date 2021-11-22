@@ -24,7 +24,7 @@ namespace senai.SpMedGroup.webAPI.Controllers
             _consultaRepository = new ConsultaRepository();
         }
 
-        [Authorize]
+        [Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult Listar()
         {
@@ -68,7 +68,7 @@ namespace senai.SpMedGroup.webAPI.Controllers
             }
         }
 
-        [Authorize(Roles = "1, 3")]
+        [Authorize(Roles = "3")]
         [HttpPut("{idConsulta}")]
         public IActionResult Atualizar(int idConsulta, Consulta consultaAtualizada)
         {
@@ -116,7 +116,7 @@ namespace senai.SpMedGroup.webAPI.Controllers
             }
         }
 
-        //[Authorize(Roles = "3")]
+        [Authorize(Roles = "3")]
         [HttpGet("listaMed")]
         public IActionResult ListarConsultaMedico()
         {
@@ -134,7 +134,6 @@ namespace senai.SpMedGroup.webAPI.Controllers
         }
 
         [Authorize(Roles = "2")]
-        [Authorize]
         [HttpGet("listaPac")]
         public IActionResult ListarConsultasPaciente()
         {

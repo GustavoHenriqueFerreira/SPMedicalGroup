@@ -1,13 +1,13 @@
-import { Component } from 'react';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { parseJwt, usuarioAutenticado } from '../../services/auth';
 import { Link } from 'react-router-dom';
 
 import '../../Assets/css/ConsultaAdm.css';
 import Cabecalho from "../../components/cabecalho/cabecalho";
 import Rodape from "../../components/rodape/rodape";
 import SituacaoConsulta from "../../components/situacaoConsulta/SituacaoConsulta";
+
+import ImgEditaSituacao from "../../Assets/img/img_editarSituacao.png";
 
 export default function ConsultasAdm() {
     const [listaConsultas, setListaConsultas] = useState([]);
@@ -41,22 +41,20 @@ export default function ConsultasAdm() {
     useEffect(buscarConsultas, []);
 
     function permitirSelect(idConsulta) {
-        // console.log("Você está editando a situação da consulta " + idConsulta + "e a situação é " + idSituacao)        
+        console.log("Consulta " + idConsulta + " e a situação é " + idSituacao)
         document.getElementById(idConsulta).removeAttribute("disabled");
         var btn = document.getElementById("btn" + idConsulta);
 
-        if (btn.style.display === "none") {
+        if (btn.style.display === "none")
             btn.style.display = "";
-        } else {
+        else {
             btn.style.display = "none";
         }
-
-
     }
 
     function alteraSituacao(idConsulta) {
 
-        axios.patch("http://localhost:5000/api/consultas/situacao" + idConsulta, {
+        axios.patch("http://localhost:5000/api/consultas/situacao/" + idConsulta, {
             idSituacao: idSituacao
         }, {
             headers: {
@@ -64,8 +62,8 @@ export default function ConsultasAdm() {
             }
         })
             .then(resposta => {
-                if (resposta.status === 204) {
-                    console.log("consulta" + idConsulta + "atualizada");
+                if (resposta.status === 200) {
+                    console.log("consulta " + idConsulta + " atualizada");
                     document.getElementById(idConsulta).setAttribute("disabled", "disabled");
                     var btn = document.getElementById("btn" + idConsulta)
 
@@ -140,31 +138,16 @@ export default function ConsultasAdm() {
                                             hour: 'numeric', minute: 'numeric',
                                             hour12: true
                                         }).format(new Date(consultas.dataHoraConsulta))}</li>
+                                        
+                                        <li className="topicos-ConAdm">Situação: {consultas.idSituacaoNavigation.descricaoSituacao}</li>
+
                                         <div className="container situacao">
-                                            <li className="topicos-ConAdm">Situação: {consultas.idSituacaoNavigation.descricaoSituacao}</li>
-                                            {/* <Link to="/AtualizaSituacao"><button className="btn_situacao-ConAdm">Editar Situação</button></ Link> */}
+                                            <SituacaoConsulta mudar={(campo) => setIdSituacao(campo.target.value)} idConsulta={consultas.idConsulta} situacao={consultas.idSituacaoNavigation.descricaoSituacao} />
+                                            <button onClick={() => permitirSelect(consultas.idConsulta)} type="button" className="vazio"><img className="img-editarSituacao" src={ImgEditaSituacao} alt="Editar situação da consulta" /></button>
 
-                                            {
-                                                listaConsultas.map((consulta) => {
-                                                    <SituacaoConsulta alterar={(campo) => setIdSituacao(campo.target.value)} idConsulta={consulta.idConsulta} situacao={consulta.descricaoConsulta} />
-                                                    // console.log(consulta.idSituacaoNavigation.situacao1)
-                                                    return (
-                                                        <button onClick={() => permitirSelect(consulta.idConsulta)} type="button" className="vazio">Editar</button>
-                                                    )
-                                                })
-                                            }
-                                        </div>
+                                            <button className="container btn_situacao-ConAdm" onClick={() => alteraSituacao(consultas.idConsulta)} id={"btn" + consultas.idConsulta} style={{ display: "none" }}>Atualizar</button>
+                                        </div>       
 
-                                        <select name="situacao" id="situacao" value={idSituacao} defaultValue="0" onChange={(campo) =>
-                                            setIdSituacao(campo.target.value)}>
-                                            <option value="0" disabled>Selecione a situacao</option>
-                                            <option value="1">Realizada</option>
-                                            <option value="2">Cancelada</option>
-                                            <option value="3">Agendada</option>
-                                        </select>
-
-
-                                        <button type="submit">Alterar Situação</button>
                                         <p className="topicos-ConAdm">{consultas.descricaoConsulta}</p>
                                     </div>
                                 )

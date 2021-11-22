@@ -9,8 +9,6 @@ import '../../Assets/css/Home.css';
 import Cabecalho from "../../components/cabecalho/cabecalho";
 import Rodape from "../../components/rodape/rodape";
 
-/* import logo from '../../Assets/img/logo_spmedgroup_v1 3.png'; */
-
 function App() {
     return (
         <div>

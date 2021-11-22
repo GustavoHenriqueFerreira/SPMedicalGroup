@@ -173,6 +173,11 @@
     text-decoration: none;
 }
 
+.img-editarSituacao{
+    width: 30px;
+    height: 30px;
+}
+
 @media (max-width: 600px){
     .container-ConAdm{
         width: 80vw;

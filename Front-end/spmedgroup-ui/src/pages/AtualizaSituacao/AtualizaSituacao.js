@@ -1,8 +1,5 @@
-import { Component } from 'react';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { parseJwt, usuarioAutenticado } from '../../services/auth';
-import { Link } from 'react-router-dom';
 
 import '../../Assets/css/InserirDescricao.css';
 import Cabecalho from "../../components/cabecalho/cabecalho";
