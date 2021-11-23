@@ -59,6 +59,13 @@
             <param name="idConsulta">ID da consulta que será buscado</param>
             <returns>Consulta encontrada</returns>
         </member>
+        <member name="M:senai.SpMedGroup.webAPI.Interfaces.IConsultaRepository.BuscarSituacao(System.Int32)">
+            <summary>
+            Buscar consulta pelo ID para situação
+            </summary>
+            <param name="idConsulta">ID da consulta que será buscado</param>
+            <returns>Consulta encontrada</returns>
+        </member>
         <member name="M:senai.SpMedGroup.webAPI.Interfaces.IConsultaRepository.Cadastrar(senai.SpMedGroup.webAPI.Domains.Consulta)">
             <summary>
             Cadastrar uma consulta

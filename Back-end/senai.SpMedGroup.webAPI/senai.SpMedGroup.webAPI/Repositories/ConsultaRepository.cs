@@ -147,9 +147,14 @@ namespace senai.SpMedGroup.webAPI.Repositories
                 .OrderBy(c => c.IdConsulta).ToList();
         }
 
+        public Consulta BuscarSituacao(int idConsulta)
+        {
+            return ctx.Consultas.FirstOrDefault(c => c.IdConsulta == idConsulta);
+        }
+
         public void AlterarSituacao(int idConsulta, string situacaoConsulta)
         {
-            Consulta consultaBuscada = BuscarPorId(idConsulta);
+            Consulta consultaBuscada = BuscarSituacao(idConsulta);
 
             switch (situacaoConsulta)
             {

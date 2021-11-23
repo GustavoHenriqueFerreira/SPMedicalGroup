@@ -25,6 +25,13 @@ namespace senai.SpMedGroup.webAPI.Interfaces
         Consulta BuscarPorId(int idConsulta);
 
         /// <summary>
+        /// Buscar consulta pelo ID para situação
+        /// </summary>
+        /// <param name="idConsulta">ID da consulta que será buscado</param>
+        /// <returns>Consulta encontrada</returns>
+        Consulta BuscarSituacao(int idConsulta);
+
+        /// <summary>
         /// Cadastrar uma consulta
         /// </summary>
         /// <param name="novaConsulta">Objeto novaConsulta com as todas as informações</param>
