@@ -63,15 +63,16 @@ export default function ConsultasAdm() {
         })
             .then(resposta => {
                 if (resposta.status === 200) {
-                    console.log("consulta " + idConsulta + " atualizada");
                     document.getElementById(idConsulta).setAttribute("disabled", "disabled");
                     var btn = document.getElementById("btn" + idConsulta)
-
+                    
                     btn.style.display = "none";
                     buscarConsultas();
                 }
             }).catch(erro => console.log(erro))
+            console.log("consulta " + idConsulta + " atualizada");
     }
+
 
     return (
         <div>
@@ -123,32 +124,33 @@ export default function ConsultasAdm() {
                         {
                             listaConsultas.map((consultas) => {
                                 return (
+                                    <div className="container consulta-ConAdm">
+                                        <div className="fundo-ConAdm">
+                                            <h2> {consultas.idConsulta}° Consulta</h2>
+                                            {/* <li className="topicos-ConAdm">Clínica:  {consultas.idMedicoNavigation.idClinicaNavigation.nomeClinica} </li> */}
+                                            <li className="topicos-ConAdm">Paciente: {consultas.idPacienteNavigation.nomePaciente}</li>
+                                            <li className="topicos-ConAdm">Data de Nascimento: {Intl.DateTimeFormat("pt-BR", {
+                                                year: 'numeric', month: 'short', day: 'numeric',
+                                            }).format(new Date(consultas.idPacienteNavigation.nascimento))}</li>
+                                            <li className="topicos-ConAdm">Telefone: {consultas.idPacienteNavigation.telefone}</li>
+                                            <li className="topicos-ConAdm">Médico: {consultas.idMedicoNavigation.nomeMedico}</li>
+                                            <li className="topicos-ConAdm">Data: {Intl.DateTimeFormat("pt-BR", {
+                                                year: 'numeric', month: 'short', day: 'numeric',
+                                                hour: 'numeric', minute: 'numeric',
+                                                hour12: true
+                                            }).format(new Date(consultas.dataHoraConsulta))}</li>
 
-                                    <div className="consulta-ConAdm">
-                                        <h2> {consultas.idConsulta}° Consulta</h2>
-                                        {/* <li className="topicos-ConAdm">Clínica:  {consultas.idMedicoNavigation.idClinicaNavigation.nomeClinica} </li> */}
-                                        <li className="topicos-ConAdm">Paciente: {consultas.idPacienteNavigation.nomePaciente}</li>
-                                        <li className="topicos-ConAdm">Data de Nascimento: {Intl.DateTimeFormat("pt-BR", {
-                                            year: 'numeric', month: 'short', day: 'numeric',
-                                        }).format(new Date(consultas.idPacienteNavigation.nascimento))}</li>
-                                        <li className="topicos-ConAdm">Telefone: {consultas.idPacienteNavigation.telefone}</li>
-                                        <li className="topicos-ConAdm">Médico: {consultas.idMedicoNavigation.nomeMedico}</li>
-                                        <li className="topicos-ConAdm">Data: {Intl.DateTimeFormat("pt-BR", {
-                                            year: 'numeric', month: 'short', day: 'numeric',
-                                            hour: 'numeric', minute: 'numeric',
-                                            hour12: true
-                                        }).format(new Date(consultas.dataHoraConsulta))}</li>
-                                        
-                                        <li className="topicos-ConAdm">Situação: {consultas.idSituacaoNavigation.descricaoSituacao}</li>
+                                            <li className="topicos-ConAdm">Situação: {consultas.idSituacaoNavigation.descricaoSituacao}</li>
 
-                                        <div className="container situacao">
-                                            <SituacaoConsulta mudar={(campo) => setIdSituacao(campo.target.value)} idConsulta={consultas.idConsulta} situacao={consultas.idSituacaoNavigation.descricaoSituacao} />
-                                            <button onClick={() => permitirSelect(consultas.idConsulta)} type="button" className="vazio"><img className="img-editarSituacao" src={ImgEditaSituacao} alt="Editar situação da consulta" /></button>
+                                            <div className="situacao">
+                                                <SituacaoConsulta mudar={(campo) => setIdSituacao(campo.target.value)} idConsulta={consultas.idConsulta} situacao={consultas.idSituacaoNavigation.descricaoSituacao} />
+                                                <button onClick={() => permitirSelect(consultas.idConsulta)} type="button" className="vazio"><img className="img-editarSituacao" src={ImgEditaSituacao} alt="Editar situação da consulta" /></button>
 
-                                            <button className="container btn_situacao-ConAdm" onClick={() => alteraSituacao(consultas.idConsulta)} id={"btn" + consultas.idConsulta} style={{ display: "none" }}>Atualizar</button>
-                                        </div>       
+                                                <button className="container btn_situacao-ConAdm" onClick={() => alteraSituacao(consultas.idConsulta)} id={"btn" + consultas.idConsulta} style={{ display: "none" }}>Atualizar</button>
+                                            </div>
 
-                                        <p className="topicos-ConAdm">{consultas.descricaoConsulta}</p>
+                                            <p className="topicos-ConAdm">{consultas.descricaoConsulta}</p>
+                                        </div>
                                     </div>
                                 )
                             })

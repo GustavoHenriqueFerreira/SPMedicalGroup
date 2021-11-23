@@ -122,15 +122,20 @@
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    margin-top: 3%;
 }
 
 .consulta-ConAdm {
+    margin-top: 2%;
+}
+
+.fundo-ConAdm {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 350px;
+    align-items: center;
+    height: 100%;
+    border-radius: 30px;
+    background-color: rgba(174, 247, 194, 0.3);
 }
   
 .consulta-ConAdm h2 {
@@ -140,6 +145,7 @@
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 20px;
+    margin-top: 20px
 }
 
 .topicos-ConAdm{
@@ -191,10 +197,8 @@
         margin-top: 4%;
     }
 
-    .consulta-ConAdm{
-        display: flex;
-        justify-content: flex-start;
-        height: 120%;
+    .fundo-ConAdm{
+        margin-top: 2%;
     }
 
     .consulta-ConAdm h2{
@@ -202,12 +206,16 @@
     }
 
     .espacamento_box-ConAdm input{
-        width: 100%;
+        width: 90%;
         height: 75%;
     }
 
     .espacamento_box-ConAdm label{
         font-size: 24px;
+    }
+
+    .espacamento_box-ConAdm {
+        margin-left: 5%;
     }
 
     .btn_listar-ConAdm{
