@@ -101,6 +101,36 @@
     text-decoration: unset;
 }
 
+@media (max-width: 1750px){
+    .img_login-login{
+        width: 90%;
+    }
+
+    .h1-login{
+        font-size: 64px;
+    }
+
+    .bloco_login-login {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        margin-bottom: 10%;
+    }
+
+    .posicionamento-login {
+        height: 25%;
+        width: 75%;
+    }
+}
+
+@media (max-width: 1550px){
+    .img_login-login{
+        width: 80%;
+    }
+}
+
 @media (max-width: 600px){
 
     .img_login-login{

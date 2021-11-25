@@ -17,7 +17,7 @@ export default function ConsultasMed() {
         })
             .then(resposta => {
                 if (resposta.status === 200) {
-                    // console.log(resposta.data)
+                    //console.log(resposta.data)
                     setListaConsultasMed(resposta.data)
                 };
             })

@@ -22,7 +22,7 @@ export default function ConsultaPac() {
         })
             .then(resposta => {
                 if (resposta.status === 200) {
-                    // console.log(resposta.data)
+                     console.log(resposta.data)
                     setListaConsultasPac(resposta.data)
                 };
             })
