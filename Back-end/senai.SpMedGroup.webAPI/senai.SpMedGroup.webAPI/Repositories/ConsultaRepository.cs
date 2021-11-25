@@ -179,27 +179,95 @@ namespace senai.SpMedGroup.webAPI.Repositories
             ctx.SaveChanges();
         }
 
-        public List<Consulta> ListarConsultasMedico(int idConsulta)
+        public List<Consulta> ListarConsultasMedico(int idMedico)
         {
             return ctx.Consultas
+            .Select(c => new Consulta()
+            {
+                IdConsulta = c.IdConsulta,
+                DescricaoConsulta = c.DescricaoConsulta,
+                DataHoraConsulta = c.DataHoraConsulta,
 
-            .Include(c => c.IdPacienteNavigation).Include(c => c.IdMedicoNavigation).Include(c => c.IdSituacaoNavigation)
+                IdPacienteNavigation = new Paciente()
+                {
+                    IdPaciente = c.IdPacienteNavigation.IdPaciente,
+                    NomePaciente = c.IdPacienteNavigation.NomePaciente,
+                    Rg = c.IdPacienteNavigation.Rg,
+                    Cpf = c.IdPacienteNavigation.Cpf,
+                    EnderecoPaciente = c.IdPacienteNavigation.EnderecoPaciente,
+                    Nascimento = c.IdPacienteNavigation.Nascimento,
+                    Telefone = c.IdPacienteNavigation.Telefone
+                },
 
-            .Where(c => c.IdMedicoNavigation.IdUsuario == idConsulta)
+                IdMedicoNavigation = new Medico()
+                {
+                    IdMedico = c.IdMedicoNavigation.IdMedico,
+                    NomeMedico = c.IdMedicoNavigation.NomeMedico,
+                    Crm = c.IdMedicoNavigation.Crm,
+
+                    IdEspecialidadeNavigation = new Especialidade()
+                    {
+                        IdEspecialidade = c.IdMedicoNavigation.IdEspecialidadeNavigation.IdEspecialidade,
+                        NomeEspecialidade = c.IdMedicoNavigation.IdEspecialidadeNavigation.NomeEspecialidade,
+                    }
+                },
+
+                IdSituacaoNavigation = new Situacao()
+                {
+                    IdSituacao = c.IdSituacaoNavigation.IdSituacao,
+                    DescricaoSituacao = c.IdSituacaoNavigation.DescricaoSituacao,
+                }
+            })
+
+            .Where(c => c.IdMedicoNavigation.IdMedico == idMedico)
 
             .OrderBy(c => c.IdConsulta)  
             .ToList();
         }
 
-        public List<Consulta> ListarConsultasPaciente(int idConsulta)
+        public List<Consulta> ListarConsultasPaciente(int idPaciente)
         {
             return ctx.Consultas
-            
-            .Include(c => c.IdPacienteNavigation).Include(c => c.IdMedicoNavigation).Include(c => c.IdSituacaoNavigation)
+            .Select(c => new Consulta()
+            {
+                IdConsulta = c.IdConsulta,
+                DescricaoConsulta = c.DescricaoConsulta,
+                DataHoraConsulta = c.DataHoraConsulta,
 
-            .Where(c => c.IdPacienteNavigation.IdUsuario == idConsulta)
+                IdPacienteNavigation = new Paciente()
+                {
+                    IdPaciente = c.IdPacienteNavigation.IdPaciente,
+                    NomePaciente = c.IdPacienteNavigation.NomePaciente,
+                    Rg = c.IdPacienteNavigation.Rg,
+                    Cpf = c.IdPacienteNavigation.Cpf,
+                    EnderecoPaciente = c.IdPacienteNavigation.EnderecoPaciente,
+                    Nascimento = c.IdPacienteNavigation.Nascimento,
+                    Telefone = c.IdPacienteNavigation.Telefone
+                },
 
-            .OrderBy(c => c.IdConsulta) 
+                IdMedicoNavigation = new Medico()
+                {
+                    IdMedico = c.IdMedicoNavigation.IdMedico,
+                    NomeMedico = c.IdMedicoNavigation.NomeMedico,
+                    Crm = c.IdMedicoNavigation.Crm,
+
+                    IdEspecialidadeNavigation = new Especialidade()
+                    {
+                        IdEspecialidade = c.IdMedicoNavigation.IdEspecialidadeNavigation.IdEspecialidade,
+                        NomeEspecialidade = c.IdMedicoNavigation.IdEspecialidadeNavigation.NomeEspecialidade,
+                    }
+                },
+
+                IdSituacaoNavigation = new Situacao()
+                {
+                    IdSituacao = c.IdSituacaoNavigation.IdSituacao,
+                    DescricaoSituacao = c.IdSituacaoNavigation.DescricaoSituacao,
+                }
+            })
+
+            .Where(c => c.IdPacienteNavigation.IdPaciente == idPaciente)
+
+            .OrderBy(c => c.IdConsulta)
             .ToList();
         }
 

@@ -59,15 +59,15 @@ namespace senai.SpMedGroup.webAPI
 
                         ClockSkew = TimeSpan.FromHours(8),
 
-                        ValidIssuer = "SpMedGroup.webAPI",
+                        ValidIssuer = "senai.SpMedGroup.webAPI",
 
-                        ValidAudience = "SpMedGroup.webAPI",
+                        ValidAudience = "senai.SpMedGroup.webAPI",
                     };
                 });
 
             services.AddSwaggerGen(c => 
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SpMedGroup.webAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "senai.SpMedGroup.webAPI", Version = "v1" });
 
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
@@ -93,7 +93,7 @@ namespace senai.SpMedGroup.webAPI
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SpMedGroup.webAPI");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "senai.SpMedGroup.webAPI");
                 c.RoutePrefix = string.Empty;
             });
 
