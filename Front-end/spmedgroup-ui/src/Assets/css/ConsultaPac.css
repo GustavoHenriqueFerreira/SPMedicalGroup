@@ -108,7 +108,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 230px;
+    height: 250px;
+    background: rgba(85, 8, 249, 0.1);
+    border-radius: 30px;
 }
   
 .consulta-ConPac h2 {
@@ -131,6 +133,11 @@
 @media (max-width: 600px){
     .container-ConPac{
         width: 80vw;
+        height: 50%;
+    }
+
+    .banner-ConPac{
+        height: 850px;
     }
 
     .banner-ConPac h1{
@@ -151,13 +158,20 @@
         font-size: 15px;
     }
 
-    .espacamento_box-ConPac input{
-        width: 100%;
+    .espacamento_box-ConPac input {
+        width: 90%;
         height: 75%;
     }
 
     .espacamento_box-ConPac label{
-        font-size: 24px;
+        font-size: 20px;
+    }
+
+    .espacamento_box-ConPac {
+        display: flex;
+        margin-left: 5%;
+        justify-content: space-evenly;
+        margin-right: 5%;
     }
 
     .btn_listar-ConPac{

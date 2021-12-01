@@ -8,6 +8,7 @@ import Rodape from "../../components/rodape/rodape";
 import SituacaoConsulta from "../../components/situacaoConsulta/SituacaoConsulta";
 
 import ImgEditaSituacao from "../../Assets/img/img_editarSituacao.png";
+import IconEditar from "../../Assets/img/edit-solid.svg";
 
 export default function ConsultasAdm() {
     const [listaConsultas, setListaConsultas] = useState([]);
@@ -144,8 +145,8 @@ export default function ConsultasAdm() {
 
                                             <div className="situacao">
                                                 <SituacaoConsulta mudar={(campo) => setIdSituacao(campo.target.value)} idConsulta={consultas.idConsulta} situacao={consultas.idSituacaoNavigation.descricaoSituacao} />
-                                                <button onClick={() => permitirSelect(consultas.idConsulta)} type="button" className="vazio"><img className="img-editarSituacao" src={ImgEditaSituacao} alt="Editar situação da consulta" /></button>
-
+                                                <button onClick={() => permitirSelect(consultas.idConsulta)} type="button" className="vazio"><img className="img-editarSituacao" src={IconEditar}/></button>
+                                                
                                                 <button className="container btn_situacao-ConAdm" onClick={() => alteraSituacao(consultas.idConsulta)} id={"btn" + consultas.idConsulta} style={{ display: "none" }}>Atualizar</button>
                                             </div>
 

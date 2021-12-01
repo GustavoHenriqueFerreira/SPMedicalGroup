@@ -75,11 +75,6 @@
     background: #90C7FF;
 }
 
-/* .acessar_page-login{
-    display: flex;
-    justify-content: center;
-} */
-
 .btn_acessar-login{
     width: 215px;
     height: 70px;
@@ -127,7 +122,26 @@
 
 @media (max-width: 1550px){
     .img_login-login{
-        width: 80%;
+        width: 90%;
+    }
+
+    .posicionamento-login {
+        height: 15%;
+        width: 90%;
+    }
+
+    .h1-login {
+        font-size: 60px;
+        margin-right: 5%;
+    }
+
+    .google-login {
+        width: 110px;
+        height: 110px;
+    }
+
+    .mudar_senha-login{
+        font-size: 20px;
     }
 }
 
