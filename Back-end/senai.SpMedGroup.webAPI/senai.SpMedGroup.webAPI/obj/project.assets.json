@@ -7748,11 +7748,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\42410863817\\Desktop\\SP_MedicalGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj",
+      "projectUniqueName": "C:\\Users\\42410863817\\Desktop\\SPMedicalGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj",
       "projectName": "senai.SpMedGroup.webAPI",
-      "projectPath": "C:\\Users\\42410863817\\Desktop\\SP_MedicalGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj",
+      "projectPath": "C:\\Users\\42410863817\\Desktop\\SPMedicalGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI.csproj",
       "packagesPath": "C:\\Users\\42410863817\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\42410863817\\Desktop\\SP_MedicalGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\obj\\",
+      "outputPath": "C:\\Users\\42410863817\\Desktop\\SPMedicalGroup\\Back-end\\senai.SpMedGroup.webAPI\\senai.SpMedGroup.webAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\42410863817\\AppData\\Roaming\\NuGet\\NuGet.Config",
