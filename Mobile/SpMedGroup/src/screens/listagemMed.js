@@ -113,25 +113,28 @@ export default class ListaMed extends Component {
 
     <View style={styles.flatItemRow}>
       <View style={styles.flatItemContainer}>
-        <Text style={styles.flatItemTitle}>{item.idConsulta}° Consulta</Text>
-        <Text style={styles.flatItemInfo}>Descrição: {item.descricao}</Text>
-        {/* <Text style={styles.flatItemInfo}>Clínica:  {item.idMedicoNavigation.idClinicaNavigation.nomeClinica} </li> */}
+        <View style={styles.backGround}>
+          <View style={styles.titulo}>
+            <Text style={styles.flatItemTitle}>{item.idConsulta}° Consulta</Text>
+          </View>
+          {/* <Text style={styles.flatItemInfo}>Clínica:  {item.idMedicoNavigation.idClinicaNavigation.nomeClinica} </li> */}
 
-        <Text style={styles.flatItemInfo}>Nome do Paciente: {item.idPacienteNavigation.nomePaciente}</Text>
-        <Text style={styles.flatItemInfo}>Telefone: {item.idPacienteNavigation.telefone}</Text>
+          <Text style={styles.flatItemInfo}>Nome do Paciente: {item.idPacienteNavigation.nomePaciente}</Text>
+          <Text style={styles.flatItemInfo}>Telefone: {item.idPacienteNavigation.telefone}</Text>
 
-        <Text style={styles.flatItemInfo}>Data de Nascimento: {Intl.DateTimeFormat("pt-BR", {
-          year: 'numeric', month: 'short', day: 'numeric',
-        }).format(new Date(item.idPacienteNavigation.nascimento))}</Text>
+          <Text style={styles.flatItemInfo}>Data de Nascimento: {Intl.DateTimeFormat("pt-BR", {
+            year: 'numeric', month: 'short', day: 'numeric',
+          }).format(new Date(item.idPacienteNavigation.nascimento))}</Text>
 
-        <Text style={styles.flatItemInfo}>Data: {Intl.DateTimeFormat("pt-BR", {
-          year: 'numeric', month: 'short', day: 'numeric',
-          hour: 'numeric', minute: 'numeric',
-          hour12: true
-        }).format(new Date(item.dataHoraConsulta))}</Text>
+          <Text style={styles.flatItemInfo}>Data: {Intl.DateTimeFormat("pt-BR", {
+            year: 'numeric', month: 'short', day: 'numeric',
+            hour: 'numeric', minute: 'numeric',
+            hour12: true
+          }).format(new Date(item.dataHoraConsulta))}</Text>
 
-        <Text style={styles.flatItemInfo}>Situação: {item.idSituacaoNavigation.descricaoSituacao}</Text>
-        <Text style={styles.flatItemInfo}>{item.descricaoConsulta}</Text>
+          <Text style={styles.flatItemInfo}>Situação: {item.idSituacaoNavigation.descricaoSituacao}</Text>
+          <Text style={styles.flatItemInfo}>{item.descricaoConsulta}</Text>
+        </View>
       </View>
     </View>
   );
@@ -152,7 +155,7 @@ const styles = StyleSheet.create({
   // conteúdo da main
   main: {
     flex: 1,
-    backgroundColor: '',
+    backgroundColor: '#FAF7F7',
   },
   // cabeçalho
   mainHeader: {
@@ -173,7 +176,7 @@ const styles = StyleSheet.create({
   },
   // texto do cabeçalho
   mainHeaderText: {
-    fontSize: 16,
+    fontSize: 12,
     letterSpacing: 5,
     color: '#999',
   },
@@ -192,31 +195,43 @@ const styles = StyleSheet.create({
   },
   // conteúdo da lista
   mainBodyContent: {
-    paddingTop: 30,
     paddingRight: 50,
     paddingLeft: 50,
-    color: '#3912A9'
+    backgroundColor: '',
+  },
+
+  titulo: {
+    alignItems: 'center',
+  },
+
+  backGround: {
+    backgroundColor: 'rgba(144, 199, 255, 0.9)',
+    height: 230,
+    borderRadius: 20,
+    justifyContent: 'space-evenly',
+    //alignItems: 'center',
   },
   // dados do evento de cada item da lista (ou seja, cada linha da lista)
   flatItemRow: {
     flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
     marginTop: 40,
   },
   flatItemContainer: {
     flex: 1,
+    color: '#A4B0FA',
   },
   flatItemTitle: {
     fontSize: 16,
-    color: '#979797',
+    color: '#fff',
     fontWeight: 'bold',
   },
   flatItemInfo: {
     fontSize: 14,
-    color: '#979797',
-    lineHeight: 24,
+    color: '#fff',
+    lineHeight: 28,
+    marginLeft: '10%'
   },
+  /*
   flatItemImg: {
     justifyContent: 'center',
   },
@@ -225,7 +240,7 @@ const styles = StyleSheet.create({
     height: 26,
     tintColor: '#ccc',
   },
-  /* tabBarIcon: {
+  tabBarIcon: {
     width: 22,
     height: 22
   } */

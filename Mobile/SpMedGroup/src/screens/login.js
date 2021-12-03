@@ -42,7 +42,7 @@ export default class Login extends Component {
 
     //agora sim podemos descomentar.
     if (resposta.status == 200) {
-      this.props.navigation.navigate('ListaPac');
+      this.props.navigation.navigate('ListaMed');
     }
 
     //console.warn(token);
@@ -55,11 +55,9 @@ export default class Login extends Component {
       <View style={styles.main}>
         <View style={styles.mainHeader}>
           <View style={styles.mainHeaderRow}>
-            {/* <Image
-              source={require('../../assets/img/calendar.png')}
-              style={styles.mainHeaderImg}
-            /> */}
-            <Text style={styles.mainHeaderText}>{'Roman'.toUpperCase()}</Text>
+            <Image source={require('../../assets/img/img_login.png')} style={styles.mainHeaderImg} resizeMode="cover"/>
+
+            <Text style={styles.mainHeaderText}>{'Sp Medical Group'.toUpperCase()}</Text>
           </View>
           <View style={styles.mainHeaderLine} />
         </View>
@@ -70,7 +68,7 @@ export default class Login extends Component {
             placeholder="username"
             placeholderTextColor="#FFF"
             keyboardType="email-address"
-            // ENVENTO PARA FAZERMOS ALGO ENQUANTO O TEXTO MUDA
+            // EVENTO PARA FAZERMOS ALGO ENQUANTO O TEXTO MUDA
             onChangeText={Email => this.setState({ Email })}
           />
 
@@ -80,7 +78,7 @@ export default class Login extends Component {
             placeholderTextColor="#FFF"
             keyboardType="default" //para default nao obrigatorio.
             secureTextEntry={true} //proteje a senha.
-            // ENVENTO PARA FAZERMOS ALGO ENQUANTO O TEXTO MUDA
+            // EVENTO PARA FAZERMOS ALGO ENQUANTO O TEXTO MUDA
             onChangeText={Senha => this.setState({ Senha })}
           />
 
@@ -90,7 +88,7 @@ export default class Login extends Component {
             <Text style={styles.btnLoginText}>Login</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </View >
     );
   }
 }
@@ -99,7 +97,8 @@ const styles = StyleSheet.create({
   // conteúdo da main
   main: {
     flex: 2,
-    backgroundColor: '#3912A9',
+    ImageBackground: '../../assets/img/img_login.png',
+
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
@@ -115,18 +114,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   // imagem do cabeçalho
-  mainHeaderImg: {
-    width: 22,
-    height: 22,
-    tintColor: '#ccc',
-    marginRight: -5,
-    marginTop: -12,
-  },
+  /*   mainHeaderImg: {
+      width: 22,
+      height: 22,
+    
+      marginRight: -5,
+      marginTop: -12,
+    }, */
   // texto do cabeçalho
   mainHeaderText: {
-    fontSize: 16,
+    fontSize: 20,
     letterSpacing: 5,
-    color: '#999',
+    color: '#FFFFFF',
   },
 
   mainBody: {
@@ -136,28 +135,29 @@ const styles = StyleSheet.create({
   inputLogin: {
     width: 240, //largura mesma do botao
     marginBottom: 40, //espacamento pra baixo
-    fontSize: 18,
+    fontSize: 20,
     color: '#FFF',
     borderBottomColor: '#FFF', //linha separadora
     borderBottomWidth: 2, //espessura.
   },
 
   btnLoginText: {
-    fontSize: 12, //aumentar um pouco
-    fontFamily: 'Open Sans Light', //troca de fonte
-    color: '#B727FF', //mesma cor identidade
+    fontSize: 15, //aumentar um pouco
+    fontFamily: 'Open Sans', //troca de fonte
+    color: '#90C7FF', //mesma cor identidade
     letterSpacing: 6, //espacamento entre as letras
     textTransform: 'uppercase', //estilo maiusculo
   },
+
   btnLogin: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: 38,
-    width: 240,
+    height: 40,
+    width: 260,
     backgroundColor: '#FFFFFF',
     borderColor: '#FFFFFF',
     borderWidth: 1,
-    borderRadius: 4,
-    shadowOffset: { height: 1, width: 1 },
+    borderRadius: 30,
+    shadowOffset: { height: 5, width: 5 },
   },
 });

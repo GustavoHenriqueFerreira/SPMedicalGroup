@@ -122,7 +122,7 @@ namespace senai.SpMedGroup.webAPI.Repositories
                     Cpf = c.IdPacienteNavigation.Cpf,
                     EnderecoPaciente = c.IdPacienteNavigation.EnderecoPaciente,
                     Nascimento = c.IdPacienteNavigation.Nascimento,
-                    Telefone = c.IdPacienteNavigation.Telefone
+                    Telefone = c.IdPacienteNavigation.Telefone,
                 },
 
                 IdMedicoNavigation = new Medico()
@@ -196,7 +196,12 @@ namespace senai.SpMedGroup.webAPI.Repositories
                     Cpf = c.IdPacienteNavigation.Cpf,
                     EnderecoPaciente = c.IdPacienteNavigation.EnderecoPaciente,
                     Nascimento = c.IdPacienteNavigation.Nascimento,
-                    Telefone = c.IdPacienteNavigation.Telefone
+                    Telefone = c.IdPacienteNavigation.Telefone,
+
+                    //IdUsuarioNavigation = new Usuario()
+                    //{
+                        //IdUsuario = c.IdMedicoNavigation.IdUsuarioNavigation.IdTipoUsuario,
+                    //},
                 },
 
                 IdMedicoNavigation = new Medico()
@@ -216,7 +221,7 @@ namespace senai.SpMedGroup.webAPI.Repositories
                 {
                     IdSituacao = c.IdSituacaoNavigation.IdSituacao,
                     DescricaoSituacao = c.IdSituacaoNavigation.DescricaoSituacao,
-                }
+                },
             })
 
             .Where(c => c.IdMedicoNavigation.IdMedico == idMedico)
@@ -243,6 +248,11 @@ namespace senai.SpMedGroup.webAPI.Repositories
                     EnderecoPaciente = c.IdPacienteNavigation.EnderecoPaciente,
                     Nascimento = c.IdPacienteNavigation.Nascimento,
                     Telefone = c.IdPacienteNavigation.Telefone
+
+                    //IdUsuarioNavigation = new Usuario()
+                    //{
+                    //IdUsuario = c.IdMedicoNavigation.IdUsuarioNavigation.IdTipoUsuario,
+                    //},
                 },
 
                 IdMedicoNavigation = new Medico()
