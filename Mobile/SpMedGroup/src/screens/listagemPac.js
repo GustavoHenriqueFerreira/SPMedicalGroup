@@ -70,6 +70,43 @@ export default class ListaPac extends Component {
           />
         </View>
 
+        <bottomTab.Navigator
+          initialRouteName='Consultas'
+
+          screenOptions={({ route }) => ({
+            tabBarIcon: () => {
+              if (route.name === 'Consultas') {
+                return (
+                  <Image
+                    source={require('../assets/clipboard-list-solid.png')}
+                    style={styles.tabBarIconL}
+                  />
+                )
+              }
+              if (route.name === 'Perfil') {
+                return (
+                  <Image
+                    source={require('../assets/sign-out-alt-solid.png')}
+                    style={styles.tabBarIconS}
+                  />
+                )
+              }
+            },
+
+            // React Navigation 6.x
+            headerShown: false,
+            tabBarShowLabel: false,
+            tabBarActiveBackgroundColor: '#68c2e8',
+            tabBarInactiveBackgroundColor: '#009df5',
+            // tabBarActiveTintColor: 'blue',
+            // tabBarInactiveTintColor: 'red',
+            tabBarStyle: { height: 80 },
+          })}
+        >
+          <bottomTab.Screen name="Consultas" component={Consultas} />
+          <bottomTab.Screen name="Perfil" component={Perfil} />
+        </bottomTab.Navigator>
+
         {/*  <StatusBar
           hidden={false}
         />
@@ -113,7 +150,7 @@ export default class ListaPac extends Component {
 
     <View style={styles.flatItemRow}>
       <View style={styles.flatItemContainer}>
-      <Text style={styles.flatItemTitle}>{item.idConsulta}° Consulta</Text>
+        <Text style={styles.flatItemTitle}>{item.idConsulta}° Consulta</Text>
         <Text style={styles.flatItemInfo}>Nome Médico: {item.idMedicoNavigation.nomeMedico}</Text>
         <Text style={styles.flatItemInfo}>Data: {Intl.DateTimeFormat("pt-BR", {
           year: 'numeric', month: 'short', day: 'numeric',
