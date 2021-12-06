@@ -7,19 +7,19 @@ import Rodape from "../../components/rodape/rodape";
 
 export default function CadastroConsulta() {
     const [listaConsultas, setListaConsultas] = useState([]);
-    const [listaTiposUsuario, setListaTituloUsuario] = useState([]);
-    const [tituloTipoUsuario, setTituloUsuario] = useState('');
     const [idPaciente, setIdPaciente] = useState('');
     const [idMedico, setIdMedico] = useState('');
     const [idSituacao, setIdSituacao] = useState('');
-    const [DescricaoConsulta, setDescricaoConsulta] = useState('');
+    //const [DescricaoConsulta, setDescricaoConsulta] = useState('');
     const [DataHoraConsulta, setDataHoraConsulta] = useState(new Date());
     const [isLoading, setIsLoading] = useState(false);
+    //const [listaTiposUsuario, setListaTituloUsuario] = useState([]);
+    //const [tituloTipoUsuario, setTituloUsuario] = useState('');
 
     function buscarConsultas() {
         console.log('vamos fazer a chamada para a API');
 
-        axios('http://localhost:5000/api/consultas', {
+        axios('http://192.168.4.131:5000/api/consultas', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
             }
@@ -43,7 +43,7 @@ export default function CadastroConsulta() {
         if (listaConsultas) {
         }
 
-        axios.post('http://localhost:5000/api/consultas', {
+        axios.post('http://l192.168.4.131:5000/api/consultas', {
             idPaciente: idPaciente,
             idMedico: idMedico,
             idSituacao: idSituacao,
@@ -75,10 +75,10 @@ export default function CadastroConsulta() {
             }, 5000));
     };
 
-    function buscarTiposUsuario() {
+    /* function buscarTiposUsuario() {
         console.log('vamos fazer a chamada para a API');
 
-        axios('http://localhost:5000/api/tiposuser', {
+        axios('http://192.168.4.131:5000/api/tiposuser', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
             }
@@ -125,7 +125,7 @@ export default function CadastroConsulta() {
             .catch(erro => console.log(erro), setInterval(() => {
                 setIsLoading(false)
             }, 5000));
-    };
+    };*/
 
     return (
         <div>
@@ -194,16 +194,16 @@ export default function CadastroConsulta() {
                         </div>
 
                     </div>
-                    <form onSubmit={CadastroTipoUsuario} className="container_cadastro">
+                    {/* <form onSubmit={CadastroTipoUsuario} className="container_cadastro">
                         <div className="container espacamento_box-CadCon">
 
-                            {/* <div>
+                            <div>
                                             <label className="label-CadCon">Clínica:</label>
                                             <input type="text" 
                                             value={titulo}
                                             onChange={(campo) => setTitulo(campo.target.value)} 
                                             className="input_pesquisa-CadCon" />
-                                    </div> */}
+                                    </div>
 
 
                             <div>
@@ -236,7 +236,7 @@ export default function CadastroConsulta() {
                                 </div>
                             ) 
                         })
-                    }
+                    } */}
                 </section>
             </main>
             <Rodape />
