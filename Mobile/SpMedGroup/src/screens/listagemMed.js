@@ -141,18 +141,6 @@ export default class ListaMed extends Component {
 }
 
 const styles = StyleSheet.create({
-  // unidades de medida
-
-  // porcentagem
-  // ex: height: '50%'
-
-  // px
-  // ex: height: 50 (não é necessário colocar a unidade de medida px)
-
-  // proporção
-  // ex: flex: 1
-
-  // conteúdo da main
   main: {
     flex: 1,
     backgroundColor: '#FAF7F7',

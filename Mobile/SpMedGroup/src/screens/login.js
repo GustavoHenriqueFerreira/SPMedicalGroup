@@ -45,50 +45,52 @@ export default class Login extends Component {
       this.props.navigation.navigate('ListaMed');
     }
 
-    //console.warn(token);
-
+    console.warn(token);
     //
   };
 
   render() {
     return (
-      <View style={styles.main}>
-        <View style={styles.mainHeader}>
-          <View style={styles.mainHeaderRow}>
-            <Image source={require('../../assets/img/img_login.png')} style={styles.mainHeaderImg} resizeMode="cover"/>
+      <ImageBackground
+        source={require('../../assets/img/img_login.png')}
+        style={StyleSheet.absoluteFillObject}>
+        <View style={styles.main}>
+          <View style={styles.mainHeader}>
+            <View style={styles.mainHeaderRow}>
+              <Image source={require('../../assets/img/logo_comNome.png')} style={styles.mainHeaderImg}/>
 
-            <Text style={styles.mainHeaderText}>{'Sp Medical Group'.toUpperCase()}</Text>
+            </View>
+            <View style={styles.mainHeaderLine} />
           </View>
-          <View style={styles.mainHeaderLine} />
-        </View>
 
-        <View style={styles.mainBody}>
-          <TextInput
-            style={styles.inputLogin}
-            placeholder="username"
-            placeholderTextColor="#FFF"
-            keyboardType="email-address"
-            // EVENTO PARA FAZERMOS ALGO ENQUANTO O TEXTO MUDA
-            onChangeText={Email => this.setState({ Email })}
-          />
+          <View style={styles.mainBody}>
+            <TextInput
+              style={styles.inputLogin}
+              placeholder="Username"
+              placeholderTextColor="#FFF"
+              keyboardType="email-address"
+              // EVENTO PARA FAZERMOS ALGO ENQUANTO O TEXTO MUDA
+              onChangeText={Email => this.setState({ Email })}
+            />
 
-          <TextInput
-            style={styles.inputLogin}
-            placeholder="password"
-            placeholderTextColor="#FFF"
-            keyboardType="default" //para default nao obrigatorio.
-            secureTextEntry={true} //proteje a senha.
-            // EVENTO PARA FAZERMOS ALGO ENQUANTO O TEXTO MUDA
-            onChangeText={Senha => this.setState({ Senha })}
-          />
+            <TextInput
+              style={styles.inputLogin}
+              placeholder="Password"
+              placeholderTextColor="#FFF"
+              keyboardType="default" //para default nao obrigatorio.
+              secureTextEntry={true} //proteje a senha.
+              // EVENTO PARA FAZERMOS ALGO ENQUANTO O TEXTO MUDA
+              onChangeText={Senha => this.setState({ Senha })}
+            />
 
-          <TouchableOpacity
-            style={styles.btnLogin}
-            onPress={this.realizarLogin}>
-            <Text style={styles.btnLoginText}>Login</Text>
-          </TouchableOpacity>
-        </View>
-      </View >
+            <TouchableOpacity
+              style={styles.btnLogin}
+              onPress={this.realizarLogin}>
+              <Text style={styles.btnLoginText}>Login</Text>
+            </TouchableOpacity>
+          </View>
+        </View >
+      </ImageBackground>
     );
   }
 }
@@ -97,8 +99,6 @@ const styles = StyleSheet.create({
   // conteúdo da main
   main: {
     flex: 2,
-    ImageBackground: '../../assets/img/img_login.png',
-
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
@@ -106,22 +106,15 @@ const styles = StyleSheet.create({
   },
 
   mainHeader: {
-    flex: 3,
+    /* flex: 5, */
     justifyContent: 'center',
     alignItems: 'center',
   },
+  
   mainHeaderRow: {
     flexDirection: 'row',
   },
-  // imagem do cabeçalho
-  /*   mainHeaderImg: {
-      width: 22,
-      height: 22,
-    
-      marginRight: -5,
-      marginTop: -12,
-    }, */
-  // texto do cabeçalho
+
   mainHeaderText: {
     fontSize: 20,
     letterSpacing: 5,
@@ -129,27 +122,28 @@ const styles = StyleSheet.create({
   },
 
   mainBody: {
-    flex: 4,
+    /* flex: 5, */
   },
 
   inputLogin: {
-    width: 240, //largura mesma do botao
+    width: 260, //largura mesma do botao
     marginBottom: 40, //espacamento pra baixo
     fontSize: 20,
     color: '#FFF',
     borderBottomColor: '#FFF', //linha separadora
-    borderBottomWidth: 2, //espessura.
+    borderBottomWidth: 3, //espessura.
   },
 
   btnLoginText: {
     fontSize: 15, //aumentar um pouco
     fontFamily: 'Open Sans', //troca de fonte
-    color: '#90C7FF', //mesma cor identidade
-    letterSpacing: 6, //espacamento entre as letras
-    textTransform: 'uppercase', //estilo maiusculo
+    color: '#2C89E9', //mesma cor identidade
+    //letterSpacing: 6, //espacamento entre as letras
+    //textTransform: 'uppercase', //estilo maiusculo
   },
 
   btnLogin: {
+    marginTop: "5%",
     alignItems: 'center',
     justifyContent: 'center',
     height: 40,

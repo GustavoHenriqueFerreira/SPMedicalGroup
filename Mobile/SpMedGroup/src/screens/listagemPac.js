@@ -70,7 +70,7 @@ export default class ListaPac extends Component {
           />
         </View>
 
-        <bottomTab.Navigator
+        {/* <bottomTab.Navigator
           initialRouteName='Consultas'
 
           screenOptions={({ route }) => ({
@@ -105,7 +105,7 @@ export default class ListaPac extends Component {
         >
           <bottomTab.Screen name="Consultas" component={Consultas} />
           <bottomTab.Screen name="Perfil" component={Perfil} />
-        </bottomTab.Navigator>
+        </bottomTab.Navigator> */}
 
         {/*  <StatusBar
           hidden={false}

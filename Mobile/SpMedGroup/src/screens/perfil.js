@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -8,9 +8,14 @@ import {
   PendingView,
 } from 'react-native';
 
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const bottomTab = createBottomTabNavigator();
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import jwtDecode from 'jwt-decode';
 import api from '../services/api';
+import ListaMed from './listagemMed';
 
 export default class Perfil extends Component {
   constructor(props) {
@@ -22,7 +27,7 @@ export default class Perfil extends Component {
     };
   }
 
-  consultaImgPerfil = async () => {
+  /* consultaImgPerfil = async () => {
     const valorToken = await AsyncStorage.getItem('userToken');
 
     api
@@ -34,7 +39,7 @@ export default class Perfil extends Component {
       .then(resposta => {
         if (resposta.status == 200) {
           console.warn(resposta.data);
-          this.setState({base64: resposta.data});
+          this.setState({ base64: resposta.data });
         }
       })
       .catch(erro => console.warn(erro));
@@ -47,8 +52,8 @@ export default class Perfil extends Component {
       console.warn(jwtDecode(valorToken));
 
       if (valorToken != null) {
-        this.setState({nome: jwtDecode(valorToken).name});
-        this.setState({email: jwtDecode(valorToken).email});
+        this.setState({ nome: jwtDecode(valorToken).name });
+        this.setState({ email: jwtDecode(valorToken).email });
       }
     } catch (error) {
       console.warn(error);
@@ -58,7 +63,7 @@ export default class Perfil extends Component {
   componentDidMount() {
     this.buscarDadosStorage();
     this.consultaImgPerfil();
-  }
+  } */
 
   realizarLogout = async () => {
     //vamos remover o armazenamento local.
@@ -73,7 +78,6 @@ export default class Perfil extends Component {
   render() {
     return (
       <View style={styles.main}>
-        {/* Cabeçalho - Header */}
         <View style={styles.mainHeader}>
           <View style={styles.buttonContainer}>
             <TouchableOpacity
@@ -90,33 +94,69 @@ export default class Perfil extends Component {
           <View style={styles.mainHeaderLine} />
         </View>
 
-        {/* Corpo - Body - Section */}
         <View style={styles.mainBody}>
           <View style={styles.mainBodyInfo}>
-            {/* <Image 
-              source={imagem vinda da API}
-              style={styles.mainBodyImg}
-            /> */}
-            {/* <View style={styles.mainBodyImg} /> */}
+            <Image source={require('../../assets/img/profile.png')} style={styles.mainBodyImg} />
+            {/* <View style={styles.mainBodyImg} />
             <TouchableOpacity
               onPress={() => this.props.navigation.navigate('Camera')}>
-              <Image
-                source={{uri: `data:image/png;base64,${this.state.base64}`}}
-                style={styles.mainBodyImg}
-              />
             </TouchableOpacity>
+            <Image
+              source={{ uri: `data:image/png;base64,${this.state.base64}` }}
+              style={styles.mainBodyImg}
+            /> */}
 
-            <Text style={styles.mainBodyText}>{this.state.nome}</Text>
-            <Text style={styles.mainBodyText}>{this.state.email}</Text>
+            <Text style={styles.mainBodyText}>Nome</Text>
+            <Text style={styles.mainBodyText}>E-mail</Text>
+
+            <TouchableOpacity style={styles.btnLogout}>
+              <Text style={styles.btnLogoutText}>Sair</Text>
+            </TouchableOpacity>
           </View>
 
-          <TouchableOpacity
+          <bottomTab.Navigator
+          initialRouteName='Perfil'
+
+          screenOptions={({ route }) => ({
+            tabBarIcon: () => {
+              if (route.name === 'Perfil') {
+                return (
+                  <Image
+                    source={require('../../assets/img/profile_bar.png')}
+                    //style={styles.tabBarIconL}
+                  />
+                )
+              }
+              if (route.name === 'ListaMed') {
+                return (
+                  <Image
+                    source={require('../../assets/img/img_consulta.png')}
+                    //style={styles.tabBarIconS}
+                  />
+                )
+              }
+            },
+
+            // React Navigation 6.x
+            headerShown: false,
+            tabBarShowLabel: false,
+            tabBarActiveBackgroundColor: '#68c2e8',
+            tabBarInactiveBackgroundColor: '#009df5',
+            // tabBarActiveTintColor: 'blue',
+            // tabBarInactiveTintColor: 'red',
+            tabBarStyle: { height: 80 },
+          })}
+        >
+          <bottomTab.Screen name="ListaMed" component={ListaMed} />
+          <bottomTab.Screen name="Perfil" component={Perfil} />
+        </bottomTab.Navigator>
+
+          {/* <TouchableOpacity
             style={styles.btnLogout}
             onPress={this.realizarLogout}>
-            <Text style={styles.btnLogoutText}>sair</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
-      </View>
+      </View >
     );
   }
 }
@@ -125,11 +165,11 @@ const styles = StyleSheet.create({
   // conteúdo da main
   main: {
     flex: 1,
-    backgroundColor: '#F1F1F1',
+    backgroundColor: 'rgba(39, 126, 217, 0.4)',
   },
   // cabeçalho
   mainHeader: {
-    flex: 1,
+    flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -140,7 +180,7 @@ const styles = StyleSheet.create({
   mainHeaderImg: {
     width: 22,
     height: 22,
-    tintColor: '#ccc',
+    tintColor: '#fff',
     marginRight: -5,
     marginTop: -12,
   },
@@ -148,20 +188,19 @@ const styles = StyleSheet.create({
   mainHeaderText: {
     fontSize: 16,
     letterSpacing: 5,
-    color: '#999',
+    color: '#fff',
     fontFamily: 'Open Sans',
   },
   // linha de separação do cabeçalho
   mainHeaderLine: {
-    width: 220,
+    width: 200,
     paddingTop: 10,
-    borderBottomColor: '#999',
+    borderBottomColor: '#fff',
     borderBottomWidth: 1,
   },
-
   // conteúdo do body
   mainBody: {
-    flex: 4,
+    flex: 5,
     alignItems: 'center',
     justifyContent: 'space-between',
   },
@@ -170,31 +209,38 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mainBodyImg: {
-    backgroundColor: '#ccc',
+    backgroundColor: '#fff',
     width: 100,
     height: 100,
     borderRadius: 50,
     marginBottom: 50,
   },
   mainBodyText: {
-    color: '#999',
-    fontSize: 16,
+    color: '#fff',
+    fontSize: 18,
     marginBottom: 20,
   },
   // botão de logout
   btnLogout: {
+    marginTop: "5%",
     alignItems: 'center',
     justifyContent: 'center',
-    height: 80,
-    width: 240,
-    borderTopWidth: 1,
-    borderColor: '#ccc',
+    height: 40,
+    width: 200,
+    backgroundColor: '#FFFFFF',
+    borderColor: '#FFFFFF',
+    borderWidth: 1,
     marginBottom: 50,
+    borderRadius: 20,
   },
   // texto do botão
   btnLogoutText: {
-    fontSize: 16,
+    fontSize: 20,
     fontFamily: 'Open Sans',
-    color: '#B727FF',
+    color: '#6476E1',
   },
+  tabBarIcon: {
+    width: 22,
+    height: 22
+  }
 });
