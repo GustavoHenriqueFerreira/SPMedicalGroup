@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -7,6 +8,9 @@ namespace senai.SpMedGroup.webAPI.Domains
 {
     public partial class Medico
     {
+        /// <summary>
+        /// Classe que representa a entidade (tabela) Médico
+        /// </summary>
         public Medico()
         {
             Consultas = new HashSet<Consulta>();
@@ -16,7 +20,11 @@ namespace senai.SpMedGroup.webAPI.Domains
         public int? IdUsuario { get; set; }
         public int? IdClinica { get; set; }
         public int? IdEspecialidade { get; set; }
+
+        [Required(ErrorMessage = "Por favor informe o nome do médico.")]
         public string NomeMedico { get; set; }
+
+        [Required(ErrorMessage = "Por favor informe o CRM.")]
         public string Crm { get; set; }
 
         public virtual Clinica IdClinicaNavigation { get; set; }
