@@ -4,6 +4,51 @@
         <name>senai.SpMedGroup.webAPI</name>
     </assembly>
     <members>
+        <member name="M:senai.SpMedGroup.webAPI.Domains.Clinica.#ctor">
+            <summary>
+            Classe que representa a entidade (tabela) Clinica
+            </summary>
+        </member>
+        <member name="P:senai.SpMedGroup.webAPI.Domains.Consulta.IdConsulta">
+            <summary>
+            Classe que representa a entidade (tabela) Consulta
+            </summary>
+        </member>
+        <member name="M:senai.SpMedGroup.webAPI.Domains.Especialidade.#ctor">
+            <summary>
+            Classe que representa a entidade (tabela) Especialidade
+            </summary>
+        </member>
+        <member name="P:senai.SpMedGroup.webAPI.Domains.ImagemUsuario.Id">
+            <summary>
+            Classe que representa a entidade (tabela) ImagemUsuario
+            </summary>
+        </member>
+        <member name="M:senai.SpMedGroup.webAPI.Domains.Medico.#ctor">
+            <summary>
+            Classe que representa a entidade (tabela) Médico
+            </summary>
+        </member>
+        <member name="M:senai.SpMedGroup.webAPI.Domains.Paciente.#ctor">
+            <summary>
+            Classe que representa a entidade (tabela) Paciente
+            </summary>
+        </member>
+        <member name="M:senai.SpMedGroup.webAPI.Domains.Situacao.#ctor">
+            <summary>
+            Classe que representa a entidade (tabela) Situacao
+            </summary>
+        </member>
+        <member name="M:senai.SpMedGroup.webAPI.Domains.TipoUsuario.#ctor">
+            <summary>
+            Classe que representa a entidade (tabela) TipoUsuario
+            </summary>
+        </member>
+        <member name="M:senai.SpMedGroup.webAPI.Domains.Usuario.#ctor">
+            <summary>
+            Classe que representa a entidade (tabela) Usuario
+            </summary>
+        </member>
         <member name="T:senai.SpMedGroup.webAPI.Interfaces.IClinicaRepository">
             <summary>
             Interface responsável pelo ClinicaRepository

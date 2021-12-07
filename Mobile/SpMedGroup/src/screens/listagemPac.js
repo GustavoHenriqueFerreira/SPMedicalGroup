@@ -71,11 +71,11 @@ export default class ListaPac extends Component {
         </View>
 
         {/* <bottomTab.Navigator
-          initialRouteName='Consultas'
+          initialRouteName='ListaPac'
 
           screenOptions={({ route }) => ({
             tabBarIcon: () => {
-              if (route.name === 'Consultas') {
+              if (route.name === 'ListaPac') {
                 return (
                   <Image
                     source={require('../assets/clipboard-list-solid.png')}
@@ -103,7 +103,7 @@ export default class ListaPac extends Component {
             tabBarStyle: { height: 80 },
           })}
         >
-          <bottomTab.Screen name="Consultas" component={Consultas} />
+          <bottomTab.Screen name="ListaPac" component={ListaPac} />
           <bottomTab.Screen name="Perfil" component={Perfil} />
         </bottomTab.Navigator> */}
 
@@ -165,25 +165,13 @@ export default class ListaPac extends Component {
 }
 
 const styles = StyleSheet.create({
-  // unidades de medida
-
-  // porcentagem
-  // ex: height: '50%'
-
-  // px
-  // ex: height: 50 (não é necessário colocar a unidade de medida px)
-
-  // proporção
-  // ex: flex: 1
-
-  // conteúdo da main
   main: {
-    flex: 1,
-    backgroundColor: '',
+    flex: 2,
+    backgroundColor: 'rgba(39, 126, 217, 0.4)',
   },
   // cabeçalho
   mainHeader: {
-    flex: 1,
+    flex: 5,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -200,60 +188,86 @@ const styles = StyleSheet.create({
   },
   // texto do cabeçalho
   mainHeaderText: {
-    fontSize: 16,
-    letterSpacing: 5,
-    color: '#999',
+    fontFamily: 'Open Sans',
+    textTransform: 'uppercase',
+    fontSize: 20,
+    lineHeight: 27,
+    color: '#FFFFFF',
   },
   // linha de separação do cabeçalho
   mainHeaderLine: {
-    width: 220,
+    width: 210,
     paddingTop: 10,
-    borderBottomColor: '#999',
+    borderBottomColor: '#FFF',
     borderBottomWidth: 1,
   },
 
   // conteúdo do body
   mainBody: {
-    flex: 4,
+    flex: 15,
     color: ''
   },
   // conteúdo da lista
   mainBodyContent: {
-    paddingTop: 30,
-    paddingRight: 50,
-    paddingLeft: 50,
-    color: '#3912A9'
+    /* paddingRight: 50,
+    paddingLeft: 74, */
+    backgroundColor: '',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  titulo: {
+    alignItems: 'center',
+  },
+
+  backGround: {
+    backgroundColor: 'rgba(39, 126, 217, 0.5)',
+    borderColor: '#FFF',
+    borderWidth: 1,
+    width: 250,
+    borderRadius: 20,
+    
+    //alignItems: 'center',
   },
   // dados do evento de cada item da lista (ou seja, cada linha da lista)
   flatItemRow: {
+    borderRadius: 20,
+    width: 220,
+    height: 120,
+    backgroundColor: 'rgba(39, 126, 217, 0.5)',
     flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-    marginTop: 40,
+    marginTop: '10%',
+    marginBottom: '15%'
   },
   flatItemContainer: {
     flex: 1,
+    color: '#A4B0FA',
+    marginTop: '2%',
+    justifyContent: 'space-evenly',
   },
   flatItemTitle: {
+    fontFamily: 'Open Sans',
     fontSize: 16,
-    color: '#979797',
-    fontWeight: 'bold',
+    color: '#000',
+    marginLeft: '30%'
   },
   flatItemInfo: {
+    fontFamily: 'Open Sans',
     fontSize: 14,
-    color: '#979797',
-    lineHeight: 24,
+    color: '#000',
+    marginLeft: '5%'
   },
+  /*
   flatItemImg: {
-    justifyContent: 'center',
+        justifyContent: 'center',
   },
-  flatItemImgIcon: {
-    width: 26,
-    height: 26,
-    tintColor: '#ccc',
+      flatItemImgIcon: {
+        width: 26,
+      height: 26,
+      tintColor: '#ccc',
   },
-  /* tabBarIcon: {
-    width: 22,
-    height: 22
+      tabBarIcon: {
+        width: 22,
+      height: 22
   } */
 });

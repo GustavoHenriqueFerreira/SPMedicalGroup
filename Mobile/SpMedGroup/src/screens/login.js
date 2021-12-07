@@ -12,6 +12,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import api from '../services/api';
+import jwtDecode from 'jwt-decode';
 
 export default class Login extends Component {
   constructor(props) {
@@ -38,15 +39,19 @@ export default class Login extends Component {
     //mostrar no swagger para montar.
     const token = resposta.data.token;
     await AsyncStorage.setItem('userToken', token);
-    //console.warn(resposta.data)
+
+    const valorToken = await AsyncStorage.getItem('userToken');
+
+    /* console.warn(jwtDecode(valorToken).role); */
 
     //agora sim podemos descomentar.
-    if (resposta.status == 200) {
+    if (resposta.status == 200 && jwtDecode(valorToken).role === "3") {
       this.props.navigation.navigate('ListaMed');
     }
 
-    console.warn(token);
-    //
+    if (resposta.status == 200 && jwtDecode(valorToken).role === "2") {
+      this.props.navigation.navigate('ListaPac');
+    }
   };
 
   render() {
@@ -57,7 +62,7 @@ export default class Login extends Component {
         <View style={styles.main}>
           <View style={styles.mainHeader}>
             <View style={styles.mainHeaderRow}>
-              <Image source={require('../../assets/img/logo_comNome.png')} style={styles.mainHeaderImg}/>
+              <Image source={require('../../assets/img/logo_comNome.png')} style={styles.mainHeaderImg} />
 
             </View>
             <View style={styles.mainHeaderLine} />
@@ -103,6 +108,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     height: '100%',
+    marginBottom: '20%'
   },
 
   mainHeader: {
@@ -110,7 +116,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  
+
   mainHeaderRow: {
     flexDirection: 'row',
   },
@@ -121,13 +127,10 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
 
-  mainBody: {
-    /* flex: 5, */
-  },
-
   inputLogin: {
+    fontFamily: 'Open Sans',
     width: 260, //largura mesma do botao
-    marginBottom: 40, //espacamento pra baixo
+    marginBottom: 20, //espacamento pra baixo
     fontSize: 20,
     color: '#FFF',
     borderBottomColor: '#FFF', //linha separadora
@@ -143,7 +146,7 @@ const styles = StyleSheet.create({
   },
 
   btnLogin: {
-    marginTop: "5%",
+    marginTop: "10%",
     alignItems: 'center',
     justifyContent: 'center',
     height: 40,
