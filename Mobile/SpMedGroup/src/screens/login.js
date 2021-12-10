@@ -141,8 +141,6 @@ const styles = StyleSheet.create({
     fontSize: 15, //aumentar um pouco
     fontFamily: 'Open Sans', //troca de fonte
     color: '#2C89E9', //mesma cor identidade
-    //letterSpacing: 6, //espacamento entre as letras
-    //textTransform: 'uppercase', //estilo maiusculo
   },
 
   btnLogin: {

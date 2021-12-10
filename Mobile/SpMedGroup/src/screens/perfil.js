@@ -5,6 +5,7 @@ import {
   View,
   Image,
   TouchableOpacity,
+  StatusBar,
   PendingView,
 } from 'react-native';
 
@@ -79,16 +80,12 @@ export default class Perfil extends Component {
     return (
       <View style={styles.main}>
         <View style={styles.mainHeader}>
-          <View style={styles.buttonContainer}>
+          {/* <View style={styles.buttonContainer}>
             <TouchableOpacity
               onPress={this.takePicture}
               style={styles.capture}></TouchableOpacity>
-          </View>
+          </View> */}
           <View style={styles.mainHeaderRow}>
-            {/* <Image
-              source={require('../../assets/img/profile.png')}
-              style={styles.mainHeaderImg}
-            /> */}
             <Text style={styles.mainHeaderText}>{'Perfil'.toUpperCase()}</Text>
           </View>
           <View style={styles.mainHeaderLine} />
@@ -109,52 +106,11 @@ export default class Perfil extends Component {
             <Text style={styles.mainBodyText}>Nome</Text>
             <Text style={styles.mainBodyText}>E-mail</Text>
 
-            <TouchableOpacity style={styles.btnLogout}>
+            <View style={styles.mainLine} />
+            <TouchableOpacity style={styles.btnLogout} onPress={this.realizarLogout}>
               <Text style={styles.btnLogoutText}>Sair</Text>
             </TouchableOpacity>
           </View>
-
-          <bottomTab.Navigator
-          initialRouteName='Perfil'
-
-          screenOptions={({ route }) => ({
-            tabBarIcon: () => {
-              if (route.name === 'Perfil') {
-                return (
-                  <Image
-                    source={require('../../assets/img/profile_bar.png')}
-                    //style={styles.tabBarIconL}
-                  />
-                )
-              }
-              if (route.name === 'ListaMed') {
-                return (
-                  <Image
-                    source={require('../../assets/img/img_consulta.png')}
-                    //style={styles.tabBarIconS}
-                  />
-                )
-              }
-            },
-
-            // React Navigation 6.x
-            headerShown: false,
-            tabBarShowLabel: false,
-            tabBarActiveBackgroundColor: '#68c2e8',
-            tabBarInactiveBackgroundColor: '#009df5',
-            // tabBarActiveTintColor: 'blue',
-            // tabBarInactiveTintColor: 'red',
-            tabBarStyle: { height: 80 },
-          })}
-        >
-          <bottomTab.Screen name="ListaMed" component={ListaMed} />
-          <bottomTab.Screen name="Perfil" component={Perfil} />
-        </bottomTab.Navigator>
-
-          {/* <TouchableOpacity
-            style={styles.btnLogout}
-            onPress={this.realizarLogout}>
-          </TouchableOpacity> */}
         </View>
       </View >
     );
@@ -164,7 +120,7 @@ export default class Perfil extends Component {
 const styles = StyleSheet.create({
   // conteúdo da main
   main: {
-    flex: 1,
+    flex: 3,
     backgroundColor: 'rgba(39, 126, 217, 0.4)',
   },
   // cabeçalho
@@ -176,14 +132,6 @@ const styles = StyleSheet.create({
   mainHeaderRow: {
     flexDirection: 'row',
   },
-  // imagem do cabeçalho
-  mainHeaderImg: {
-    width: 22,
-    height: 22,
-    tintColor: '#fff',
-    marginRight: -5,
-    marginTop: -12,
-  },
   // texto do cabeçalho
   mainHeaderText: {
     fontSize: 16,
@@ -193,7 +141,7 @@ const styles = StyleSheet.create({
   },
   // linha de separação do cabeçalho
   mainHeaderLine: {
-    width: 200,
+    width: 250,
     paddingTop: 10,
     borderBottomColor: '#fff',
     borderBottomWidth: 1,
@@ -209,20 +157,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mainBodyImg: {
-    backgroundColor: '#fff',
     width: 100,
     height: 100,
     borderRadius: 50,
-    marginBottom: 50,
+    marginBottom: 20,
   },
   mainBodyText: {
     color: '#fff',
     fontSize: 18,
-    marginBottom: 20,
+    marginBottom: 10,
+    letterSpacing: 1,
+  },
+  mainLine: {
+    width: 250,
+    //paddingTop: 30,
+    marginTop: '20%',
+    borderBottomColor: '#fff',
+    borderBottomWidth: 1,
   },
   // botão de logout
   btnLogout: {
-    marginTop: "5%",
+    marginTop: '10%',
     alignItems: 'center',
     justifyContent: 'center',
     height: 40,
@@ -230,7 +185,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderColor: '#FFFFFF',
     borderWidth: 1,
-    marginBottom: 50,
     borderRadius: 20,
   },
   // texto do botão
@@ -238,9 +192,19 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'Open Sans',
     color: '#6476E1',
+    letterSpacing: 1,
   },
-  tabBarIcon: {
-    width: 22,
-    height: 22
-  }
+  mainStatusBar: {
+    height: 70,
+    backgroundColor: '#667BFF'
+  },
+  // estilo dos ícones da tabBar
+  tabBarIconL: {
+    width: 41,
+    height: 54,
+  },
+  tabBarIconP: {
+    width: 45,
+    height: 46,
+  },
 });

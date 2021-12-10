@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, Image, StyleSheet, Text, View, StatusBar } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, View, StatusBar, ImageBackground } from 'react-native';
 
 import api from '../services/api';
 import Perfil from './perfil'
@@ -19,6 +19,15 @@ export default class ListaMed extends Component {
     };
   }
 
+  /* NavegarParaPerfil = async () => {
+    //vamos remover o armazenamento local.
+    try {
+      this.props.navigation.navigate('Perfil'); //tem que ser mesmo nome.
+    } catch (error) {
+      console.warn(error);
+    }
+  }; */
+
   buscarConsultasMed = async () => {
     const token = await AsyncStorage.getItem('userToken');
     // define uma constante pra receber a resposta da requisição
@@ -31,13 +40,13 @@ export default class ListaMed extends Component {
     );
     // com a função console.warn() é possível mostrar alertas na tela do dispositivo mobile
 
-    console.warn(resposta.data[0])
+    //console.warn(resposta.data[0])
     // recebe o corpo da resposta
     const dadosDaApi = resposta.data;
     // atualiza o state listaEventos com este corpo da requisição
     this.setState({ listaConsultas: dadosDaApi });
 
-    console.warn(dadosDaApi)
+    //console.warn(dadosDaApi)
   };
 
   // quando o componente é renderizado
@@ -48,76 +57,76 @@ export default class ListaMed extends Component {
 
   render() {
     return (
-      <View style={styles.main}>
-        {/* Cabeçalho - Header */}
-        <View style={styles.mainHeader}>
-          <View style={styles.mainHeaderRow}>
-            {/* <Image
+      <ImageBackground
+        source={require('../../assets/img/background_ListaMed.png')}
+        style={StyleSheet.absoluteFillObject}>
+        <View style={styles.main}>
+          {/* Cabeçalho - Header */}
+          <View style={styles.mainHeader}>
+            <View style={styles.mainHeaderRow}>
+              {/* <Image
               source={require('../../assets/img/calendar.png')}
               style={styles.mainHeaderImg}
             /> */}
-            <Text style={styles.mainHeaderText}>{'Consultas'.toUpperCase()}</Text>
+              <Text style={styles.mainHeaderText}>{'Consultas'.toUpperCase()}</Text>
+            </View>
+            <View style={styles.mainHeaderLine} />
           </View>
-        </View>
 
-        {/* Corpo - Body */}
-        <View style={styles.mainBody}>
-          <FlatList
-            contentContainerStyle={styles.mainBodyContent}
-            data={this.state.listaConsultas}
-            keyExtractor={item => item.idConsulta}
-            renderItem={this.renderItem}
-          />
-        </View>
+          {/* Corpo - Body */}
+          <View style={styles.mainBody}>
+            <FlatList
+              contentContainerStyle={styles.mainBodyContent}
+              data={this.state.listaConsultas}
+              keyExtractor={item => item.idConsulta}
+              renderItem={this.renderItem}
+            />
+          </View>
 
-        <View style={styles.mainStatusBar}>
-          <StatusBar
-            hidden={false}
-          />
+          {/* <View style={styles.mainStatusBar}>
+            <StatusBar
+              hidden={false}
+            />
 
-          <bottomTab.Navigator
-            screenOptions={({ route }) => ({
-              tabBarIcon: () => {
-                if (route.name === 'Perfil') {
-                  return (
-                    <Image
-                      source={require('../../assets/img/profile.png')}
-                      style={styles.tabBarIconS}
-                    />
-                  )
-                }
-              },
+            <bottomTab.Navigator
+              screenOptions={({ route }) => ({
+                tabBarIcon: () => {
+                  if (route.name === 'Perfil') {
+                    return (
+                      <Image
+                        source={require('../../assets/img/profile_bar.png')}
+                      />
+                    )
+                  }
+                },
+                // React Navigation 6.x
+                headerShown: false,
+                tabBarShowLabel: false,
+                tabBarActiveBackgroundColor: '#5FC367',
+                tabBarInactiveBackgroundColor: '#009df5',
+                // tabBarActiveTintColor: 'blue',
+                // tabBarInactiveTintColor: 'red',
+                tabBarStyle: { height: 70 },
 
-              // React Navigation 6.x
-              headerShown: false,
-              tabBarShowLabel: false,
-              tabBarActiveBackgroundColor: '#68c2e8',
-              tabBarInactiveBackgroundColor: '#009df5',
-              // tabBarActiveTintColor: 'blue',
-              // tabBarInactiveTintColor: 'red',
-              tabBarStyle: { height: 80 },
-
-            })}
-          >
-            <bottomTab.Screen name="Perfil" component={Perfil} />
-          </bottomTab.Navigator>
+              })}
+            >
+              <bottomTab.Screen name="Perfil" component={Perfil} />
+            </bottomTab.Navigator>
+          </View> */}
 
         </View>
-      </View>
+      </ImageBackground>
     );
   }
 
   renderItem = ({ item }) => (
     // <Text style={{ fontSize: 20, color: 'red' }}>{item.nomeEvento}</Text>
-
     <View style={styles.flatItemRow}>
       <View style={styles.flatItemContainer}>
         <View style={styles.backGround}>
           <View style={styles.titulo}>
             <Text style={styles.flatItemTitle}>{item.idConsulta}° Consulta</Text>
           </View>
-          {/* <Text style={styles.flatItemInfo}>Clínica:  {item.idMedicoNavigation.idClinicaNavigation.nomeClinica} </li> */}
-
           <View>
             <Text style={styles.flatItemInfo}>Nome do Paciente: {item.idPacienteNavigation.nomePaciente}</Text>
             <Text style={styles.flatItemInfo}>Data de Nascimento: {Intl.DateTimeFormat("pt-BR", {
@@ -164,20 +173,18 @@ const styles = StyleSheet.create({
   },
   // texto do cabeçalho
   mainHeaderText: {
+    fontSize: 16,
+    letterSpacing: 5,
+    color: '#fff',
     fontFamily: 'Open Sans',
-    textTransform: 'uppercase',
-    fontSize: 20,
-    lineHeight: 27,
-    color: '#FFFFFF',
   },
   // linha de separação do cabeçalho
   mainHeaderLine: {
-    width: 210,
+    width: 250,
     paddingTop: 10,
-    borderBottomColor: '#FFF',
+    borderBottomColor: '#fff',
     borderBottomWidth: 1,
   },
-
   // conteúdo do body
   mainBody: {
     flex: 15,
@@ -198,10 +205,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#AEF7C2',
     borderColor: '#FFF',
     borderWidth: 1,
-    height: 145,
+    height: 200,
     width: 310,
     borderRadius: 20,
     justifyContent: 'space-evenly',
+    borderColor: '#FFF',
+    borderWidth: 2
     //alignItems: 'center',
   },
   // dados do evento de cada item da lista (ou seja, cada linha da lista)
@@ -218,13 +227,13 @@ const styles = StyleSheet.create({
     fontFamily: 'Open Sans',
     fontSize: 16,
     color: '#000',
-    fontWeight: 'bold',
+    lineHeight: 16,
   },
   flatItemInfo: {
     fontFamily: 'Open Sans',
     fontSize: 12,
     color: '#000',
-    marginLeft: '10%'
+    marginLeft: '10%',
   },
   flatItemInfoDescricao: {
     fontFamily: 'Open Sans',
@@ -232,33 +241,8 @@ const styles = StyleSheet.create({
     color: 'rgba(22, 20, 20, 0.8)',
     marginLeft: '10%'
   },
-  tabBarIcon: {
-    width: 22,
-    height: 22
-  },
-
-
-
-
   mainStatusBar: {
-    flex: 1,
+    height: 70,
     backgroundColor: '#F1F1F1'
   },
-
-  // estilo dos ícones da tabBar
-  tabBarIconL: {
-    width: 41,
-    height: 54,   
-  },
-
-  tabBarIconP: {
-    width: 45,
-    height: 46   
-  },
-
-  tabBarIconS: {
-    width: 55,
-    height: 46   
-  }
-
 });
