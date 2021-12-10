@@ -103,6 +103,7 @@
 
     .h1-login{
         font-size: 64px;
+        margin-right: 8%;
     }
 
     .bloco_login-login {
@@ -112,11 +113,21 @@
         align-items: center;
         width: 50%;
         margin-bottom: 10%;
+        margin-right: 5%;
     }
 
     .posicionamento-login {
-        height: 25%;
+        height: 20%;
         width: 75%;
+    }
+
+    .google-login{
+        width: 110px;
+        height: 110px;
+    }
+
+    .botoes-login{
+        height: 330px;
     }
 }
 
@@ -147,6 +158,10 @@
 
 @media (max-width: 600px){
 
+    .h1-login{
+        margin-right: 5%;
+    }
+
     .img_login-login{
         width: 0px;
     }
@@ -156,8 +171,8 @@
     }
 
     .google-login{
-        width: 90px;
-        height: 90px;
+        width: 70px;
+        height: 70px;
     }
 
     .login_senha-login{
@@ -167,10 +182,14 @@
     .bloco_login-login{
         width: 100%;
         height: 90%;
-        margin-top: 5%;
+        margin-top: 7%;
         margin-bottom: unset;
         display: flex;
         justify-content: space-between;
+    }
+
+    .posicionamento-login{
+        width: 65%;
     }
 
     .input_login-login {
