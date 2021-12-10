@@ -2,7 +2,9 @@
 
 SP Medical Group é uma clínica médica fictícia, empresa de pequeno porte que
 atua no ramo da saúde, sendo que nessa clínica há uma equipe de médicos que atuam em diversas
-áreas (pediatria, odontologia, gastrenterologia, etc.). Sua gestão
+áreas (pediatria, odontologia, gastrenterologia, etc.). 
+
+Sua gestão
 passou a se tornar complicada devido à alta demanda dos pacientes e assim foi preciso de uma aplicação que suprisse suas necessidades.
 
 ## 🔨 Funcionalidades do Sistema Web
