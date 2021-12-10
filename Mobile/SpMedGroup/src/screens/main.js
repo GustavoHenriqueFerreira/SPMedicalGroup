@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/* import React, { Component } from 'react';
 import {
   Image,
   StatusBar,
@@ -91,4 +91,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Main;
+export default Main; */

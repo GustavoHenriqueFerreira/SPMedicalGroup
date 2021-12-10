@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   },
 
   backGround: {
-    backgroundColor: 'rgba(39, 126, 217, 0.5)',
+    backgroundColor: 'rgba(35, 73, 207, 0.8)',
     borderColor: '#FFF',
     borderWidth: 1,
     width: 250,
