@@ -11,7 +11,7 @@ import Login from './src/screens/login';
 import ListaPac from './src/screens/listagemPac';
 import ListaMed from './src/screens/listagemMed';
 import Perfil from './src/screens/perfil';
-import Main from './scr/screens/main';
+/* import Main from './scr/screens/main'; */
 
 const AuthStack = createStackNavigator();
 
@@ -27,7 +27,7 @@ class App extends Component {
             headerShown: false,
           }}>
           <AuthStack.Screen name="Login" component={Login} />
-          <AuthStack.Screen name="Main" component={Main} />
+          {/* <AuthStack.Screen name="Main" component={Main} /> */}
           <AuthStack.Screen name="ListaPac" component={ListaPac} />
           <AuthStack.Screen name="ListaMed" component={ListaMed} />
           <AuthStack.Screen name="Perfil" component={Perfil} />
