@@ -1,4 +1,4 @@
-/* import React, { Component } from 'react';
+import React, { Component } from 'react';
 import {
   Image,
   StatusBar,
@@ -9,12 +9,12 @@ import {
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const bottomTab = createBottomTabNavigator();
+//import jwtDecode from 'jwt-decode';
 
 import Perfil from './perfil';
-import ListaMed from './listagemMed';
-//import Perfil from './listaPac';
+import ListaPac from './listaPac';
 
-class Main extends Component {
+class MainPac extends Component {
 
   render(){
     return (
@@ -24,24 +24,14 @@ class Main extends Component {
         />
 
           <bottomTab.Navigator
-            initialRouteName='ListaMed'
-
-            // versão 5.x do React Navigation
-            // tabBarOptions={{
-            //   showLabel: false,
-            //   showIcon: true,
-            //   activeBackgroundColor: '#B727FF',
-            //   inactiveBackgroundColor: '#DD99FF',
-            //   activeTintColor: 'red',
-            //   inactiveTintColor: 'blue',
-            //   style: { height: 50 }
-            // }}
+            initialRouteName='ListaPac'
             
             screenOptions={ ({ route }) => ({
               tabBarIcon: () => {
-                if (route.name === 'ListaMed') {
+                if (route.name === 'ListaPac') {
                   return(
                     <Image
+                      //style={styles.tabBarIcon}
                       source={require('../../assets/img/img_consulta.png')}
                     />
                   )
@@ -49,11 +39,37 @@ class Main extends Component {
                 if (route.name === 'Perfil') {
                   return(
                     <Image
+                      //style={styles.tabBarIcon}
                       source={require('../../assets/img/profile_bar.png')}
                     />
                   )
                 }
               },
+              /*const valorToken = await AsyncStorage.getItem('userToken');
+              screenOptions={ ({ route }) => ({
+                tabBarIcon: () => {
+                  if (route.name === 'ListaMed' && jwtDecode(valorToken).role === "3") {
+                    return(
+                      <Image
+                        source={require('../../assets/img/img_consulta.png')}
+                      />
+                    )
+                  }
+                  if (route.name === 'ListaPac' && jwtDecode(valorToken).role === "2") {
+                    return(
+                      <Image
+                        source={require('../../assets/img/img_consulta.png')}
+                      />
+                    )
+                  }
+                  if (route.name === 'Perfil') {
+                    return(
+                      <Image
+                        source={require('../../assets/img/profile_bar.png')}
+                      />
+                    )
+                  }
+                }, */
 
               // React Navigation 6.x
               headerShown: false,
@@ -65,7 +81,7 @@ class Main extends Component {
               tabBarStyle: { height: 50 }              
             }) }
           >
-            <bottomTab.Screen name="ListaMed" component={ListaMed} />
+            <bottomTab.Screen name="ListaPac" component={ListaPac} />
             <bottomTab.Screen name="Perfil" component={Perfil} />
           </bottomTab.Navigator>        
 
@@ -80,7 +96,7 @@ const styles = StyleSheet.create({
   // conteúdo da main
   main: {
     flex: 1,
-    backgroundColor: '#F1F1F1'
+    //backgroundColor: '#3912A9',
   },
 
   // estilo dos ícones da tabBar
@@ -91,4 +107,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Main; */
+export default MainPac;

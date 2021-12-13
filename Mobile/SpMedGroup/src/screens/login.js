@@ -46,11 +46,11 @@ export default class Login extends Component {
 
     //agora sim podemos descomentar.
     if (resposta.status == 200 && jwtDecode(valorToken).role === "3") {
-      this.props.navigation.navigate('ListaMed');
+      this.props.navigation.navigate('MainMed');
     }
 
     if (resposta.status == 200 && jwtDecode(valorToken).role === "2") {
-      this.props.navigation.navigate('ListaPac');
+      this.props.navigation.navigate('MainPac');
     }
   };
 

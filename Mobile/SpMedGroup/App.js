@@ -7,11 +7,12 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import {StatusBar, StyleSheet} from 'react-native';
 
+import MainMed from './src/screens/mainMed';
+import MainPac from './src/screens/mainPac';
 import Login from './src/screens/login';
-import ListaPac from './src/screens/listagemPac';
+/* import ListaPac from './src/screens/listagemPac';
 import ListaMed from './src/screens/listagemMed';
-import Perfil from './src/screens/perfil';
-/* import Main from './scr/screens/main'; */
+import Perfil from './src/screens/perfil'; */
 
 const AuthStack = createStackNavigator();
 
@@ -27,10 +28,11 @@ class App extends Component {
             headerShown: false,
           }}>
           <AuthStack.Screen name="Login" component={Login} />
-          {/* <AuthStack.Screen name="Main" component={Main} /> */}
-          <AuthStack.Screen name="ListaPac" component={ListaPac} />
+          <AuthStack.Screen name="MainMed" component={MainMed} />
+          <AuthStack.Screen name="MainPac" component={MainPac} />
+          {/* <AuthStack.Screen name="ListaPac" component={ListaPac} />
           <AuthStack.Screen name="ListaMed" component={ListaMed} />
-          <AuthStack.Screen name="Perfil" component={Perfil} />
+          <AuthStack.Screen name="Perfil" component={Perfil} /> */}
         </AuthStack.Navigator>
       </NavigationContainer>
     );

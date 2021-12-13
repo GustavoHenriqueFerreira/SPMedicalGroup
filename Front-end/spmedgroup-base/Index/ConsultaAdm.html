@@ -27,87 +27,77 @@
 
     <main>
         <section>
-            <div class="banner">
-                <h1>Lista de Consultas</h1>
+            <div className="banner-ConAdm">
+                <h1 className="h1-ConAdm">Lista de Consultas</h1>
 
-                <div class="container box_pesquisa">
-                    <div class="espacamento_box">
+                <div className="container-ConAdm box_pesquisa-ConAdm">
+                    <div className="espacamento_box-ConAdm">
                         <div>
-                            <label>Clínica:</label>
-                            <input class="input_pesquisa" type="text">
+                            <label className="label-ConAdm">Clínica:</label>
+                            <input className="input_pesquisa-ConAdm" type="text" />
                         </div>
                         <div>
-                            <label>Médico:</label>
-                            <input class="input_pesquisa" type="text">
+                            <label className="label-ConAdm">Médico:</label>
+                            <input className="input_pesquisa-ConAdm" type="text" />
                         </div>
                     </div>
 
-                    <div class="espacamento_box">
+                    <div className="espacamento_box-ConAdm">
                         <div>
-                            <label>Paciente:</label>
-                            <input class="input_pesquisa" type="text">
+                            <label className="label-ConAdm">Paciente:</label>
+                            <input className="input_pesquisa-ConAdm" type="text" />
                         </div>
                         <div>
-                            <label>Data da Consulta:</label>
-                            <input class="input_pesquisa" type="text">
+                            <label className="label-ConAdm">Data da Consulta:</label>
+                            <input className="input_pesquisa-ConAdm" type="text" />
                         </div>
                     </div>
 
-                    <div class="espacamento_btn">
-                        <button class="btn_listar">Listar</button>
+                    <div className="espacamento_btn-ConAdm">
+                        <button className="btn_listar-ConAdm">Listar</button>
                     </div>
                 </div>
 
-                <div>
-                    <button class="btn_cadastrar">Cadastrar Consulta</button>
+                <div className="btn_cadastrar">
+                    <Link to="/cadastroConsulta"><button className="btn_cadastrar-ConAdm">Cadastrar Consulta</button>
+                    </Link>
                 </div>
             </div>
         </section>
 
         <section>
-            <div class="container posicionamento_titulo">
-                <h2 class="titulo">Consultas</h2>
+            <div className="container-ConAdm posicionamento_titulo-ConAdm">
+                <h2 className="titulo-ConAdm">Consultas</h2>
             </div>
-            <div class="container lista_consultas">
-                <div class="consulta">
-                    <h2>1° Consulta</h2>
-                    <li class="topicos">Clínica Possarle</li>
-                    <li class="topicos">Médico: Helena Strada</li>
-                    <li class="topicos">Situação: Agendada</li>
-                    <li class="topicos">Data: 11/12/2021 15:00</li>
-                    <p class="topicos">Breve descrição sobre o evento. Lorem ipsum lorem ipsum lorem ipsum.</p>
-                </div>
+            <div className="container-ConAdm lista_consultas-ConAdm">
+                <div className="container consulta-ConAdm">
+                    <div className="fundo-ConAdm">
+                        <h2>1° Consulta</h2>
+                        <li className="topicos-ConAdm">Paciente: </li>
+                        <li className="topicos-ConAdm">Data de Nascimento: </li>
+                        <li className="topicos-ConAdm">Telefone: </li>
+                        <li className="topicos-ConAdm">Médico: </li>
+                        <li className="topicos-ConAdm">Data: </li>
 
-                <div class="consulta">
-                    <h2>2° Consulta</h2>
-                    <li class="topicos">Clínica Possarle</li>
-                    <li class="topicos">Médico: Helena Strada</li>
-                    <li class="topicos">Situação: Agendada</li>
-                    <li class="topicos">Data: 11/12/2021 15:00</li>
-                    <p class="topicos">Breve descrição sobre o evento. Lorem ipsum lorem ipsum lorem ipsum.</p>
-                </div>
+                        <li className="topicos-ConAdm">Situação: </li>
 
-                <div class="consulta">
-                    <h2>3° Consulta</h2>
-                    <li class="topicos">Clínica Possarle</li>
-                    <li class="topicos">Médico: Helena Strada</li>
-                    <li class="topicos">Situação: Agendada</li>
-                    <li class="topicos">Data: 11/12/2021 15:00</li>
-                    <p class="topicos">Breve descrição sobre o evento. Lorem ipsum lorem ipsum lorem ipsum.</p>
+                        <div className="situacao">
+                            <SituacaoConsulta> setIdSituacao(campo.target.value)}
+                                idConsulta={consultas.idConsulta}
+                                situacao={consultas.idSituacaoNavigation.descricaoSituacao} />
+                                <button onClick> permitirSelect(consultas.idConsulta)} type="button"
+                                    className="vazio"><img className="img-editarSituacao" src={IconEditar} /></button>
+
+                                <button className="container btn_situacao-ConAdm">Atualizar</button>
+                        </div>
+
+                        <p className="topicos-ConAdm">descricaoConsulta</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <nav class="container cabecalho_rodape">
-            <a href="">Links Úteis</a>
-            <a href="">Telefone</a>
-            <img class="logo" src="../Assets/img/logo_spmedgroup_v1 3.png" alt="logo">
-            <a href="">Siga-nos</a>
-            <a href="">Quem somos?</a>
-        </nav>
-    </footer>
 </body>
 
 </html>
