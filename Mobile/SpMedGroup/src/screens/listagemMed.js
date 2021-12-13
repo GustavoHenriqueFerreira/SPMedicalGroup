@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import { FlatList, Image, StyleSheet, Text, View, StatusBar, ImageBackground } from 'react-native';
 
 import api from '../services/api';
-import Perfil from './perfil'
 import { TouchableOpacity } from 'react-native-gesture-handler';
-
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-const bottomTab = createBottomTabNavigator();
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -64,10 +59,6 @@ export default class ListaMed extends Component {
           {/* Cabeçalho - Header */}
           <View style={styles.mainHeader}>
             <View style={styles.mainHeaderRow}>
-              {/* <Image
-              source={require('../../assets/img/calendar.png')}
-              style={styles.mainHeaderImg}
-            /> */}
               <Text style={styles.mainHeaderText}>{'Consultas'.toUpperCase()}</Text>
             </View>
             <View style={styles.mainHeaderLine} />
@@ -82,38 +73,6 @@ export default class ListaMed extends Component {
               renderItem={this.renderItem}
             />
           </View>
-
-          {/* <View style={styles.mainStatusBar}>
-            <StatusBar
-              hidden={false}
-            />
-
-            <bottomTab.Navigator
-              screenOptions={({ route }) => ({
-                tabBarIcon: () => {
-                  if (route.name === 'Perfil') {
-                    return (
-                      <Image
-                        source={require('../../assets/img/profile_bar.png')}
-                      />
-                    )
-                  }
-                },
-                // React Navigation 6.x
-                headerShown: false,
-                tabBarShowLabel: false,
-                tabBarActiveBackgroundColor: '#5FC367',
-                tabBarInactiveBackgroundColor: '#009df5',
-                // tabBarActiveTintColor: 'blue',
-                // tabBarInactiveTintColor: 'red',
-                tabBarStyle: { height: 70 },
-
-              })}
-            >
-              <bottomTab.Screen name="Perfil" component={Perfil} />
-            </bottomTab.Navigator>
-          </View> */}
-
         </View>
       </ImageBackground>
     );

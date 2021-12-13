@@ -2,14 +2,9 @@ import React, { Component } from 'react';
 import { FlatList, Image, StyleSheet, Text, View, StatusBar, ImageBackground } from 'react-native';
 
 import api from '../services/api';
-import ListaMed from './listagemMed';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-const bottomTab = createBottomTabNavigator();
 
 export default class ListaPac extends Component {
   constructor(props) {
@@ -142,7 +137,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(35, 73, 207, 0.8)',
     borderColor: '#FFF',
     borderWidth: 1,
-    width: 250,
+    width: 280,
     borderRadius: 20,
     //alignItems: 'center',
   },
@@ -153,8 +148,8 @@ const styles = StyleSheet.create({
     height: 120,
     backgroundColor: '#277ED9',
     flexDirection: 'row',
-    marginTop: '10%',
-    marginBottom: '15%',
+    marginTop: '4%',
+    marginBottom: '10%',
     borderWidth: 2,
     borderColor: '#FFF',
     justifyContent: 'center',
@@ -169,7 +164,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Open Sans',
     fontSize: 16,
     color: '#000',
-    marginLeft: '30%'
+    marginLeft: '32%',
+    marginBottom: '2%'
   },
   flatItemInfo: {
     fontFamily: 'Open Sans',

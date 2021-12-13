@@ -17,7 +17,7 @@ export default function Cabecalho() {
                     <Link to="/consultasPac"> <a href="">Consultas</a> </Link>
                     <Link to="/"> <a href="">Clínicas</a> </Link>
                     <Link to="/"> <a href="">Especialidades</a> </Link>
-                    <Link to="/consultasMed"> <a href="">Médicos</a> </Link>
+                    <Link to="/"> <a href="">Médicos</a> </Link>
                     <Link to="/login"> <a href="">Login</a> </Link>
                 </nav>
             </div>

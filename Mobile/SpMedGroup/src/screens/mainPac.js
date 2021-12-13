@@ -9,10 +9,9 @@ import {
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const bottomTab = createBottomTabNavigator();
-//import jwtDecode from 'jwt-decode';
 
-import Perfil from './perfil';
-import ListaPac from './listaPac';
+import PerfilPac from './perfilPac';
+import ListaPac from './listagemPac';
 
 class MainPac extends Component {
 
@@ -36,7 +35,7 @@ class MainPac extends Component {
                     />
                   )
                 }
-                if (route.name === 'Perfil') {
+                if (route.name === 'PerfilPac') {
                   return(
                     <Image
                       //style={styles.tabBarIcon}
@@ -45,44 +44,19 @@ class MainPac extends Component {
                   )
                 }
               },
-              /*const valorToken = await AsyncStorage.getItem('userToken');
-              screenOptions={ ({ route }) => ({
-                tabBarIcon: () => {
-                  if (route.name === 'ListaMed' && jwtDecode(valorToken).role === "3") {
-                    return(
-                      <Image
-                        source={require('../../assets/img/img_consulta.png')}
-                      />
-                    )
-                  }
-                  if (route.name === 'ListaPac' && jwtDecode(valorToken).role === "2") {
-                    return(
-                      <Image
-                        source={require('../../assets/img/img_consulta.png')}
-                      />
-                    )
-                  }
-                  if (route.name === 'Perfil') {
-                    return(
-                      <Image
-                        source={require('../../assets/img/profile_bar.png')}
-                      />
-                    )
-                  }
-                }, */
 
               // React Navigation 6.x
               headerShown: false,
               tabBarShowLabel: false,
-              tabBarActiveBackgroundColor: '#B727FF',
-              tabBarInactiveBackgroundColor: '#DD99FF',
+              tabBarActiveBackgroundColor: '#214CE4',
+              tabBarInactiveBackgroundColor: '#667BFF',
               // tabBarActiveTintColor: 'blue',
               // tabBarInactiveTintColor: 'red',
-              tabBarStyle: { height: 50 }              
+              tabBarStyle: { height: 60 }              
             }) }
           >
             <bottomTab.Screen name="ListaPac" component={ListaPac} />
-            <bottomTab.Screen name="Perfil" component={Perfil} />
+            <bottomTab.Screen name="PerfilPac" component={PerfilPac} />
           </bottomTab.Navigator>        
 
       </View>
@@ -92,7 +66,6 @@ class MainPac extends Component {
 };
 
 const styles = StyleSheet.create({
-
   // conteúdo da main
   main: {
     flex: 1,

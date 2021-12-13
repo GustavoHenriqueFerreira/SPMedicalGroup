@@ -5,20 +5,11 @@ import {
   View,
   Image,
   TouchableOpacity,
-  StatusBar,
-  PendingView,
 } from 'react-native';
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-const bottomTab = createBottomTabNavigator();
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import jwtDecode from 'jwt-decode';
-import api from '../services/api';
-import ListaMed from './listagemMed';
 
-export default class Perfil extends Component {
+export default class PerfilPac extends Component {
   constructor(props) {
     super(props);
     this.state = {

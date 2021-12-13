@@ -1,9 +1,3 @@
-import { Component } from 'react';
-/*import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { parseJwt, usuarioAutenticado } from '../../services/auth'; */
-import { Link } from 'react-router-dom';
-
 import '../../Assets/css/ConsultaPac.css';
 import Cabecalho from "../../components/cabecalho/cabecalho";
 import Rodape from "../../components/rodape/rodape";
@@ -15,7 +9,7 @@ export default function ConsultaPac() {
     const [listaConsultasPac, setListaConsultasPac] = useState([]);
 
     function buscarConsultasPac() {
-        axios('http://localhost:5000/api/consultas/listaPac', {
+        axios('http://192.168.4.131:5000/api/consultas/listaPac', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
             }

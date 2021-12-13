@@ -11,7 +11,7 @@ export default function InserirDescricao() {
     const [novaDescricaoConsulta, setNovaDescricaoConsulta] = useState('')
 
     function buscarConsultasMed() {
-        axios('http://localhost:5000/api/consultas/listaMed', {
+        axios('http://192.168.4.131:5000/api/consultas/listaMed', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
             }
@@ -29,7 +29,7 @@ export default function InserirDescricao() {
 
         event.preventDefault();
 
-        axios.patch('http://localhost:5000/api/consultas/descricao/' + idConsultaAlterada, {
+        axios.patch('http://192.168.4.131:5000/api/consultas/descricao/' + idConsultaAlterada, {
             DescricaoConsulta: novaDescricaoConsulta
         }, {
             headers: {

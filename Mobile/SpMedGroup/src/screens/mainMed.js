@@ -9,11 +9,9 @@ import {
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const bottomTab = createBottomTabNavigator();
-//import jwtDecode from 'jwt-decode';
 
-import Perfil from './perfil';
 import ListaMed from './listagemMed';
-//import ListaPac from './listaPac';
+import PerfilMed from './perfilMed';
 
 class MainMed extends Component {
 
@@ -37,7 +35,7 @@ class MainMed extends Component {
                     />
                   )
                 }
-                if (route.name === 'Perfil') {
+                if (route.name === 'PerfilMed') {
                   return(
                     <Image
                       //style={styles.tabBarIcon}
@@ -75,15 +73,15 @@ class MainMed extends Component {
               // React Navigation 6.x
               headerShown: false,
               tabBarShowLabel: false,
-              tabBarActiveBackgroundColor: '#B727FF',
-              tabBarInactiveBackgroundColor: '#DD99FF',
+              tabBarActiveBackgroundColor: '#2DDF5E',
+              tabBarInactiveBackgroundColor: '#63E387',
               // tabBarActiveTintColor: 'blue',
               // tabBarInactiveTintColor: 'red',
-              tabBarStyle: { height: 50 }              
+              tabBarStyle: { height: 60 }              
             }) }
           >
             <bottomTab.Screen name="ListaMed" component={ListaMed} />
-            <bottomTab.Screen name="Perfil" component={Perfil} />
+            <bottomTab.Screen name="PerfilMed" component={PerfilMed} />
           </bottomTab.Navigator>        
 
       </View>

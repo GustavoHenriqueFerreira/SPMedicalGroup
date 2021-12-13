@@ -8,11 +8,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {StatusBar, StyleSheet} from 'react-native';
 
 import MainMed from './src/screens/mainMed';
-import MainPac from './src/screens/mainPac';
 import Login from './src/screens/login';
-/* import ListaPac from './src/screens/listagemPac';
-import ListaMed from './src/screens/listagemMed';
-import Perfil from './src/screens/perfil'; */
+import MainPac from './src/screens/mainPac';
 
 const AuthStack = createStackNavigator();
 

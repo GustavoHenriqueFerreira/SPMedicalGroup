@@ -41,10 +41,9 @@ export default class Login extends Component {
     await AsyncStorage.setItem('userToken', token);
 
     const valorToken = await AsyncStorage.getItem('userToken');
-
     /* console.warn(jwtDecode(valorToken).role); */
 
-    //agora sim podemos descomentar.
+    //redireciona para a main específica do usuário dependendo da role através do jwtDecote
     if (resposta.status == 200 && jwtDecode(valorToken).role === "3") {
       this.props.navigation.navigate('MainMed');
     }
@@ -52,6 +51,14 @@ export default class Login extends Component {
     if (resposta.status == 200 && jwtDecode(valorToken).role === "2") {
       this.props.navigation.navigate('MainPac');
     }
+  };
+
+  LimparCampos = () => {
+    this.setState({ Email: '', Senha: '' })
+  };
+
+  componentDidMount() {
+    this.LimparCampos()
   };
 
   render() {

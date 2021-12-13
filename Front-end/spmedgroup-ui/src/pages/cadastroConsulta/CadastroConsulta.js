@@ -43,7 +43,7 @@ export default function CadastroConsulta() {
         if (listaConsultas) {
         }
 
-        axios.post('http://l192.168.4.131:5000/api/consultas', {
+        axios.post('http://192.168.4.131:5000/api/consultas', {
             idPaciente: idPaciente,
             idMedico: idMedico,
             idSituacao: idSituacao,
