@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace senai.SpMedGroup.webAPI.Repositories
 {
+    /// <summary>
+    /// Classe responsável pelo repositório das situacoes
+    /// </summary>
     public class SituacaoRepository : ISituacaoRepository
     {
         SPMEDContext ctx = new SPMEDContext();

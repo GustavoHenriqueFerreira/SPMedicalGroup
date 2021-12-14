@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace senai.SpMedGroup.webAPI.Controllers
 {
+    /// <summary>
+    /// Controller responsável pelos endpoints (URLs) referentes aos médicos
+    /// </summary>
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]

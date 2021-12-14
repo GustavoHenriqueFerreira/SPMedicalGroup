@@ -20,6 +20,8 @@ export default class Login extends Component {
     this.state = {
       Email: '',
       Senha: '',
+      MensagemErro: '',
+      idLoading: false
     };
   }
   //como vamos trabalhar com assync historage,
@@ -34,7 +36,12 @@ export default class Login extends Component {
     const resposta = await api.post('/Login', {
       Email: this.state.Email, //roberto.possarle@spmedicalgroup.com.br
       Senha: this.state.Senha, //1234
-    });
+    })
+      .catch(MensagemErro => {
+        this.setState({MensagemErro : 'E-mail ou senha incorretos!'})
+      });
+
+    this.setState({ isLoading: false })
 
     //mostrar no swagger para montar.
     const token = resposta.data.token;
@@ -51,6 +58,7 @@ export default class Login extends Component {
     if (resposta.status == 200 && jwtDecode(valorToken).role === "2") {
       this.props.navigation.navigate('MainPac');
     }
+
   };
 
   LimparCampos = () => {
@@ -92,6 +100,7 @@ export default class Login extends Component {
               keyboardType="default" //para default nao obrigatorio.
               secureTextEntry={true} //proteje a senha.
               // EVENTO PARA FAZERMOS ALGO ENQUANTO O TEXTO MUDA
+              passwordRules
               onChangeText={Senha => this.setState({ Senha })}
             />
 
@@ -100,6 +109,8 @@ export default class Login extends Component {
               onPress={this.realizarLogin}>
               <Text style={styles.btnLoginText}>Login</Text>
             </TouchableOpacity>
+
+            <Text style={{color : "red"}}>{this.state.MensagemErro}</Text>
           </View>
         </View >
       </ImageBackground>

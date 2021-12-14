@@ -4,6 +4,56 @@
         <name>senai.SpMedGroup.webAPI</name>
     </assembly>
     <members>
+        <member name="T:senai.SpMedGroup.webAPI.Controllers.ClinicasController">
+            <summary>
+            Controller responsável pelos endpoints (URLs) referentes as clinicas
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Controllers.ConsultasController">
+            <summary>
+            Controller responsável pelos endpoints (URLs) referentes as consultas
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Controllers.EspecialidadesController">
+            <summary>
+            Controller responsável pelos endpoints (URLs) referentes as especialidades
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Controllers.LoginController">
+            <summary>
+            Controller responsável pelos endpoints (URLs) referentes ao login
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Controllers.MedicosController">
+            <summary>
+            Controller responsável pelos endpoints (URLs) referentes aos médicos
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Controllers.PacientesController">
+            <summary>
+            Controller responsável pelos endpoints (URLs) referentes aos pacientes
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Controllers.PerfilController">
+            <summary>
+            Controller responsável pelos endpoints (URLs) referentes ao perfil
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Controllers.SituacoesController">
+            <summary>
+            Controller responsável pelos endpoints (URLs) referentes as situacoes
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Controllers.TiposUserController">
+            <summary>
+            Controller responsável pelos endpoints (URLs) referentes aos tiposUsers
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Controllers.UsuariosController">
+            <summary>
+            Controller responsável pelos endpoints (URLs) referentes aos usuarios
+            </summary>
+        </member>
         <member name="M:senai.SpMedGroup.webAPI.Domains.Clinica.#ctor">
             <summary>
             Classe que representa a entidade (tabela) Clinica
@@ -22,6 +72,11 @@
         <member name="P:senai.SpMedGroup.webAPI.Domains.ImagemUsuario.Id">
             <summary>
             Classe que representa a entidade (tabela) ImagemUsuario
+            </summary>
+        </member>
+        <member name="P:senai.SpMedGroup.webAPI.Domains.Localizacao.Id">
+            <summary>
+            Classe que representa a collection Localizacao
             </summary>
         </member>
         <member name="M:senai.SpMedGroup.webAPI.Domains.Medico.#ctor">
@@ -194,6 +249,23 @@
             Deletar uma especialidade
             </summary>
             <param name="idEspecialidade">ID da especialidade que será deletada</param>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Interfaces.ILocalizacaoRepository">
+            <summary>
+            Interface responsável pelo LocalizacaoRepository
+            </summary>
+        </member>
+        <member name="M:senai.SpMedGroup.webAPI.Interfaces.ILocalizacaoRepository.ListarTodas">
+            <summary>
+            Listar todas as localizações
+            </summary>
+            <returns>Lista de localizações</returns>
+        </member>
+        <member name="M:senai.SpMedGroup.webAPI.Interfaces.ILocalizacaoRepository.Cadastrar(senai.SpMedGroup.webAPI.Domains.Localizacao)">
+            <summary>
+            Cadastrar uma localização
+            </summary>
+            <param name="novaLocalizacao">Objeto novaLocalizacao com as todas as informações</param>
         </member>
         <member name="T:senai.SpMedGroup.webAPI.Interfaces.IMedicoRepository">
             <summary>
@@ -379,6 +451,51 @@
             Deletar um usuário
             </summary>
             <param name="idUsuario">ID do usuário que será deletado</param>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Repositories.ClinicaRepository">
+            <summary>
+            Classe responsável pelo repositório das clinicas
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Repositories.ConsultaRepository">
+            <summary>
+            Classe responsável pelo repositório das consultas
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Repositories.EspecialidadeRepository">
+            <summary>
+            Classe responsável pelo repositório das especialidades
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Repositories.LocalizacaoRepository">
+            <summary>
+            Classe responsável pelo repositório das localizações
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Repositories.MedicoRepository">
+            <summary>
+            Classe responsável pelo repositório dos médicos
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Repositories.PacienteRepository">
+            <summary>
+            Classe responsável pelo repositório dos pacientes
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Repositories.SituacaoRepository">
+            <summary>
+            Classe responsável pelo repositório das situacoes
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Repositories.TipoUserRepository">
+            <summary>
+            Classe responsável pelo repositório dos tiposUsers
+            </summary>
+        </member>
+        <member name="T:senai.SpMedGroup.webAPI.Repositories.UsuarioRepository">
+            <summary>
+            Classe responsável pelo repositório dos usuarios
+            </summary>
         </member>
         <member name="T:senai.SpMedGroup.webAPI.ViewModels.LoginViewModel">
             <summary>

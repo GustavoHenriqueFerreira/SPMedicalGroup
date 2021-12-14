@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace senai.SpMedGroup.webAPI.Repositories
 {
+    /// <summary>
+    /// Classe responsável pelo repositório dos tiposUsers
+    /// </summary>
     public class TipoUserRepository : ITipoUserRepository
     {
         SPMEDContext ctx = new SPMEDContext();

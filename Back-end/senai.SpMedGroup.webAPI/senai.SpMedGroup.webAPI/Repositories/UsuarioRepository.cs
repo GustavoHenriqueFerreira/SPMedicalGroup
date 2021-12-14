@@ -10,6 +10,9 @@ using System.Linq;
 
 namespace senai.SpMedGroup.webAPI.Repositories
 {
+    /// <summary>
+    /// Classe responsável pelo repositório dos usuarios
+    /// </summary>
     public class UsuarioRepository : IUsuarioRepository
     {
         SPMEDContext ctx = new SPMEDContext();
