@@ -19,9 +19,8 @@ export default class PerfilMed extends Component {
     };
   }
 
-  /* consultaImgPerfil = async () => {
+  consultaImgPerfil = async () => {
     const valorToken = await AsyncStorage.getItem('userToken');
-
     api
       .get('/perfil/imagem/bd', {
         headers: {
@@ -36,13 +35,10 @@ export default class PerfilMed extends Component {
       })
       .catch(erro => console.warn(erro));
   };
-
-  buscarDadosStorage = async () => {
+  /* buscarDadosStorage = async () => {
     try {
       const valorToken = await AsyncStorage.getItem('userToken');
-
       console.warn(jwtDecode(valorToken));
-
       if (valorToken != null) {
         this.setState({ nome: jwtDecode(valorToken).name });
         this.setState({ email: jwtDecode(valorToken).email });
@@ -50,12 +46,11 @@ export default class PerfilMed extends Component {
     } catch (error) {
       console.warn(error);
     }
-  };
-
+  }; */
   componentDidMount() {
-    this.buscarDadosStorage();
+    //this.buscarDadosStorage();
     this.consultaImgPerfil();
-  } */
+  }
 
   realizarLogout = async () => {
     //vamos remover o armazenamento local.
@@ -71,11 +66,11 @@ export default class PerfilMed extends Component {
     return (
       <View style={styles.main}>
         <View style={styles.mainHeader}>
-          {/* <View style={styles.buttonContainer}>
+          <View style={styles.buttonContainer}>
             <TouchableOpacity
               onPress={this.takePicture}
               style={styles.capture}></TouchableOpacity>
-          </View> */}
+          </View>
           <View style={styles.mainHeaderRow}>
             <Text style={styles.mainHeaderText}>{'Perfil'.toUpperCase()}</Text>
           </View>
@@ -85,14 +80,14 @@ export default class PerfilMed extends Component {
         <View style={styles.mainBody}>
           <View style={styles.mainBodyInfo}>
             <Image source={require('../../assets/img/profile.png')} style={styles.mainBodyImg} />
-            {/* <View style={styles.mainBodyImg} />
+            <View style={styles.mainBodyImg} />
             <TouchableOpacity
               onPress={() => this.props.navigation.navigate('Camera')}>
             </TouchableOpacity>
             <Image
               source={{ uri: `data:image/png;base64,${this.state.base64}` }}
               style={styles.mainBodyImg}
-            /> */}
+            />
 
             <Text style={styles.mainBodyText}>Nome</Text>
             <Text style={styles.mainBodyText}>E-mail</Text>

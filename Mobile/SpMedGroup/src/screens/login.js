@@ -62,7 +62,7 @@ export default class Login extends Component {
   };
 
   LimparCampos = () => {
-    this.setState({ Email: '', Senha: '' })
+    this.setState({ Email: '', Senha: '', MensagemErro: '' })
   };
 
   componentDidMount() {
@@ -110,7 +110,7 @@ export default class Login extends Component {
               <Text style={styles.btnLoginText}>Login</Text>
             </TouchableOpacity>
 
-            <Text style={{color : "red"}}>{this.state.MensagemErro}</Text>
+            <Text style={styles.mensagemErro}>{this.state.MensagemErro}</Text>
           </View>
         </View >
       </ImageBackground>
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     height: '100%',
-    marginBottom: '20%'
+    marginBottom: '10%'
   },
 
   mainHeader: {
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
   },
 
   btnLogin: {
-    marginTop: "10%",
+    marginTop: '10%',
     alignItems: 'center',
     justifyContent: 'center',
     height: 40,
@@ -172,5 +172,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 30,
     shadowOffset: { height: 5, width: 5 },
+  },
+  
+  mensagemErro: {
+    color: 'red',
+    fontFamily: 'Open Sans',
+    fontSize: 16,
+    marginTop: '2%',
   },
 });

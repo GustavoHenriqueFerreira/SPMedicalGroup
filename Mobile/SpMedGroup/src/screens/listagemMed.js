@@ -193,6 +193,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#000',
     marginLeft: '10%',
+    marginTop: '1%'
   },
   flatItemInfoDescricao: {
     fontFamily: 'Open Sans',

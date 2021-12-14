@@ -12,6 +12,7 @@ const bottomTab = createBottomTabNavigator();
 
 import ListaMed from './listagemMed';
 import PerfilMed from './perfilMed';
+import CameraPerfil from './camera';
 
 class MainMed extends Component {
 
@@ -36,6 +37,14 @@ class MainMed extends Component {
                   )
                 }
                 if (route.name === 'PerfilMed') {
+                  return(
+                    <Image
+                      //style={styles.tabBarIcon}
+                      source={require('../../assets/img/profile_bar.png')}
+                    />
+                  )
+                }
+                if (route.name === 'CameraPerfil') {
                   return(
                     <Image
                       //style={styles.tabBarIcon}
@@ -82,6 +91,7 @@ class MainMed extends Component {
           >
             <bottomTab.Screen name="ListaMed" component={ListaMed} />
             <bottomTab.Screen name="PerfilMed" component={PerfilMed} />
+            <bottomTab.Screen name="Camera" component={CameraPerfil} />
           </bottomTab.Navigator>        
 
       </View>

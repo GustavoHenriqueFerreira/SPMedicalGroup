@@ -10,6 +10,7 @@ import {StatusBar, StyleSheet} from 'react-native';
 import MainMed from './src/screens/mainMed';
 import Login from './src/screens/login';
 import MainPac from './src/screens/mainPac';
+/* import CameraPerfil from './src/screens/camera'; */
 
 const AuthStack = createStackNavigator();
 
@@ -27,6 +28,7 @@ class App extends Component {
           <AuthStack.Screen name="Login" component={Login} />
           <AuthStack.Screen name="MainMed" component={MainMed} />
           <AuthStack.Screen name="MainPac" component={MainPac} />
+          {/* <AuthStack.Screen name="Camera" component={CameraPerfil} /> */}
           {/* <AuthStack.Screen name="ListaPac" component={ListaPac} />
           <AuthStack.Screen name="ListaMed" component={ListaMed} />
           <AuthStack.Screen name="Perfil" component={Perfil} /> */}

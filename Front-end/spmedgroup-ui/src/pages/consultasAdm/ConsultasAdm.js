@@ -7,7 +7,7 @@ import Cabecalho from "../../components/cabecalho/cabecalho";
 import Rodape from "../../components/rodape/rodape";
 import SituacaoConsulta from "../../components/situacaoConsulta/SituacaoConsulta";
 
-import IconEditar from "../../Assets/img/edit-solid.svg";
+import IconEditar from "../../Assets/img/img_editarSituacao.png";
 
 export default function ConsultasAdm() {
     const [listaConsultas, setListaConsultas] = useState([]);
@@ -149,7 +149,7 @@ export default function ConsultasAdm() {
                                                 <button className="container btn_situacao-ConAdm" onClick={() => alteraSituacao(consultas.idConsulta)} id={"btn" + consultas.idConsulta} style={{ display: "none" }}>Atualizar</button>
                                             </div>
 
-                                            <p className="topicos-ConAdm">{consultas.descricaoConsulta}</p>
+                                            <p className="topicos-ConAdm descricao">{consultas.descricaoConsulta}</p>
                                         </div>
                                     </div>
                                 )
