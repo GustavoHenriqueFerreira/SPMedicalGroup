@@ -17,7 +17,7 @@ namespace senai.SpMedGroup.webAPI.Repositories
 
         public LocalizacaoRepository()
         {
-            var client = new MongoClient("mongodb://127.0.0.1:27017");//mudar conforme a máquina
+            var client = new MongoClient("mongodb://127.0.0.1:27017");
             var database = client.GetDatabase("SpMedGroup");
             _localizacoes = database.GetCollection<Localizacao>("mapas");
         }

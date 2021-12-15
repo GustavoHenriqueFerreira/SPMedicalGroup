@@ -5,15 +5,17 @@ import { parseJwt, usuarioAutenticado } from '../../services/auth';
 
 import '../../Assets/css/Login.css';
 
-import img_login from '../../Assets/img/imagem login 1.png';
+import img_login from '../../Assets/img/img_login.png';
 import google from '../../Assets/img/Com Google.png';
 
 export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: 'saulo@gmail.com',
-            senha: 'C# melhor que python',
+            email: '',
+            senha: '',
+            //email: 'saulo@gmail.com',
+            //senha: 'C# melhor que python',
             erroMensagem: '',
             isLoading: false
         };
@@ -85,50 +87,52 @@ export default class Login extends Component {
     render() {
         return (
             <div>
-                <main>
-                    <section>
-                        <div className="login-login">
-                            <div>
-                                <img src={img_login} className="img_login-login" alt="imagem de uma médica" />
-                            </div>
-                            <div className="bloco_login-login">
-                                <h1 className="h1-login">Login</h1>
-                                <div className="posicionamento-login">
-                                    <img className="google-login" src={google} alt="Login com o Google" />
+                <body className="login">
+                    <main>
+                        <section>
+                            <div className="login-login">
+                                <div>
+                                    <img src={img_login} className="img_login-login" alt="imagem de uma médica" />
                                 </div>
-                                <div className="login_senha-login">
-                                    <div>
-                                        <form className="botoes-login" onSubmit={this.efetuaLogin}>
-                                            <div className="btn_login-login">
-                                                <input className="input_login-login"
-                                                    name="email"
-                                                    value={this.state.email}
-                                                    onChange={this.atualizaStateCampo}
-                                                    type="text"
-                                                    placeholder="Email">
-                                                </input>
-                                            </div>
-                                            <div className="btn_login-login">
-                                                <input className="input_login-login"
-                                                    name="senha"
-                                                    value={this.state.senha}
-                                                    onChange={this.atualizaStateCampo}
-                                                    type="password"
-                                                    placeholder="Senha">
-                                                </input>
-                                            </div>
-                                            {/* <div className="acessar_page-login"> */}
-                                            <div>
-                                                <button className="btn_acessar-login" type="submit">Acessar</button>
-                                            </div>
-                                        </form>
+                                <div className="bloco_login-login">
+                                    <h1 className="h1-login">Login</h1>
+                                    <div className="posicionamento-login">
+                                        <img className="google-login" src={google} alt="Login com o Google" />
                                     </div>
-                                    <a className="mudar_senha-login" href="">Esqueceu a senha?</a>
+                                    <div className="login_senha-login">
+                                        <div>
+                                            <form className="botoes-login" onSubmit={this.efetuaLogin}>
+                                                <div className="btn_login-login">
+                                                    <input className="input_login-login"
+                                                        name="email"
+                                                        value={this.state.email}
+                                                        onChange={this.atualizaStateCampo}
+                                                        type="text"
+                                                        placeholder="Email">
+                                                    </input>
+                                                </div>
+                                                <div className="btn_login-login">
+                                                    <input className="input_login-login"
+                                                        name="senha"
+                                                        value={this.state.senha}
+                                                        onChange={this.atualizaStateCampo}
+                                                        type="password"
+                                                        placeholder="Senha">
+                                                    </input>
+                                                </div>
+                                                {/* <div className="acessar_page-login"> */}
+                                                <div>
+                                                    <button className="btn_acessar-login" type="submit">Acessar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <a className="mudar_senha-login" href="">Esqueceu a senha?</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                </main>
+                        </section>
+                    </main>
+                </body>
             </div>
         )
     }

@@ -138,7 +138,7 @@
 
     .posicionamento-login {
         height: 15%;
-        width: 90%;
+        width: 95%;
     }
 
     .h1-login {
@@ -147,8 +147,13 @@
     }
 
     .google-login {
-        width: 110px;
-        height: 110px;
+        width: 90px;
+        height: 90px;
+    }
+
+    .input_login-login{
+        width: 525px;
+        height: 65px;
     }
 
     .mudar_senha-login{
@@ -157,9 +162,13 @@
 }
 
 @media (max-width: 600px){
+    .login{
+        background-image: url(../img/img_login.png);
+    }
 
     .h1-login{
-        margin-right: 5%;
+        margin-right: unset;
+        color: #ffffff;
     }
 
     .img_login-login{
@@ -189,7 +198,7 @@
     }
 
     .posicionamento-login{
-        width: 65%;
+        width: 66%;
     }
 
     .input_login-login {
@@ -220,5 +229,7 @@
     .mudar_senha-login{
         font-size: 17px;
         text-decoration: unset;
+        font-weight: 500;
+        color: white;
     }
 }

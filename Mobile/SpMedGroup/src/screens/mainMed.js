@@ -12,7 +12,7 @@ const bottomTab = createBottomTabNavigator();
 
 import ListaMed from './listagemMed';
 import PerfilMed from './perfilMed';
-import CameraPerfil from './camera';
+//import CameraPerfil from './camera';
 
 class MainMed extends Component {
 
@@ -44,40 +44,15 @@ class MainMed extends Component {
                     />
                   )
                 }
-                if (route.name === 'CameraPerfil') {
+                /* if (route.name === 'CameraPerfil') {
                   return(
                     <Image
                       //style={styles.tabBarIcon}
                       source={require('../../assets/img/profile_bar.png')}
                     />
                   )
-                }
+                } */
               },
-              /*const valorToken = await AsyncStorage.getItem('userToken');
-              screenOptions={ ({ route }) => ({
-                tabBarIcon: () => {
-                  if (route.name === 'ListaMed' && jwtDecode(valorToken).role === "3") {
-                    return(
-                      <Image
-                        source={require('../../assets/img/img_consulta.png')}
-                      />
-                    )
-                  }
-                  if (route.name === 'ListaPac' && jwtDecode(valorToken).role === "2") {
-                    return(
-                      <Image
-                        source={require('../../assets/img/img_consulta.png')}
-                      />
-                    )
-                  }
-                  if (route.name === 'Perfil') {
-                    return(
-                      <Image
-                        source={require('../../assets/img/profile_bar.png')}
-                      />
-                    )
-                  }
-                }, */
 
               // React Navigation 6.x
               headerShown: false,
@@ -91,7 +66,7 @@ class MainMed extends Component {
           >
             <bottomTab.Screen name="ListaMed" component={ListaMed} />
             <bottomTab.Screen name="PerfilMed" component={PerfilMed} />
-            <bottomTab.Screen name="Camera" component={CameraPerfil} />
+            {/* <bottomTab.Screen name="Camera" component={CameraPerfil} /> */}
           </bottomTab.Navigator>        
 
       </View>

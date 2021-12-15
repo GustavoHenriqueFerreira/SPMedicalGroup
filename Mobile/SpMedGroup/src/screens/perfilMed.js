@@ -8,13 +8,14 @@ import {
 } from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import jwtDecode from 'jwt-decode';
 
 export default class PerfilMed extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nome: '',
-      email: '',
+      //nome: '',
+      Email: '',
       base64: '',
     };
   }
@@ -33,23 +34,23 @@ export default class PerfilMed extends Component {
           this.setState({ base64: resposta.data });
         }
       })
-      .catch(erro => console.warn(erro));
+      //.catch(erro => console.warn(erro));
   };
-  /* buscarDadosStorage = async () => {
+  buscarDadosStorage = async () => {
     try {
       const valorToken = await AsyncStorage.getItem('userToken');
-      console.warn(jwtDecode(valorToken));
+      //console.warn(jwtDecode(valorToken));
       if (valorToken != null) {
-        this.setState({ nome: jwtDecode(valorToken).name });
-        this.setState({ email: jwtDecode(valorToken).email });
+        //this.setState({ nome: jwtDecode(valorToken).name });
+        this.setState({ Email: jwtDecode(valorToken).email });
       }
     } catch (error) {
-      console.warn(error);
+      //console.warn(error);
     }
-  }; */
+  };
   componentDidMount() {
-    //this.buscarDadosStorage();
-    this.consultaImgPerfil();
+    this.buscarDadosStorage();
+    //this.consultaImgPerfil();
   }
 
   realizarLogout = async () => {
@@ -58,7 +59,7 @@ export default class PerfilMed extends Component {
       await AsyncStorage.removeItem('userToken');
       this.props.navigation.navigate('Login'); //tem que ser mesmo nome.
     } catch (error) {
-      console.warn(error);
+      //console.warn(error);
     }
   };
 
@@ -89,8 +90,7 @@ export default class PerfilMed extends Component {
               style={styles.mainBodyImg}
             />
 
-            <Text style={styles.mainBodyText}>Nome</Text>
-            <Text style={styles.mainBodyText}>E-mail</Text>
+            <Text style={styles.mainBodyText}>{this.state.Email}</Text>
 
             <View style={styles.mainLine} />
             <TouchableOpacity style={styles.btnLogout} onPress={this.realizarLogout}>
@@ -150,8 +150,8 @@ const styles = StyleSheet.create({
   },
   mainBodyText: {
     color: '#fff',
-    fontSize: 18,
-    marginBottom: 10,
+    fontSize: 15,
+    marginBottom: 100,
     letterSpacing: 1,
   },
   mainLine: {
