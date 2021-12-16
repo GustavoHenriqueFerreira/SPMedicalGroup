@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, Image, StyleSheet, Text, View, StatusBar, ImageBackground } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, View, ImageBackground } from 'react-native';
 
 import api from '../services/api';
 import { TouchableOpacity } from 'react-native-gesture-handler';

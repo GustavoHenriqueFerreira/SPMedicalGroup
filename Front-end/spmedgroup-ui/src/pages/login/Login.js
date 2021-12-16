@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
 import { parseJwt, usuarioAutenticado } from '../../services/auth';
 
@@ -12,10 +12,10 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            senha: '',
-            //email: 'saulo@gmail.com',
-            //senha: 'C# melhor que python',
+            //email: '',
+            //senha: '',
+            email: 'saulo@gmail.com',
+            senha: 'C# melhor que python',
             erroMensagem: '',
             isLoading: false
         };
@@ -28,7 +28,7 @@ export default class Login extends Component {
 
         this.setState({ erroMensagem: '', isLoading: true });
 
-        axios.post('http://192.168.4.131:5000/api/Login', {
+        axios.post('http://192.168.15.11:5000/api/Login', {
             email: this.state.email,
             senha: this.state.senha
         })

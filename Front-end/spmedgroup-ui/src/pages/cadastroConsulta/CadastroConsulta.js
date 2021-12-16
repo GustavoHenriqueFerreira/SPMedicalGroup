@@ -19,7 +19,7 @@ export default function CadastroConsulta() {
     function buscarConsultas() {
         console.log('vamos fazer a chamada para a API');
 
-        axios('http://192.168.4.131:5000/api/consultas', {
+        axios('http://192.168.15.11:5000/api/consultas', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
             }
@@ -43,7 +43,7 @@ export default function CadastroConsulta() {
         if (listaConsultas) {
         }
 
-        axios.post('http://192.168.4.131:5000/api/consultas', {
+        axios.post('http://192.168.15.11:5000/api/consultas', {
             idPaciente: idPaciente,
             idMedico: idMedico,
             idSituacao: idSituacao,

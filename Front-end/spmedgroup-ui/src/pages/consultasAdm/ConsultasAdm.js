@@ -20,7 +20,7 @@ export default function ConsultasAdm() {
         console.log('vamos fazer a chamada para a API');
 
         // faz a chamada para a API usando axios
-        axios('http://192.168.4.131:5000/api/consultas', {
+        axios('http://192.168.15.11:5000/api/consultas', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
             }
@@ -54,7 +54,7 @@ export default function ConsultasAdm() {
 
     function alteraSituacao(idConsulta) {
 
-        axios.patch("http://192.168.4.131:5000/api/consultas/situacao/" + idConsulta, {
+        axios.patch("http://192.168.15.11:5000/api/consultas/situacao/" + idConsulta, {
             idSituacao: idSituacao
         }, {
             headers: {

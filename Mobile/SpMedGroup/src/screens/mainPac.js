@@ -52,7 +52,8 @@ class MainPac extends Component {
               tabBarInactiveBackgroundColor: '#667BFF',
               // tabBarActiveTintColor: 'blue',
               // tabBarInactiveTintColor: 'red',
-              tabBarStyle: { height: 60 }              
+              tabBarStyle: { height: 60 }
+              //borderTopWidth: 0,              
             }) }
           >
             <bottomTab.Screen name="ListaPac" component={ListaPac} />

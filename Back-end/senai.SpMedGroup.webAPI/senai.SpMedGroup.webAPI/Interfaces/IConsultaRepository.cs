@@ -60,14 +60,14 @@ namespace senai.SpMedGroup.webAPI.Interfaces
         /// <summary>
         /// Listar consulta relacionadas a um médico
         /// </summary>
-        /// <param name="idConsulta">ID da consulta que será buscado</param>
+        /// <param name="idMedico">ID do medico que será buscado</param>
         /// <returns>Consulta encontrada</returns>
         List<Consulta> ListarConsultasMedico(int idMedico);
 
         /// <summary>
         /// Listar consulta relacionadas a um paciente
         /// </summary>
-        /// <param name="idConsulta">ID da consulta que será buscado</param>
+        /// <param name="idPaciente">ID do paciente que será buscado</param>
         /// <returns>Consulta encontrada</returns>
         List<Consulta> ListarConsultasPaciente(int idPaciente);
 

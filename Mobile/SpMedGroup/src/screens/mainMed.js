@@ -61,7 +61,8 @@ class MainMed extends Component {
               tabBarInactiveBackgroundColor: '#63E387',
               // tabBarActiveTintColor: 'blue',
               // tabBarInactiveTintColor: 'red',
-              tabBarStyle: { height: 60 }              
+              tabBarStyle: { height: 60 } 
+              //borderTopWidth: 0,              
             }) }
           >
             <bottomTab.Screen name="ListaMed" component={ListaMed} />

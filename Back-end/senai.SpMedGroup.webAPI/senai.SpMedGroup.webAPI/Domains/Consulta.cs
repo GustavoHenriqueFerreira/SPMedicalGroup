@@ -12,14 +12,8 @@ namespace senai.SpMedGroup.webAPI.Domains
         /// Classe que representa a entidade (tabela) Consulta
         /// </summary>
         public int IdConsulta { get; set; }
-
-        [Required(ErrorMessage = "Por favor informe o paciente que será atendido.")]
         public int? IdPaciente { get; set; }
-
-        [Required(ErrorMessage = "Por favor informe o médico que irá realizar consulta.")]
         public int? IdMedico { get; set; }
-
-        [Required(ErrorMessage = "Por favor informe a situação da consulta.")]
         public int? IdSituacao { get; set; }
 
         public string DescricaoConsulta { get; set; }

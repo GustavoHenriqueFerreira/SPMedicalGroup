@@ -10,7 +10,7 @@ export default function ConsultasMed() {
     const [listaConsultasMed, setListaConsultasMed] = useState([]);
 
     function buscarConsultasMed() {
-        axios('http://192.168.4.131:5000/api/consultas/listaMed', {
+        axios('http://192.168.15.11:5000/api/consultas/listaMed', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
             }
@@ -90,7 +90,7 @@ export default function ConsultasMed() {
                                             hour12: true
                                         }).format(new Date(minhasConsultas.dataHoraConsulta))}</li>
                                         <li className="topicos-ConMed">Situação: {minhasConsultas.idSituacaoNavigation.descricaoSituacao}</li>
-                                        <p className="topicos-ConMed">{minhasConsultas.descricaoConsulta}</p>
+                                        <p className="topicos-ConMed descricao">{minhasConsultas.descricaoConsulta}</p>
                                     </div>
                                 )
                             })

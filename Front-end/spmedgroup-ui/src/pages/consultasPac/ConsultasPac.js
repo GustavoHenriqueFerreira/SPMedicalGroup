@@ -9,7 +9,7 @@ export default function ConsultaPac() {
     const [listaConsultasPac, setListaConsultasPac] = useState([]);
 
     function buscarConsultasPac() {
-        axios('http://192.168.4.131:5000/api/consultas/listaPac', {
+        axios('http://192.168.15.11:5000/api/consultas/listaPac', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
             }

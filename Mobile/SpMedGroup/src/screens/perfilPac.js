@@ -22,7 +22,6 @@ export default class PerfilPac extends Component {
 
   consultaImgPerfil = async () => {
     const valorToken = await AsyncStorage.getItem('userToken');
-
     api
       .get('/perfil/imagem/bd', {
         headers: {
@@ -31,7 +30,7 @@ export default class PerfilPac extends Component {
       })
       .then(resposta => {
         if (resposta.status == 200) {
-          console.warn(resposta.data);
+          //console.warn(resposta.data);
           this.setState({ base64: resposta.data });
         }
       })
