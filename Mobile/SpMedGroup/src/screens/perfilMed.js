@@ -9,6 +9,7 @@ import {
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import jwtDecode from 'jwt-decode';
+import api from '../services/api';
 
 export default class PerfilMed extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ export default class PerfilMed extends Component {
           this.setState({ base64: resposta.data });
         }
       })
-      //.catch(erro => console.warn(erro));
+    //.catch(erro => console.warn(erro));
   };
 
   buscarDadosStorage = async () => {
@@ -51,10 +52,10 @@ export default class PerfilMed extends Component {
       //console.warn(error);
     }
   };
-  
+
   componentDidMount() {
     this.buscarDadosStorage();
-    //this.consultaImgPerfil();
+    this.consultaImgPerfil();
   }
 
   realizarLogout = async () => {
@@ -84,15 +85,14 @@ export default class PerfilMed extends Component {
 
         <View style={styles.mainBody}>
           <View style={styles.mainBodyInfo}>
-            <Image source={require('../../assets/img/profile.png')} style={styles.mainBodyImg} />
-            {/* <View style={styles.mainBodyImg} />
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('Camera')}>
-            </TouchableOpacity>
-            <Image
-              source={{ uri: `data:image/png;base64,${this.state.base64}` }}
-              style={styles.mainBodyImg}
-            /> */}
+
+            {/* <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('Camera')}> */}
+              <Image
+                source={{ uri: `data:image/png;base64,${this.state.base64}` }}
+                style={styles.mainBodyImg}
+              />
+            {/* </TouchableOpacity> */}
 
             <Text style={styles.mainBodyText}>{this.state.Email}</Text>
 
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   mainLine: {
     width: 250,
     //paddingTop: 30,
-    marginTop: '20%',
+    marginTop: '5%',
     borderBottomColor: '#fff',
     borderBottomWidth: 1,
   },
