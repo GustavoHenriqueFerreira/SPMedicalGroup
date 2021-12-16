@@ -9,6 +9,7 @@ import {
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import jwtDecode from 'jwt-decode';
+import api from '../services/api';
 
 export default class PerfilPac extends Component {
   constructor(props) {
@@ -54,7 +55,7 @@ export default class PerfilPac extends Component {
 
   componentDidMount() {
     this.buscarDadosStorage();
-    //this.consultaImgPerfil();
+    this.consultaImgPerfil();
   }
 
   realizarLogout = async () => {
@@ -84,15 +85,14 @@ export default class PerfilPac extends Component {
 
         <View style={styles.mainBody}>
           <View style={styles.mainBodyInfo}>
-            <Image source={require('../../assets/img/profile.png')} style={styles.mainBodyImg} />
             {/* <View style={styles.mainBodyImg} />
             <TouchableOpacity
               onPress={() => this.props.navigation.navigate('Camera')}>
-            </TouchableOpacity>
+            </TouchableOpacity>*/}
             <Image
               source={{ uri: `data:image/png;base64,${this.state.base64}` }}
               style={styles.mainBodyImg}
-            /> */}
+            />
 
             <Text style={styles.mainBodyText}>{this.state.Email}</Text>
 
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
   },
   // texto do cabeçalho
   mainHeaderText: {
-    fontSize: 16,
+    fontSize: 18,
     letterSpacing: 5,
     color: '#fff',
     fontFamily: 'Open Sans',
@@ -155,13 +155,13 @@ const styles = StyleSheet.create({
   mainBodyText: {
     color: '#fff',
     fontSize: 18,
-    marginBottom: 10,
+    marginBottom: 100,
     letterSpacing: 1,
   },
   mainLine: {
     width: 250,
     //paddingTop: 30,
-    marginTop: '20%',
+    marginTop: '5%',
     borderBottomColor: '#fff',
     borderBottomWidth: 1,
   },
