@@ -8,6 +8,7 @@ import Rodape from "../../components/rodape/rodape";
 import SituacaoConsulta from "../../components/situacaoConsulta/SituacaoConsulta";
 
 import IconEditar from "../../Assets/img/img_editarSituacao.png";
+import IconMapa from "../../Assets/img/mapa.png";
 
 export default function ConsultasAdm() {
     const [listaConsultas, setListaConsultas] = useState([]);
@@ -65,12 +66,12 @@ export default function ConsultasAdm() {
                 if (resposta.status === 200) {
                     document.getElementById(idConsulta).setAttribute("disabled", "disabled");
                     var btn = document.getElementById("btn" + idConsulta)
-                    
+
                     btn.style.display = "none";
                     buscarConsultas();
                 }
             }).catch(erro => console.log(erro))
-            console.log("consulta " + idConsulta + " atualizada");
+        console.log("consulta " + idConsulta + " atualizada");
     }
 
 
@@ -127,8 +128,11 @@ export default function ConsultasAdm() {
                                     <div className="container consulta-ConAdm">
                                         <div className="fundo-ConAdm">
                                             <h2> {consultas.idConsulta}° Consulta</h2>
+                                            <div className="container img_mapa_posicionamento">
+                                                <li className="topicos-ConAdm">Paciente: {consultas.idPacienteNavigation.nomePaciente}</li>
+                                                <Link to="/Localizacoes"><img className="img_mapa" src={IconMapa} /></Link>
+                                            </div>
                                             {/* <li className="topicos-ConAdm">Clínica:  {consultas.idMedicoNavigation.idClinicaNavigation.nomeClinica} </li> */}
-                                            <li className="topicos-ConAdm">Paciente: {consultas.idPacienteNavigation.nomePaciente}</li>
                                             <li className="topicos-ConAdm">Data de Nascimento: {Intl.DateTimeFormat("pt-BR", {
                                                 year: 'numeric', month: 'short', day: 'numeric',
                                             }).format(new Date(consultas.idPacienteNavigation.nascimento))}</li>
@@ -144,8 +148,8 @@ export default function ConsultasAdm() {
 
                                             <div className="situacao">
                                                 <SituacaoConsulta mudar={(campo) => setIdSituacao(campo.target.value)} idConsulta={consultas.idConsulta} situacao={consultas.idSituacaoNavigation.descricaoSituacao} />
-                                                <button onClick={() => permitirSelect(consultas.idConsulta)} type="button" className="vazio"><img className="img-editarSituacao" src={IconEditar}/></button>
-                                                
+                                                <button onClick={() => permitirSelect(consultas.idConsulta)} type="button" className="vazio"><img className="img-editarSituacao" src={IconEditar} /></button>
+
                                                 <button className="container btn_situacao-ConAdm" onClick={() => alteraSituacao(consultas.idConsulta)} id={"btn" + consultas.idConsulta} style={{ display: "none" }}>Atualizar</button>
                                             </div>
 

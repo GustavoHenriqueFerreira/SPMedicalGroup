@@ -120,12 +120,27 @@ export default class Login extends Component {
                                                         placeholder="Senha">
                                                     </input>
                                                 </div>
-                                                {/* <div className="acessar_page-login"> */}
-                                                <div>
-                                                    <button className="btn_acessar-login" type="submit">Acessar</button>
-                                                </div>
+                                                {
+                                                    // Caso seja true, renderiza o botão desabilitado com o texto 'Loading...'
+                                                    this.state.isLoading === true &&
+                                                    <button className="btn_acessar-login" type="submit" disabled>
+                                                        Loading...
+                                                    </button>
+                                                }
+
+                                                {
+                                                    // Caso seja false, renderiza o botão habilitado com o texto 'Login'
+                                                    this.state.isLoading === false &&
+                                                    <button
+                                                        className="btn_acessar-login"
+                                                        type="submit"
+                                                        disabled={this.state.email === '' || this.state.senha === '' ? 'none' : ''}>
+                                                        Acessar
+                                                    </button>
+                                                }
                                             </form>
                                         </div>
+                                        <p className="erroMensagem-login">{this.state.erroMensagem}</p>
                                         <a className="mudar_senha-login" href="">Esqueceu a senha?</a>
                                     </div>
                                 </div>

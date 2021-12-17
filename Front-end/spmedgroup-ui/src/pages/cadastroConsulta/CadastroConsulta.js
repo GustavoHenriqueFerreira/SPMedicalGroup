@@ -13,6 +13,7 @@ export default function CadastroConsulta() {
     //const [DescricaoConsulta, setDescricaoConsulta] = useState('');
     const [DataHoraConsulta, setDataHoraConsulta] = useState(new Date());
     const [isLoading, setIsLoading] = useState(false);
+    const [confirmacaoMensagem, SetMensagem] = useState('');
     //const [listaTiposUsuario, setListaTituloUsuario] = useState([]);
     //const [tituloTipoUsuario, setTituloUsuario] = useState('');
 
@@ -38,6 +39,7 @@ export default function CadastroConsulta() {
     function CadastroConsulta(evento) {
         evento.preventDefault();
 
+        SetMensagem('')
         setIsLoading(true);
 
         if (listaConsultas) {
@@ -67,11 +69,13 @@ export default function CadastroConsulta() {
                     setDataHoraConsulta('');
 
                     setIsLoading(false);
+                    SetMensagem('Cadastrado com sucesso!')
                 }
             })
 
             .catch(erro => console.log(erro), setInterval(() => {
                 setIsLoading(false)
+                SetMensagem('Não foi possível realizar o cadastrado!')
             }, 5000));
     };
 
@@ -185,7 +189,7 @@ export default function CadastroConsulta() {
                                         }
 
                                         {
-                                            isLoading === true &&
+                                            isLoading === true && 
                                             <button type="submit" className="btn_cadastrar-CadCon" disabled>Carregando...</button>
                                         }
                                     </div>

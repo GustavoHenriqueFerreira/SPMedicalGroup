@@ -205,6 +205,16 @@
     margin-top: 1%;
 }
 
+.img_mapa_posicionamento{
+    display: flex;
+}
+
+.img_mapa{
+    width: 30px;
+    height: 30px;
+    display: flex;
+}
+
 @media (max-width: 600px){
     .container-ConAdm{
         width: 80vw;
